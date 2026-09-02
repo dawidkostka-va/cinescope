@@ -48,6 +48,13 @@ export function seatId(row: number, column: number): string {
   return `R${String(row)}C${String(column)}`;
 }
 
+/** Inverse of {@link seatId}: `R7C12` -> row 7, column 12. */
+export function parseSeatId(id: string): { row: number; column: number } {
+  const match = /^R(\d+)C(\d+)$/.exec(id);
+  if (!match) throw new Error(`Not a seat identifier: ${id}`);
+  return { row: Number(match[1]), column: Number(match[2]) };
+}
+
 export function hasLeftBlock(row: number): boolean {
   return row < ROWS_WITHOUT_LEFT_BLOCK.from || row > ROWS_WITHOUT_LEFT_BLOCK.to;
 }
@@ -55,6 +62,10 @@ export function hasLeftBlock(row: number): boolean {
 export function columnsInRow(row: number): number[] {
   const first = hasLeftBlock(row) ? 1 : LEFT_BLOCK_COLUMNS.to + 1;
   return range(first, COLUMNS);
+}
+
+export function accessibleColumns(): number[] {
+  return range(ACCESSIBLE.columns.from, ACCESSIBLE.columns.to);
 }
 
 export function isAccessible(row: number, column: number): boolean {
