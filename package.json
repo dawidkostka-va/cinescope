@@ -31,5 +31,11 @@
     "tslib": "^2.3.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.69.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "nx"
+    ]
   }
 }
