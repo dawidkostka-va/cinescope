@@ -53,3 +53,10 @@ test-results/
 playwright-report/
 results.json
 runs/
+
+.angular
+
+__screenshots__/
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*

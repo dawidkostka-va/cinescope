@@ -3,4 +3,9 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
-.nx/self-healing
+.nx/self-healing/templates
+/reference
+
+.angular
+/db.json
+/apps/e2e/src/mocks/db.json

@@ -1,33 +1,30 @@
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import nx from '@nx/eslint-plugin';
 
-export default tseslint.config(
+export default [
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
   {
     ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/test-results/**',
-      '**/playwright-report/**',
-      'eslint.config.mjs',
+      '**/dist',
+      '**/out-tsc',
+      '**/vite.config.*.timestamp*',
+      '**/vitest.config.*.timestamp*',
+      '**/test-results',
+      '**/playwright-report',
     ],
   },
-  eslint.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
   {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
+    files: ['**/*.ts', '**/*.tsx', '**/*.cts', '**/*.mts', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
+    rules: {
+      '@nx/enforce-module-boundaries': [
+        'error',
+        {
+          enforceBuildableLibDependency: true,
+          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
+          depConstraints: [{ sourceTag: '*', onlyDependOnLibsWithTags: ['*'] }],
+        },
+      ],
     },
   },
-  {
-    // Plain Node scripts: no TypeScript project, so type-aware rules do not apply.
-    files: ['scripts/**/*.mjs'],
-    extends: [tseslint.configs.disableTypeChecked],
-    languageOptions: {
-      globals: { console: 'readonly', process: 'readonly' },
-    },
-  },
-);
+];
