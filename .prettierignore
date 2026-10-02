@@ -6,3 +6,4 @@
 .nx/self-healing/templates
 
 /db.json
+/apps/e2e/src/mocks/db.json

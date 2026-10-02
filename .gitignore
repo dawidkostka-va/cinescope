@@ -53,3 +53,8 @@ __screenshots__/
 
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# e2e output
+test-results/
+playwright-report/
+results.json
