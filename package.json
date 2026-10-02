@@ -10,6 +10,7 @@
   },
   "scripts": {
     "api": "json-server --watch db.json --port 3000",
+    "e2e": "nx run e2e:e2e",
     "lint": "nx run-many -t lint",
     "format": "prettier --write ."
   },
@@ -17,6 +18,8 @@
     "@eslint/js": "^9.39.5",
     "@nx/eslint": "23.1.1",
     "@nx/eslint-plugin": "23.1.1",
+    "@playwright/test": "1.62.1",
+    "@types/node": "^24.0.0",
     "eslint": "^9.39.5",
     "json-server": "0.17.4",
     "nx": "23.1.1",
