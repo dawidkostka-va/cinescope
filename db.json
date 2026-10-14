@@ -1,38 +1,450 @@
 {
   "movies": [
-    {"id": 1, "title": "The Silent Harbor", "genre": "Drama", "runtimeMinutes": 128, "format": "PL subtitles"},
-    {"id": 2, "title": "Neon Circuit", "genre": "Sci-Fi", "runtimeMinutes": 142, "format": "PL subtitles"},
-    {"id": 3, "title": "Paws & Claws", "genre": "Animation", "runtimeMinutes": 96, "format": "PL dubbing"},
-    {"id": 4, "title": "The Last Ledger", "genre": "Thriller", "runtimeMinutes": 114, "format": "PL subtitles"},
-    {"id": 5, "title": "Sunday Bakers", "genre": "Comedy", "runtimeMinutes": 103, "format": "PL dubbing"}
+    {
+      "id": 1,
+      "title": "The Silent Harbor",
+      "genre": "Drama",
+      "runtimeMinutes": 128,
+      "format": "PL subtitles"
+    },
+    {
+      "id": 2,
+      "title": "Neon Circuit",
+      "genre": "Sci-Fi",
+      "runtimeMinutes": 142,
+      "format": "PL subtitles"
+    },
+    {
+      "id": 3,
+      "title": "Paws & Claws",
+      "genre": "Animation",
+      "runtimeMinutes": 96,
+      "format": "PL dubbing"
+    },
+    {
+      "id": 4,
+      "title": "The Last Ledger",
+      "genre": "Thriller",
+      "runtimeMinutes": 114,
+      "format": "PL subtitles"
+    },
+    {
+      "id": 5,
+      "title": "Sunday Bakers",
+      "genre": "Comedy",
+      "runtimeMinutes": 103,
+      "format": "PL dubbing"
+    }
   ],
   "screenings": [
-    {"id": 1, "movieId": 1, "date": "2026-09-15", "time": "16:00", "occupiedSeats": ["R3C7", "R3C8", "R3C9", "R6C12", "R6C13", "R11C21", "R11C22", "R15C5", "R15C6"]},
-    {"id": 2, "movieId": 1, "date": "2026-09-15", "time": "19:30", "occupiedSeats": ["R1C10", "R1C11", "R5C14", "R5C15", "R5C16", "R9C5", "R12C23", "R12C24"]},
-    {"id": 3, "movieId": 1, "date": "2026-09-16", "time": "17:15", "occupiedSeats": ["R2C18", "R2C19", "R7C10", "R8C10", "R14C1", "R14C2", "R14C3", "R14C4"]},
-    {"id": 4, "movieId": 1, "date": "2026-09-17", "time": "20:45", "occupiedSeats": ["R4C6", "R4C7", "R10C20", "R13C12", "R13C13", "R15C23", "R15C24"]},
-    {"id": 5, "movieId": 2, "date": "2026-09-15", "time": "15:00", "occupiedSeats": ["R1C12", "R1C13", "R1C14", "R6C6", "R6C7", "R6C8", "R11C11", "R15C1", "R15C2"]},
-    {"id": 6, "movieId": 2, "date": "2026-09-15", "time": "21:00", "occupiedSeats": ["R8C15", "R8C16", "R8C17", "R8C18", "R12C5", "R12C6", "R14C21", "R14C22"]},
-    {"id": 7, "movieId": 2, "date": "2026-09-16", "time": "18:30", "occupiedSeats": ["R3C21", "R3C22", "R3C23", "R3C24", "R9C13", "R10C13", "R15C11", "R15C12"]},
-    {"id": 8, "movieId": 2, "date": "2026-09-17", "time": "16:45", "occupiedSeats": ["R5C5", "R5C6", "R7C19", "R7C20", "R13C1", "R13C2"]},
-    {"id": 9, "movieId": 3, "date": "2026-09-15", "time": "10:30", "occupiedSeats": ["R2C11", "R2C12", "R4C15", "R4C16", "R11C3", "R11C4"]},
-    {"id": 10, "movieId": 3, "date": "2026-09-15", "time": "13:00", "occupiedSeats": ["R1C15", "R6C9", "R6C10", "R6C11", "R12C17", "R12C18", "R15C17", "R15C18"]},
-    {"id": 11, "movieId": 3, "date": "2026-09-16", "time": "11:15", "occupiedSeats": ["R7C5", "R7C6", "R7C7", "R10C22", "R10C23", "R14C13", "R14C14"]},
-    {"id": 12, "movieId": 3, "date": "2026-09-17", "time": "14:45", "occupiedSeats": ["R3C13", "R8C20", "R9C20", "R13C21", "R13C22", "R15C7", "R15C8"]},
-    {"id": 13, "movieId": 4, "date": "2026-09-15", "time": "18:00", "occupiedSeats": ["R4C9", "R4C10", "R4C11", "R4C12", "R9C16", "R9C17", "R11C1", "R11C2", "R15C21", "R15C22"]},
-    {"id": 14, "movieId": 4, "date": "2026-09-16", "time": "20:15", "occupiedSeats": ["R2C5", "R2C6", "R5C22", "R5C23", "R10C8", "R12C11", "R12C12"]},
-    {"id": 15, "movieId": 4, "date": "2026-09-16", "time": "22:30", "occupiedSeats": ["R6C18", "R6C19", "R6C20", "R8C5", "R14C7", "R14C8", "R14C9"]},
-    {"id": 16, "movieId": 4, "date": "2026-09-17", "time": "19:00", "occupiedSeats": ["R1C13", "R7C14", "R7C15", "R13C5", "R13C6", "R15C13", "R15C14"]},
-    {"id": 17, "movieId": 5, "date": "2026-09-15", "time": "12:15", "occupiedSeats": ["R3C16", "R3C17", "R5C8", "R5C9", "R11C19", "R11C20"]},
-    {"id": 18, "movieId": 5, "date": "2026-09-16", "time": "14:00", "occupiedSeats": ["R2C23", "R2C24", "R8C11", "R8C12", "R12C3", "R12C4", "R15C3", "R15C4"]},
-    {"id": 19, "movieId": 5, "date": "2026-09-16", "time": "16:30", "occupiedSeats": ["R4C20", "R9C6", "R9C7", "R10C15", "R10C16", "R14C23", "R14C24"]},
-    {"id": 20, "movieId": 5, "date": "2026-09-17", "time": "21:45", "occupiedSeats": ["R1C10", "R1C11", "R1C12", "R6C14", "R7C21", "R7C22", "R13C17", "R13C18", "R15C9", "R15C10"]},
-    {"id": 21, "movieId": 3, "date": "2026-09-19", "time": "11:00", "occupiedSeats": ["R2C9", "R2C10", "R8C14", "R12C7", "R12C8"]},
-    {"id": 22, "movieId": 5, "date": "2026-09-19", "time": "15:30", "occupiedSeats": ["R4C12", "R4C13", "R9C18", "R13C9", "R13C10", "R15C15", "R15C16"]},
-    {"id": 23, "movieId": 3, "date": "2026-09-19", "time": "17:45", "occupiedSeats": ["R1C16", "R6C5", "R6C6", "R11C12"]},
-    {"id": 24, "movieId": 1, "date": "2026-09-20", "time": "18:00", "occupiedSeats": ["R5C10", "R5C11", "R10C19", "R14C5", "R14C6"]},
-    {"id": 25, "movieId": 2, "date": "2026-09-20", "time": "20:30", "occupiedSeats": ["R3C14", "R7C8", "R7C9", "R12C20", "R15C19", "R15C20"]},
-    {"id": 26, "movieId": 4, "date": "2026-09-21", "time": "19:15", "occupiedSeats": ["R2C20", "R9C11", "R9C12", "R13C23", "R13C24"]}
+    {
+      "id": 1,
+      "movieId": 1,
+      "date": "2026-09-15",
+      "time": "16:00",
+      "occupiedSeats": [
+        "R3C7",
+        "R3C8",
+        "R3C9",
+        "R6C12",
+        "R6C13",
+        "R11C21",
+        "R11C22",
+        "R15C5",
+        "R15C6"
+      ]
+    },
+    {
+      "id": 2,
+      "movieId": 1,
+      "date": "2026-09-15",
+      "time": "19:30",
+      "occupiedSeats": [
+        "R1C10",
+        "R1C11",
+        "R5C14",
+        "R5C15",
+        "R5C16",
+        "R9C5",
+        "R12C23",
+        "R12C24"
+      ]
+    },
+    {
+      "id": 3,
+      "movieId": 1,
+      "date": "2026-09-16",
+      "time": "17:15",
+      "occupiedSeats": [
+        "R2C18",
+        "R2C19",
+        "R7C10",
+        "R8C10",
+        "R14C1",
+        "R14C2",
+        "R14C3",
+        "R14C4"
+      ]
+    },
+    {
+      "id": 4,
+      "movieId": 1,
+      "date": "2026-09-17",
+      "time": "20:45",
+      "occupiedSeats": [
+        "R4C6",
+        "R4C7",
+        "R10C20",
+        "R13C12",
+        "R13C13",
+        "R15C23",
+        "R15C24"
+      ]
+    },
+    {
+      "id": 5,
+      "movieId": 2,
+      "date": "2026-09-15",
+      "time": "15:00",
+      "occupiedSeats": [
+        "R1C12",
+        "R1C13",
+        "R1C14",
+        "R6C6",
+        "R6C7",
+        "R6C8",
+        "R11C11",
+        "R15C1",
+        "R15C2"
+      ]
+    },
+    {
+      "id": 6,
+      "movieId": 2,
+      "date": "2026-09-15",
+      "time": "21:00",
+      "occupiedSeats": [
+        "R8C15",
+        "R8C16",
+        "R8C17",
+        "R8C18",
+        "R12C5",
+        "R12C6",
+        "R14C21",
+        "R14C22"
+      ]
+    },
+    {
+      "id": 7,
+      "movieId": 2,
+      "date": "2026-09-16",
+      "time": "18:30",
+      "occupiedSeats": [
+        "R3C21",
+        "R3C22",
+        "R3C23",
+        "R3C24",
+        "R9C13",
+        "R10C13",
+        "R15C11",
+        "R15C12"
+      ]
+    },
+    {
+      "id": 8,
+      "movieId": 2,
+      "date": "2026-09-17",
+      "time": "16:45",
+      "occupiedSeats": [
+        "R5C5",
+        "R5C6",
+        "R7C19",
+        "R7C20",
+        "R13C1",
+        "R13C2"
+      ]
+    },
+    {
+      "id": 9,
+      "movieId": 3,
+      "date": "2026-09-15",
+      "time": "10:30",
+      "occupiedSeats": [
+        "R2C11",
+        "R2C12",
+        "R4C15",
+        "R4C16",
+        "R11C3",
+        "R11C4"
+      ]
+    },
+    {
+      "id": 10,
+      "movieId": 3,
+      "date": "2026-09-15",
+      "time": "13:00",
+      "occupiedSeats": [
+        "R1C15",
+        "R6C9",
+        "R6C10",
+        "R6C11",
+        "R12C17",
+        "R12C18",
+        "R15C17",
+        "R15C18"
+      ]
+    },
+    {
+      "id": 11,
+      "movieId": 3,
+      "date": "2026-09-16",
+      "time": "11:15",
+      "occupiedSeats": [
+        "R7C5",
+        "R7C6",
+        "R7C7",
+        "R10C22",
+        "R10C23",
+        "R14C13",
+        "R14C14"
+      ]
+    },
+    {
+      "id": 12,
+      "movieId": 3,
+      "date": "2026-09-17",
+      "time": "14:45",
+      "occupiedSeats": [
+        "R3C13",
+        "R8C20",
+        "R9C20",
+        "R13C21",
+        "R13C22",
+        "R15C7",
+        "R15C8"
+      ]
+    },
+    {
+      "id": 13,
+      "movieId": 4,
+      "date": "2026-09-15",
+      "time": "18:00",
+      "occupiedSeats": [
+        "R4C9",
+        "R4C10",
+        "R4C11",
+        "R4C12",
+        "R9C16",
+        "R9C17",
+        "R11C1",
+        "R11C2",
+        "R15C21",
+        "R15C22"
+      ]
+    },
+    {
+      "id": 14,
+      "movieId": 4,
+      "date": "2026-09-16",
+      "time": "20:15",
+      "occupiedSeats": [
+        "R2C5",
+        "R2C6",
+        "R5C22",
+        "R5C23",
+        "R10C8",
+        "R12C11",
+        "R12C12"
+      ]
+    },
+    {
+      "id": 15,
+      "movieId": 4,
+      "date": "2026-09-16",
+      "time": "22:30",
+      "occupiedSeats": [
+        "R6C18",
+        "R6C19",
+        "R6C20",
+        "R8C5",
+        "R14C7",
+        "R14C8",
+        "R14C9"
+      ]
+    },
+    {
+      "id": 16,
+      "movieId": 4,
+      "date": "2026-09-17",
+      "time": "19:00",
+      "occupiedSeats": [
+        "R1C13",
+        "R7C14",
+        "R7C15",
+        "R13C5",
+        "R13C6",
+        "R15C13",
+        "R15C14"
+      ]
+    },
+    {
+      "id": 17,
+      "movieId": 5,
+      "date": "2026-09-15",
+      "time": "12:15",
+      "occupiedSeats": [
+        "R3C16",
+        "R3C17",
+        "R5C8",
+        "R5C9",
+        "R11C19",
+        "R11C20"
+      ]
+    },
+    {
+      "id": 18,
+      "movieId": 5,
+      "date": "2026-09-16",
+      "time": "14:00",
+      "occupiedSeats": [
+        "R2C23",
+        "R2C24",
+        "R8C11",
+        "R8C12",
+        "R12C3",
+        "R12C4",
+        "R15C3",
+        "R15C4"
+      ]
+    },
+    {
+      "id": 19,
+      "movieId": 5,
+      "date": "2026-09-16",
+      "time": "16:30",
+      "occupiedSeats": [
+        "R4C20",
+        "R9C6",
+        "R9C7",
+        "R10C15",
+        "R10C16",
+        "R14C23",
+        "R14C24"
+      ]
+    },
+    {
+      "id": 20,
+      "movieId": 5,
+      "date": "2026-09-17",
+      "time": "21:45",
+      "occupiedSeats": [
+        "R1C10",
+        "R1C11",
+        "R1C12",
+        "R6C14",
+        "R7C21",
+        "R7C22",
+        "R13C17",
+        "R13C18",
+        "R15C9",
+        "R15C10"
+      ]
+    },
+    {
+      "id": 21,
+      "movieId": 3,
+      "date": "2026-09-19",
+      "time": "11:00",
+      "occupiedSeats": [
+        "R2C9",
+        "R2C10",
+        "R8C14",
+        "R12C7",
+        "R12C8"
+      ]
+    },
+    {
+      "id": 22,
+      "movieId": 5,
+      "date": "2026-09-19",
+      "time": "15:30",
+      "occupiedSeats": [
+        "R4C12",
+        "R4C13",
+        "R9C18",
+        "R13C9",
+        "R13C10",
+        "R15C15",
+        "R15C16"
+      ]
+    },
+    {
+      "id": 23,
+      "movieId": 3,
+      "date": "2026-09-19",
+      "time": "17:45",
+      "occupiedSeats": [
+        "R1C16",
+        "R6C5",
+        "R6C6",
+        "R11C12"
+      ]
+    },
+    {
+      "id": 24,
+      "movieId": 1,
+      "date": "2026-09-20",
+      "time": "18:00",
+      "occupiedSeats": [
+        "R5C10",
+        "R5C11",
+        "R10C19",
+        "R14C5",
+        "R14C6"
+      ]
+    },
+    {
+      "id": 25,
+      "movieId": 2,
+      "date": "2026-09-20",
+      "time": "20:30",
+      "occupiedSeats": [
+        "R3C14",
+        "R7C8",
+        "R7C9",
+        "R12C20",
+        "R15C19",
+        "R15C20"
+      ]
+    },
+    {
+      "id": 26,
+      "movieId": 4,
+      "date": "2026-09-21",
+      "time": "19:15",
+      "occupiedSeats": [
+        "R2C20",
+        "R9C11",
+        "R9C12",
+        "R13C23",
+        "R13C24"
+      ]
+    }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "screeningId": 2,
+      "seats": [
+        "R2C6"
+      ],
+      "customer": {
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane@example.com",
+        "phone": "987654321"
+      },
+      "totalPrice": 25,
+      "id": 1
+    }
+  ]
 }
