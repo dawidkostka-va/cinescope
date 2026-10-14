@@ -1,0 +1,59 @@
+<div class="page" [formGroup]="form">
+  <h1 data-testid="checkout-title">Your details</h1>
+
+  <mat-form-field hideRequiredMarker>
+    <mat-label data-testid="first-name-label">First name *</mat-label>
+    <input matInput formControlName="firstName" data-testid="first-name-input" />
+    @if (fieldError('firstName'); as msg) {
+      <mat-error data-testid="first-name-error">{{ msg }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker>
+    <mat-label data-testid="last-name-label">Last name *</mat-label>
+    <input matInput formControlName="lastName" data-testid="last-name-input" />
+    @if (fieldError('lastName'); as msg) {
+      <mat-error data-testid="last-name-error">{{ msg }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker>
+    <mat-label data-testid="email-label">Email *</mat-label>
+    <input matInput formControlName="email" data-testid="email-input" />
+    @if (fieldError('email'); as msg) {
+      <mat-error data-testid="email-error">{{ msg }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker>
+    <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+    <input matInput formControlName="confirmEmail" data-testid="confirm-email-input" />
+    @if (fieldError('confirmEmail'); as msg) {
+      <mat-error data-testid="confirm-email-error">{{ msg }}</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker>
+    <mat-label data-testid="phone-label">Phone number</mat-label>
+    <input matInput formControlName="phone" data-testid="phone-input" />
+    @if (fieldError('phone'); as msg) {
+      <mat-error data-testid="phone-error">{{ msg }}</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="terms">
+    <mat-checkbox formControlName="terms" data-testid="terms-checkbox" (change)="onTermsChange()">
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+    @if (fieldError('terms'); as msg) {
+      <p data-testid="terms-error">{{ msg }}</p>
+    }
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button mat-raised-button color="primary" type="button" data-testid="pay-button" [disabled]="submitting()" (click)="submit()">
+      {{ payLabel() }}
+    </button>
+  </div>
+</div>

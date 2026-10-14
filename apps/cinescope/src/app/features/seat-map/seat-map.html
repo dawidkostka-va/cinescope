@@ -1,0 +1,78 @@
+@if (screening()) {
+  <div class="page">
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p data-testid="seat-map-subtitle">{{ subtitle() }}</p>
+    <p class="seat-limit-info" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+    <div class="auditorium">
+      <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+      <div class="seat-map" data-testid="seat-map">
+        @for (row of auditorium(); track row.row) {
+          <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+            <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row" [style.grid-column]="labelLeftTrack">{{ row.row }}</span>
+            <span class="aisle" data-testid="aisle" [attr.data-row]="row.row" [style.grid-column]="aisle1Track"></span>
+            <span class="aisle" data-testid="aisle" [attr.data-row]="row.row" [style.grid-column]="aisle2Track"></span>
+            <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row" [style.grid-column]="labelRightTrack">{{ row.row }}</span>
+
+            @for (cell of row.cells; track $index) {
+              @if (cell.kind === 'seat') {
+                <button
+                  type="button"
+                  class="seat"
+                  [class]="'state-' + cell.state"
+                  data-testid="seat"
+                  [attr.data-row]="cell.row"
+                  [attr.data-column]="cell.column"
+                  [attr.data-state]="cell.state"
+                  [style.grid-column]="cell.track"
+                  [disabled]="cell.state === 'unavailable'"
+                  (click)="onSeatClick(cell)"
+                >
+                  {{ cell.column }}
+                </button>
+              } @else {
+                <button
+                  type="button"
+                  class="couch"
+                  [class]="'state-' + cell.state"
+                  data-testid="couch"
+                  [attr.data-row]="cell.row"
+                  [attr.data-column-start]="cell.columnStart"
+                  [attr.data-column-end]="cell.columnEnd"
+                  [attr.data-state]="cell.state"
+                  [style.grid-column]="cell.trackStart + ' / ' + (cell.trackEnd + 1)"
+                  [disabled]="cell.state === 'unavailable'"
+                  (click)="onCouchClick(cell)"
+                >
+                  {{ cell.columnStart }}-{{ cell.columnEnd }}
+                </button>
+              }
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="legend" data-testid="legend">
+      @for (item of legendItems; track item.state) {
+        <div class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+          <span class="swatch" [style.background-color]="item.color"></span>
+          <span>{{ item.label }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="selected-seats" data-testid="selected-seats">
+      <p data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</p>
+      @for (line of selectedLines(); track line.row) {
+        <p data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</p>
+      }
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" type="button" data-testid="continue-button" [disabled]="selectedCount() === 0" (click)="continueToSummary()">Continue</button>
+    </div>
+  </div>
+}
