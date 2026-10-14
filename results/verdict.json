@@ -1,0 +1,186 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-10-14T11:40:59Z",
+  "runId": "treatment-20261014-110841",
+  "profile": "treatment",
+  "model": "sonnet",
+  "commit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "verdict": "FAIL",
+  "invalidReason": null,
+  "failReasons": [
+    "budget_exceeded"
+  ],
+  "session": {
+    "endedBy": "budget_limit",
+    "subtype": "error_max_budget_usd",
+    "terminalReason": "budget_exhausted",
+    "apiErrorStatus": null,
+    "numTurns": 136,
+    "durationMs": 1829371,
+    "apiDurationMs": 1391019,
+    "containerExitCode": 1,
+    "validationExitCode": 0,
+    "startedAt": "2026-10-14T11:09:15Z",
+    "endedAt": "2026-10-14T11:40:57Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 5,
+    "totalUsd": 5.004923000000001,
+    "tokens": {
+      "input": 2915,
+      "output": 140701,
+      "cacheRead": 13366675,
+      "cacheWrite": 229687
+    },
+    "byModel": {
+      "claude-sonnet-5": {
+        "inputTokens": 2915,
+        "outputTokens": 140701,
+        "cacheReadTokens": 13366675,
+        "cacheWriteTokens": 229687,
+        "costUsd": 5.004923000000001
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14501,
+      "tools": 86845,
+      "skills": 8422
+    },
+    "tokens": {
+      "system": 4543,
+      "tools": 31700,
+      "skills": 3018
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 136,
+    "mainAgentRequests": 135,
+    "subagentRequests": 0,
+    "firstContextTokens": 39799,
+    "peakContextTokens": 164990,
+    "lastContextTokens": 136965
+  },
+  "changes": {
+    "baseCommit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+    "filesChanged": 22,
+    "linesAdded": 1938,
+    "linesRemoved": 39
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 138,
+      "matched": 138,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-10-14T11:39:54Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 23,
+      "failed": 0,
+      "total": 23,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 69,
+      "failed": 0,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1964,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1435,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1248,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 23,
+        "failed": 0,
+        "total": 23,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 57696,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 69,
+        "failed": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": []
+      }
+    }
+  }
+}
