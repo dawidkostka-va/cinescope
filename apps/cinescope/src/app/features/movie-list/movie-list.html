@@ -1,0 +1,58 @@
+<div data-testid="day-picker" class="day-picker">
+  @for (day of dayButtons(); track day.date) {
+    <button
+      mat-flat-button
+      data-testid="day-button"
+      [attr.data-date]="day.date"
+      [attr.data-selected]="day.date === selectedDate()"
+      [color]="day.date === selectedDate() ? 'primary' : undefined"
+      (click)="selectDate(day.date)"
+    >
+      {{ day.label }}
+    </button>
+  }
+
+  <mat-form-field>
+    <mat-label>Other date</mat-label>
+    <input
+      matInput
+      data-testid="date-picker"
+      [matDatepicker]="picker"
+      [min]="minDate"
+      [value]="datepickerValue()"
+      (dateChange)="onDatepickerChange($event.value)"
+      readonly
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+@if (loading()) {
+  <div data-testid="movies-loading">Loading…</div>
+} @else if (error()) {
+  <div>
+    <div data-testid="movies-error">Failed to load movies</div>
+    <button mat-flat-button data-testid="movies-retry-button" (click)="load()">Retry</button>
+  </div>
+} @else if (cards().length === 0) {
+  <div data-testid="movies-empty">No screenings on this day</div>
+} @else {
+  <div data-testid="movie-list" class="movie-list">
+    @for (card of cards(); track card.movie.id) {
+      <div data-testid="movie-card" [attr.data-movie-id]="card.movie.id" class="movie-card">
+        <div data-testid="movie-title" class="movie-title">{{ card.movie.title }}</div>
+        <div data-testid="movie-genre">{{ card.movie.genre }}</div>
+        <div data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</div>
+        <div data-testid="movie-format">{{ card.movie.format }}</div>
+        <div class="screenings">
+          @for (screening of card.screenings; track screening.id) {
+            <button mat-stroked-button data-testid="screening-button" [attr.data-screening-id]="screening.id" (click)="openScreening(screening)">
+              {{ screening.time }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+}
