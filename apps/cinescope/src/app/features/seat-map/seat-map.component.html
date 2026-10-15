@@ -1,0 +1,97 @@
+<main class="page">
+  <h1 data-testid="seat-map-title">Choose your seats</h1>
+  <p data-testid="seat-map-subtitle">Show Date: {{ showDate() }}</p>
+
+  <div class="auditorium-wrap">
+    <p class="seat-limit-info" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+    <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+    <div class="seat-map" data-testid="seat-map">
+      @for (rowDef of rows; track rowDef.row) {
+        <div class="seat-row" data-testid="seat-row" [attr.data-row]="rowDef.row">
+          <span
+            class="row-label"
+            data-testid="row-label-left"
+            [attr.data-row]="rowDef.row"
+            [style.gridColumn]="labelLeftColumn"
+            >{{ rowDef.row }}</span
+          >
+
+          @for (column of aisleColumns; track column) {
+            <span class="aisle" data-testid="aisle" [attr.data-row]="rowDef.row" [style.gridColumn]="column"></span>
+          }
+
+          @for (cell of rowDef.cells; track cell.kind + '-' + cell.gridColumn) {
+            @if (cell.kind === 'couch') {
+              <button
+                type="button"
+                class="couch"
+                data-testid="couch"
+                [attr.data-row]="cell.row"
+                [attr.data-column-start]="cell.columnStart"
+                [attr.data-column-end]="cell.columnEnd"
+                [attr.data-state]="stateFor(cell)"
+                [style.gridColumn]="gridColumnFor(cell)"
+                (click)="onCellClick(cell)"
+              >
+                {{ labelFor(cell) }}
+              </button>
+            } @else {
+              <button
+                type="button"
+                class="seat"
+                data-testid="seat"
+                [attr.data-row]="cell.row"
+                [attr.data-column]="cell.column"
+                [attr.data-state]="stateFor(cell)"
+                [style.gridColumn]="gridColumnFor(cell)"
+                (click)="onCellClick(cell)"
+              >
+                {{ labelFor(cell) }}
+              </button>
+            }
+          }
+
+          <span
+            class="row-label"
+            data-testid="row-label-right"
+            [attr.data-row]="rowDef.row"
+            [style.gridColumn]="labelRightColumn"
+            >{{ rowDef.row }}</span
+          >
+        </div>
+      }
+    </div>
+
+    <div class="legend" data-testid="legend">
+      @for (item of legend; track item.state) {
+        <div class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+          <span class="swatch" [attr.data-state]="item.state"></span>
+          <span>{{ item.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="selected-seats" data-testid="selected-seats">
+    <p data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</p>
+    @for (line of selectedRowLines(); track line.row) {
+      <p data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</p>
+    }
+  </div>
+
+  <div class="actions">
+    <button type="button" mat-stroked-button data-testid="cancel-button" (click)="cancel()">Cancel</button>
+    <button
+      type="button"
+      mat-flat-button
+      color="primary"
+      data-testid="continue-button"
+      [disabled]="selectedCount() === 0"
+      (click)="continue()"
+    >
+      Continue
+    </button>
+  </div>
+</main>

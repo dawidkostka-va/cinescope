@@ -1,0 +1,30 @@
+.page {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.field-error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin: -0.75rem 0 0.75rem;
+}
+
+mat-checkbox {
+  margin: 0.5rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}

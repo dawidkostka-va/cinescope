@@ -1,0 +1,32 @@
+<div class="day-picker" data-testid="day-picker">
+  @for (day of quickDays(); track day.getTime(); let i = $index) {
+    <button
+      type="button"
+      mat-stroked-button
+      class="day-button"
+      [class.day-button--selected]="isSelected(day)"
+      [color]="isSelected(day) ? 'primary' : null"
+      data-testid="day-button"
+      [attr.data-date]="isoOf(day)"
+      [attr.data-selected]="isSelected(day)"
+      (click)="onDayClick(day)"
+    >
+      {{ labelFor(day, i) }}
+    </button>
+  }
+
+  <mat-form-field data-testid="date-picker" subscriptSizing="dynamic" appearance="outline">
+    <mat-label>Other date</mat-label>
+    <input
+      matInput
+      readonly
+      [matDatepicker]="picker"
+      [min]="today"
+      [value]="selectedDate()"
+      (click)="picker.open()"
+      (dateChange)="onDatePicked($event)"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
