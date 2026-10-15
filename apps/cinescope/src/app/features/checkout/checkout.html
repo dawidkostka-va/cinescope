@@ -1,0 +1,105 @@
+@if (data()) {
+  <h1 data-testid="checkout-title">Your details</h1>
+
+  <form class="checkout-form">
+    <div class="field">
+      <mat-form-field>
+        <mat-label data-testid="first-name-label">First name *</mat-label>
+        <input
+          matInput
+          data-testid="first-name-input"
+          [value]="form().firstName"
+          (input)="onInput('firstName', $any($event.target).value)"
+          (blur)="onBlur('firstName')"
+        />
+      </mat-form-field>
+      @if (firstNameMessage(); as msg) {
+        <div data-testid="first-name-error" class="field-error">{{ msg }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field>
+        <mat-label data-testid="last-name-label">Last name *</mat-label>
+        <input
+          matInput
+          data-testid="last-name-input"
+          [value]="form().lastName"
+          (input)="onInput('lastName', $any($event.target).value)"
+          (blur)="onBlur('lastName')"
+        />
+      </mat-form-field>
+      @if (lastNameMessage(); as msg) {
+        <div data-testid="last-name-error" class="field-error">{{ msg }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field>
+        <mat-label data-testid="email-label">Email *</mat-label>
+        <input
+          matInput
+          data-testid="email-input"
+          [value]="form().email"
+          (input)="onInput('email', $any($event.target).value)"
+          (blur)="onBlur('email')"
+        />
+      </mat-form-field>
+      @if (emailMessage(); as msg) {
+        <div data-testid="email-error" class="field-error">{{ msg }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field>
+        <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+        <input
+          matInput
+          data-testid="confirm-email-input"
+          [value]="form().confirmEmail"
+          (input)="onInput('confirmEmail', $any($event.target).value)"
+          (blur)="onBlur('confirmEmail')"
+        />
+      </mat-form-field>
+      @if (confirmEmailMessage(); as msg) {
+        <div data-testid="confirm-email-error" class="field-error">{{ msg }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field>
+        <mat-label data-testid="phone-label">Phone number</mat-label>
+        <input
+          matInput
+          data-testid="phone-input"
+          [value]="form().phone"
+          (input)="onInput('phone', $any($event.target).value)"
+          (blur)="onBlur('phone')"
+        />
+      </mat-form-field>
+      @if (phoneMessage(); as msg) {
+        <div data-testid="phone-error" class="field-error">{{ msg }}</div>
+      }
+    </div>
+
+    <div class="terms">
+      <mat-checkbox
+        data-testid="terms-checkbox"
+        [checked]="form().termsAccepted"
+        (change)="onTermsChange($event.checked)"
+      >
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (termsMessage(); as msg) {
+        <div data-testid="terms-error" class="terms-error">{{ msg }}</div>
+      }
+    </div>
+  </form>
+
+  <div class="actions">
+    <button type="button" mat-stroked-button data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button type="button" mat-flat-button data-testid="pay-button" [disabled]="processing()" (click)="pay()">
+      {{ processing() ? 'Processing…' : 'Pay ' + total().toFixed(2) + ' PLN' }}
+    </button>
+  </div>
+}

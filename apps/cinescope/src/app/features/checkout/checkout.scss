@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  padding: 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-error {
+  color: var(--mat-sys-error, #c62828);
+  font-size: 0.75rem;
+  margin: -12px 0 8px;
+}
+
+.terms {
+  margin: 8px 0 16px;
+}
+
+.terms-error {
+  color: var(--mat-sys-error, #c62828);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}

@@ -1,0 +1,25 @@
+@if (data(); as d) {
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  <div data-testid="summary-list" class="summary-list">
+    @for (item of items(); track item.seatIds.join(',')) {
+      <div data-testid="summary-item" class="summary-item">
+        <span data-testid="summary-item-title">{{ d.movie.title }}</span>
+        <span data-testid="summary-item-datetime">{{ d.screening.date }} {{ d.screening.time }}</span>
+        <span data-testid="summary-item-row">{{ item.row }}</span>
+        <span data-testid="summary-item-seat">{{ seatLabel(item) }}</span>
+        <span data-testid="summary-item-price">{{ formatPrice(item.price) }}</span>
+        <button type="button" mat-stroked-button data-testid="summary-item-remove-button" (click)="remove(item)">
+          Remove
+        </button>
+      </div>
+    }
+  </div>
+
+  <div data-testid="summary-total">Total: {{ total().toFixed(2) }} PLN</div>
+
+  <div class="actions">
+    <button type="button" mat-stroked-button data-testid="back-button" (click)="back()">Back</button>
+    <button type="button" mat-flat-button data-testid="confirm-button" (click)="confirm()">Confirm</button>
+  </div>
+}
