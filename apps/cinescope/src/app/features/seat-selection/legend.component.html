@@ -1,0 +1,8 @@
+<div data-testid="legend" class="legend">
+  @for (item of items; track item.state) {
+    <div data-testid="legend-item" [attr.data-state]="item.state" class="legend-item">
+      <span class="swatch" [style.background-color]="item.color"></span>
+      <span>{{ item.label }}</span>
+    </div>
+  }
+</div>

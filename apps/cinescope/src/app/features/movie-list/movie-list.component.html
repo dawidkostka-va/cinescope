@@ -1,0 +1,36 @@
+<app-day-picker [selected]="selectedDate()" (dateSelected)="onDateSelected($event)" />
+
+@if (loading()) {
+  <p data-testid="movies-loading">Loading…</p>
+} @else if (error()) {
+  <div data-testid="movies-error">
+    <p>Failed to load movies</p>
+    <button mat-flat-button type="button" data-testid="movies-retry-button" (click)="load()">Retry</button>
+  </div>
+} @else if (moviesForDay().length === 0) {
+  <p data-testid="movies-empty">No screenings on this day</p>
+} @else {
+  <div data-testid="movie-list" class="movie-list">
+    @for (movie of moviesForDay(); track movie.id) {
+      <div data-testid="movie-card" [attr.data-movie-id]="movie.id" class="movie-card">
+        <h2 data-testid="movie-title">{{ movie.title }}</h2>
+        <p data-testid="movie-genre">{{ movie.genre }}</p>
+        <p data-testid="movie-runtime">{{ movie.runtimeMinutes }} min</p>
+        <p data-testid="movie-format">{{ movie.format }}</p>
+        <div class="screenings">
+          @for (screening of screeningsForMovie(movie.id); track screening.id) {
+            <button
+              mat-stroked-button
+              type="button"
+              data-testid="screening-button"
+              [attr.data-screening-id]="screening.id"
+              (click)="openScreening(screening.id)"
+            >
+              {{ screening.time }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+}

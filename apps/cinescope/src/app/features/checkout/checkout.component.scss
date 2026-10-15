@@ -1,0 +1,22 @@
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 28rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.field-error {
+  color: #c62828;
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
