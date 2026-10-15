@@ -1,0 +1,87 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form (ngSubmit)="pay()">
+  <mat-form-field>
+    <mat-label data-testid="first-name-label">First name *</mat-label>
+    <input
+      matInput
+      data-testid="first-name-input"
+      [value]="values().firstName"
+      (input)="update('firstName', $any($event.target).value)"
+      (blur)="markTouched('firstName')"
+    />
+  </mat-form-field>
+  @if (fieldError('firstName'); as error) {
+    <div data-testid="first-name-error">{{ error }}</div>
+  }
+
+  <mat-form-field>
+    <mat-label data-testid="last-name-label">Last name *</mat-label>
+    <input
+      matInput
+      data-testid="last-name-input"
+      [value]="values().lastName"
+      (input)="update('lastName', $any($event.target).value)"
+      (blur)="markTouched('lastName')"
+    />
+  </mat-form-field>
+  @if (fieldError('lastName'); as error) {
+    <div data-testid="last-name-error">{{ error }}</div>
+  }
+
+  <mat-form-field>
+    <mat-label data-testid="email-label">Email *</mat-label>
+    <input
+      matInput
+      data-testid="email-input"
+      [value]="values().email"
+      (input)="update('email', $any($event.target).value)"
+      (blur)="markTouched('email')"
+    />
+  </mat-form-field>
+  @if (fieldError('email'); as error) {
+    <div data-testid="email-error">{{ error }}</div>
+  }
+
+  <mat-form-field>
+    <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+    <input
+      matInput
+      data-testid="confirm-email-input"
+      [value]="values().confirmEmail"
+      (input)="update('confirmEmail', $any($event.target).value)"
+      (blur)="markTouched('confirmEmail')"
+    />
+  </mat-form-field>
+  @if (fieldError('confirmEmail'); as error) {
+    <div data-testid="confirm-email-error">{{ error }}</div>
+  }
+
+  <mat-form-field>
+    <mat-label data-testid="phone-label">Phone number</mat-label>
+    <input
+      matInput
+      data-testid="phone-input"
+      [value]="values().phone"
+      (input)="update('phone', $any($event.target).value)"
+      (blur)="markTouched('phone')"
+    />
+  </mat-form-field>
+  @if (fieldError('phone'); as error) {
+    <div data-testid="phone-error">{{ error }}</div>
+  }
+
+  <mat-checkbox data-testid="terms-checkbox" [checked]="values().termsAccepted" (change)="onTermsChange($event.checked)">
+    <span data-testid="terms-label">I accept the terms and conditions *</span>
+  </mat-checkbox>
+  @if (fieldError('termsAccepted'); as error) {
+    <div data-testid="terms-error">{{ error }}</div>
+  }
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button mat-flat-button type="submit" data-testid="pay-button" [disabled]="submitting()">
+      {{ submitting() ? 'Processing…' : payLabel() }}
+    </button>
+  </div>
+</form>

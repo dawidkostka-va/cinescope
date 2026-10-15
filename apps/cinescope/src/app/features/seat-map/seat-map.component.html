@@ -1,0 +1,87 @@
+<h1 data-testid="seat-map-title">Choose your seats</h1>
+<h2 data-testid="seat-map-subtitle">{{ subtitle() }}</h2>
+
+<div class="auditorium">
+  <p class="seat-limit-info" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+  <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+  <div class="seat-map" data-testid="seat-map">
+    @for (r of rows; track r.row) {
+      <div class="seat-row" data-testid="seat-row" [attr.data-row]="r.row">
+        <div class="row-label" data-testid="row-label-left" [attr.data-row]="r.row">{{ r.row }}</div>
+
+        @for (cell of r.cells; track $index) {
+          @switch (cell.kind) {
+            @case ('empty') {
+              <span class="cell cell-empty"></span>
+            }
+            @case ('aisle') {
+              <div class="cell cell-aisle" data-testid="aisle" [attr.data-row]="r.row"></div>
+            }
+            @case ('seat') {
+              <button
+                type="button"
+                class="cell seat"
+                data-testid="seat"
+                [attr.data-row]="r.row"
+                [attr.data-column]="cell.column"
+                [attr.data-state]="seatState(r.row, cell.column)"
+                [style.background-color]="colorFor(seatState(r.row, cell.column))"
+                (click)="onSeatClick(r.row, cell.column)"
+              >
+                {{ cell.column }}
+              </button>
+            }
+            @case ('couch') {
+              <button
+                type="button"
+                class="cell couch"
+                data-testid="couch"
+                [attr.data-row]="r.row"
+                [attr.data-column-start]="cell.columnStart"
+                [attr.data-column-end]="cell.columnEnd"
+                [attr.data-state]="couchState(r.row, cell.columnStart, cell.columnEnd)"
+                [style.background-color]="colorFor(couchState(r.row, cell.columnStart, cell.columnEnd))"
+                (click)="onCouchClick(r.row, cell.columnStart, cell.columnEnd)"
+              >
+                {{ cell.columnStart }}-{{ cell.columnEnd }}
+              </button>
+            }
+          }
+        }
+
+        <div class="row-label" data-testid="row-label-right" [attr.data-row]="r.row">{{ r.row }}</div>
+      </div>
+    }
+  </div>
+
+  <div class="legend" data-testid="legend">
+    @for (item of legendItems; track item.state) {
+      <div class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+        <span class="swatch" [style.background-color]="colorFor(item.state)"></span>
+        {{ item.label }}
+      </div>
+    }
+  </div>
+
+  <div class="selected-seats" data-testid="selected-seats">
+    <div data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</div>
+    @for (r of selectedByRow(); track r.row) {
+      <div data-testid="selected-seats-row" [attr.data-row]="r.row">Row {{ r.row }}: {{ r.seats }}</div>
+    }
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+    <button
+      mat-flat-button
+      type="button"
+      data-testid="continue-button"
+      [disabled]="selectedCount() === 0"
+      (click)="continue()"
+    >
+      Continue
+    </button>
+  </div>
+</div>
