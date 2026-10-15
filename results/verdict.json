@@ -1,0 +1,195 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-10-15T15:06:29Z",
+  "runId": "treatment-20261015-144158",
+  "profile": "treatment",
+  "model": "sonnet",
+  "commit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "verdict": "FAIL",
+  "invalidReason": null,
+  "failReasons": [
+    "check_fail:typecheck"
+  ],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 134,
+    "durationMs": 1375845,
+    "apiDurationMs": 1297457,
+    "containerExitCode": 0,
+    "validationExitCode": 1,
+    "startedAt": "2026-10-15T14:42:04Z",
+    "endedAt": "2026-10-15T15:06:27Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 5,
+    "totalUsd": 4.8796172,
+    "tokens": {
+      "input": 2448,
+      "output": 127997,
+      "cacheRead": 13646216,
+      "cacheWrite": 216377
+    },
+    "byModel": {
+      "claude-sonnet-5": {
+        "inputTokens": 2448,
+        "outputTokens": 127997,
+        "cacheReadTokens": 13646216,
+        "cacheWriteTokens": 216377,
+        "costUsd": 4.8796172
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14501,
+      "tools": 86845,
+      "skills": 8422
+    },
+    "tokens": {
+      "system": 4543,
+      "tools": 31700,
+      "skills": 3018
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 120,
+    "mainAgentRequests": 119,
+    "subagentRequests": 0,
+    "firstContextTokens": 39799,
+    "peakContextTokens": 166509,
+    "lastContextTokens": 122136
+  },
+  "changes": {
+    "baseCommit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+    "filesChanged": 21,
+    "linesAdded": 1563,
+    "linesRemoved": 2
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 123,
+      "matched": 123,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-10-15T15:05:13Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 0,
+      "failed": 1,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 24,
+      "failed": 0,
+      "total": 24,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 66,
+      "failed": 3,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1814,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "fail",
+      "exitCode": 2,
+      "durationMs": 1386,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 0,
+        "failed": 1,
+        "total": 1,
+        "errors": 5,
+        "failures": [
+          "apps/cinescope/src/pages/Checkout/Checkout.tsx",
+          "apps/cinescope/src/pages/MovieList/MovieList.tsx",
+          "apps/cinescope/src/pages/SeatMap/SeatMap.tsx",
+          "apps/cinescope/src/pages/Summary/Summary.tsx"
+        ]
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1248,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 24,
+        "failed": 0,
+        "total": 24,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 67743,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 66,
+        "failed": 3,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": [
+          "confirmation/confirmation.spec.ts:13 AC-48: /confirmation shows Payment successful and Your tickets will be sent shortly to <email>; Continue navigates to / and clears the booking; the booking survives a reload via sessionStorage; entering the summary, checkout or confirmation without a matching booking redirects to /",
+          "movie-list/movie-list.spec.ts:99 AC-51: Every movie-list identifier in section 9.1 is present with the exact names and values given there",
+          "movie-list/movie-list.spec.ts:131 AC-52: Above the movie list, the day picker shows Today and the next four days by English weekday name, followed by a datepicker; Today is selected by default"
+        ]
+      }
+    }
+  }
+}

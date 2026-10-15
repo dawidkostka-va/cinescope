@@ -1,0 +1,5 @@
+apps/cinescope/src/pages/Checkout/Checkout.tsx(78,31): error TS18047: 'booking' is possibly 'null'.
+apps/cinescope/src/pages/MovieList/MovieList.tsx(105,37): error TS2353: Object literal may only specify known properties, and 'htmlInput' does not exist in type 'SlotComponentPropsFromProps<PickersTextFieldProps, {}, FieldOwnerState>'.
+apps/cinescope/src/pages/SeatMap/SeatMap.tsx(116,9): error TS18047: 'booking' is possibly 'null'.
+apps/cinescope/src/pages/SeatMap/SeatMap.tsx(117,29): error TS18047: 'screening' is possibly 'null'.
+apps/cinescope/src/pages/Summary/Summary.tsx(66,23): error TS18047: 'booking' is possibly 'null'.

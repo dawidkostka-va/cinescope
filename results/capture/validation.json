@@ -1,0 +1,76 @@
+{
+  "build": {
+    "command": "pnpm exec nx run-many -t build",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1814,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "failures": []
+    }
+  },
+  "typecheck": {
+    "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+    "required": true,
+    "status": "fail",
+    "exitCode": 2,
+    "durationMs": 1386,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 0,
+      "failed": 1,
+      "total": 1,
+      "errors": 5,
+      "failures": [
+        "apps/cinescope/src/pages/Checkout/Checkout.tsx",
+        "apps/cinescope/src/pages/MovieList/MovieList.tsx",
+        "apps/cinescope/src/pages/SeatMap/SeatMap.tsx",
+        "apps/cinescope/src/pages/Summary/Summary.tsx"
+      ]
+    }
+  },
+  "lint": {
+    "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1248,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "files",
+      "passed": 24,
+      "failed": 0,
+      "total": 24,
+      "errors": 0,
+      "warnings": 0,
+      "failures": []
+    }
+  },
+  "e2e": {
+    "command": "pnpm --dir apps/e2e exec playwright test",
+    "required": false,
+    "status": "fail",
+    "exitCode": 1,
+    "durationMs": 67743,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "tests",
+      "passed": 66,
+      "failed": 3,
+      "flaky": 0,
+      "skipped": 0,
+      "total": 69,
+      "failures": [
+        "confirmation/confirmation.spec.ts:13 AC-48: /confirmation shows Payment successful and Your tickets will be sent shortly to <email>; Continue navigates to / and clears the booking; the booking survives a reload via sessionStorage; entering the summary, checkout or confirmation without a matching booking redirects to /",
+        "movie-list/movie-list.spec.ts:99 AC-51: Every movie-list identifier in section 9.1 is present with the exact names and values given there",
+        "movie-list/movie-list.spec.ts:131 AC-52: Above the movie list, the day picker shows Today and the next four days by English weekday name, followed by a datepicker; Today is selected by default"
+      ]
+    }
+  }
+}
