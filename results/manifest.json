@@ -1,0 +1,25 @@
+{
+  "runId": "control-20261015-080208",
+  "startedAt": "2026-10-15T08:02:15Z",
+  "profile": "control",
+  "prompt": "Build the cinema seat-booking web application described in spec/README.md, as the Angular application already set up in this Nx workspace (Nx project `cinescope` in apps/cinescope); its stack is described in spec/stack.md. The work is split into tickets in spec/tickets/; implement them in order. spec/README.md is the complete specification: do not ask any questions, and where it is silent choose the simplest option that satisfies it. Finish only when every ticket is done and `pnpm nx build cinescope` succeeds.",
+  "repository": "https://github.com/dawidkostka-va/cinescope.git",
+  "branch": "template/angular",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "image": "coding-experiment-control:17128d594a59-7a67df5ddcc0",
+  "model": "sonnet",
+  "maxBudgetUsd": 5,
+  "tests": {
+    "e2e": {
+      "repository": "https://github.com/dawidkostka-va/cinescope.git",
+      "branch": "grading/e2e-tests",
+      "commit": "74135a370f288e01019f28207cdeeeecd6fb066d",
+      "paths": [
+        "apps/e2e"
+      ]
+    }
+  },
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "runBranch": "agent-runs/control-20261015-080208"
+}
