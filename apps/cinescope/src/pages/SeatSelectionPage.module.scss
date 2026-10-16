@@ -1,0 +1,101 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.limitInfo {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.screen {
+  width: 60%;
+  min-width: 420px;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 24px;
+  background: #444;
+  color: #fff;
+  letter-spacing: 4px;
+  border-radius: 4px;
+}
+
+.seatMap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 28px repeat(4, 28px) 56px repeat(16, 28px) 56px repeat(4, 28px) 28px;
+  align-items: center;
+  gap: 2px;
+}
+
+.label {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.seat {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 11px;
+  padding: 0;
+}
+
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.couch {
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 11px;
+  padding: 0;
+}
+
+.couch:disabled {
+  cursor: not-allowed;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.selectedPanel {
+  margin-top: 16px;
+  min-width: 300px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
