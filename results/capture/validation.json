@@ -1,0 +1,84 @@
+{
+  "build": {
+    "command": "pnpm exec nx run-many -t build",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1758,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "failures": []
+    }
+  },
+  "typecheck": {
+    "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 939,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "errors": 0,
+      "failures": []
+    }
+  },
+  "lint": {
+    "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1369,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "files",
+      "passed": 31,
+      "failed": 0,
+      "total": 31,
+      "errors": 0,
+      "warnings": 0,
+      "failures": []
+    }
+  },
+  "e2e": {
+    "command": "pnpm --dir apps/e2e exec playwright test",
+    "required": false,
+    "status": "fail",
+    "exitCode": 1,
+    "durationMs": 610847,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "tests",
+      "passed": 53,
+      "failed": 16,
+      "flaky": 0,
+      "skipped": 0,
+      "total": 69,
+      "failures": [
+        "checkout/checkout.spec.ts:22 AC-41: The form renders first name, last name, email, confirm email, phone number and a terms checkbox",
+        "checkout/checkout.spec.ts:32 AC-42: First name and last name are required and must be at least 2 characters",
+        "checkout/checkout.spec.ts:51 AC-43: Email is required and must be a valid address; confirm email must match it",
+        "checkout/checkout.spec.ts:66 AC-44: Phone number is optional; when filled it must be exactly 9 digits",
+        "checkout/checkout.spec.ts:77 AC-45: The terms checkbox is required",
+        "checkout/checkout.spec.ts:87 AC-46: The pay button is enabled whenever no payment request is in flight; clicking it on an invalid form marks all fields as touched, shows the messages and shows the toast The form contains errors, without navigating",
+        "checkout/checkout.spec.ts:107 AC-47: The pay button on a valid form sends POST /reservations, is disabled while the request is in flight, navigates to /confirmation on success, and on failure stays on the form and shows the toast Payment failed. Please try again.",
+        "checkout/checkout.spec.ts:132 AC-61: The checkout shows the title Your details",
+        "checkout/checkout.spec.ts:136 AC-62: The pay button reads Pay <total> PLN, the total of the booking",
+        "checkout/checkout.spec.ts:144 AC-63: Back on the checkout returns to the summary with the booking intact",
+        "checkout/checkout.spec.ts:151 AC-64: The checkout values survive going back to the summary and forward again, and a page reload; a new booking starts with an empty form",
+        "checkout/checkout.spec.ts:191 AC-65: The labels of the five required fields end with *; the phone label does not",
+        "checkout/checkout.spec.ts:206 AC-68: Every checkout identifier in section 9.4 is present with the exact names and values given there",
+        "confirmation/confirmation.spec.ts:13 AC-48: /confirmation shows Payment successful and Your tickets will be sent shortly to <email>; Continue navigates to / and clears the booking; the booking survives a reload via sessionStorage; entering the summary, checkout or confirmation without a matching booking redirects to /",
+        "confirmation/confirmation.spec.ts:63 AC-69: Every confirmation identifier in section 9.5 is present with the exact names and values given there",
+        "summary/summary.spec.ts:101 AC-40: Confirm navigates to /screenings/:id/checkout"
+      ]
+    }
+  }
+}
