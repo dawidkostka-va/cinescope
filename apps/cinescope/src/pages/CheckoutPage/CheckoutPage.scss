@@ -1,0 +1,21 @@
+.checkout-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.checkout-page__field {
+  margin-bottom: 16px;
+}
+
+.checkout-page__error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.checkout-page__actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
