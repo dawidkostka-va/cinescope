@@ -1,0 +1,190 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-10-16T10:00:46Z",
+  "runId": "treatment-20261016-093827",
+  "profile": "treatment",
+  "model": "sonnet",
+  "commit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "verdict": "FAIL",
+  "invalidReason": null,
+  "failReasons": [
+    "check_fail:typecheck"
+  ],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 114,
+    "durationMs": 1261894,
+    "apiDurationMs": 1102089,
+    "containerExitCode": 0,
+    "validationExitCode": 1,
+    "startedAt": "2026-10-16T09:38:31Z",
+    "endedAt": "2026-10-16T10:00:44Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 5,
+    "totalUsd": 4.020983200000002,
+    "tokens": {
+      "input": 3192,
+      "output": 112208,
+      "cacheRead": 10940186,
+      "cacheWrite": 187345
+    },
+    "byModel": {
+      "claude-sonnet-5": {
+        "inputTokens": 3192,
+        "outputTokens": 112208,
+        "cacheReadTokens": 10940186,
+        "cacheWriteTokens": 187345,
+        "costUsd": 4.020983200000002
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14501,
+      "tools": 86845,
+      "skills": 8422
+    },
+    "tokens": {
+      "system": 4543,
+      "tools": 31700,
+      "skills": 3018
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 97,
+    "mainAgentRequests": 96,
+    "subagentRequests": 0,
+    "firstContextTokens": 39799,
+    "peakContextTokens": 165744,
+    "lastContextTokens": 97534
+  },
+  "changes": {
+    "baseCommit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+    "filesChanged": 20,
+    "linesAdded": 1333,
+    "linesRemoved": 5
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 100,
+      "matched": 100,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-10-16T09:59:38Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 0,
+      "failed": 1,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 22,
+      "failed": 0,
+      "total": 22,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 69,
+      "failed": 0,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1434,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "fail",
+      "exitCode": 2,
+      "durationMs": 1364,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 0,
+        "failed": 1,
+        "total": 1,
+        "errors": 18,
+        "failures": [
+          "apps/cinescope/src/components/Toast/ToastProvider.tsx",
+          "apps/cinescope/src/pages/Checkout/Checkout.tsx",
+          "apps/cinescope/src/pages/MovieList/DayPicker.tsx"
+        ]
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1067,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 22,
+        "failed": 0,
+        "total": 22,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 60860,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 69,
+        "failed": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": []
+      }
+    }
+  }
+}
