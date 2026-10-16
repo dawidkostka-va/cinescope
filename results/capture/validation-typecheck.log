@@ -1,0 +1,2 @@
+apps/cinescope/src/pages/MovieList/DayPicker.tsx(37,61): error TS2353: Object literal may only specify known properties, and ''data-testid'' does not exist in type 'WithDataAttributes<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>>'.
+apps/cinescope/src/pages/Summary/Summary.tsx(15,23): error TS18047: 'booking' is possibly 'null'.
