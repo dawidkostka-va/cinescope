@@ -1,0 +1,1 @@
+apps/cinescope/src/pages/MovieListPage.tsx(99,37): error TS2353: Object literal may only specify known properties, and ''data-testid'' does not exist in type 'SlotComponentPropsFromProps<PickersTextFieldProps, {}, FieldOwnerState>'.
