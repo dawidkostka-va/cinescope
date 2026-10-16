@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  padding: 1rem 2rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 0.5rem;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}

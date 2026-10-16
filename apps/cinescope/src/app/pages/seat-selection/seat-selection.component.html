@@ -1,0 +1,32 @@
+<h1 data-testid="seat-map-title">Choose your seats</h1>
+<h2 data-testid="seat-map-subtitle">{{ subtitle() }}</h2>
+<p class="seat-limit-info" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+<div class="screen-indicator" data-testid="screen-indicator">SCREEN</div>
+
+<div class="seat-map" data-testid="seat-map">
+  @for (row of rows(); track row.row) {
+    <app-seat-row [row]="row" (seatToggle)="onToggle($event)" />
+  }
+</div>
+
+<div class="legend" data-testid="legend">
+  @for (item of legendItems; track item.state) {
+    <div class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+      <span class="swatch" [class]="'state-' + item.state"></span>
+      <span>{{ item.label }}</span>
+    </div>
+  }
+</div>
+
+<div class="selected-seats" data-testid="selected-seats">
+  <div data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</div>
+  @for (line of selectedRowLines(); track line.row) {
+    <div data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</div>
+  }
+</div>
+
+<div class="actions">
+  <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+  <button mat-flat-button type="button" data-testid="continue-button" [disabled]="selectedCount() === 0" (click)="continueToSummary()">Continue</button>
+</div>

@@ -1,0 +1,34 @@
+<div class="seat-row" data-testid="seat-row" [attr.data-row]="row().row">
+  <div class="row-label" data-testid="row-label-left" [attr.data-row]="row().row" style="grid-column: 1">{{ row().row }}</div>
+  <div class="aisle" data-testid="aisle" [attr.data-row]="row().row" style="grid-column: 6"></div>
+  <div class="aisle" data-testid="aisle" [attr.data-row]="row().row" style="grid-column: 23"></div>
+  @for (cell of row().cells; track cellKey(cell)) {
+    @if (cell.kind === 'seat') {
+      <button
+        type="button"
+        class="seat"
+        [class]="'state-' + cell.state"
+        data-testid="seat"
+        [attr.data-row]="cell.row"
+        [attr.data-column]="cell.column"
+        [attr.data-state]="cell.state"
+        [style.grid-column]="cell.track"
+        (click)="onCellClick(cell)"
+      >{{ cell.column }}</button>
+    } @else {
+      <button
+        type="button"
+        class="couch"
+        [class]="'state-' + cell.state"
+        data-testid="couch"
+        [attr.data-row]="cell.row"
+        [attr.data-column-start]="cell.columnStart"
+        [attr.data-column-end]="cell.columnEnd"
+        [attr.data-state]="cell.state"
+        [style.grid-column]="cell.track + ' / span 2'"
+        (click)="onCellClick(cell)"
+      >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+    }
+  }
+  <div class="row-label" data-testid="row-label-right" [attr.data-row]="row().row" style="grid-column: 28">{{ row().row }}</div>
+</div>
