@@ -1,0 +1,27 @@
+.summary-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 16px;
+}

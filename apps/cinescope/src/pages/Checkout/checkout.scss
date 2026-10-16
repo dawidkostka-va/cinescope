@@ -1,0 +1,25 @@
+.checkout-page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-error {
+  color: #c62828;
+  font-size: 0.75rem;
+  margin-top: -8px;
+}
+
+.checkout-actions {
+  display: flex;
+  gap: 16px;
+}
