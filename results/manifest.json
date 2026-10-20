@@ -1,0 +1,25 @@
+{
+  "runId": "treatment-20261020-064529",
+  "startedAt": "2026-10-20T06:45:33Z",
+  "profile": "treatment",
+  "prompt": "Build the cinema seat-booking web application described in spec/README.md, as the React application already set up in this Nx workspace (Nx project `cinescope` in apps/cinescope); its stack is described in spec/stack.md. The work is split into tickets in spec/tickets/; implement them in order. spec/README.md is the complete specification: do not ask any questions, and where it is silent choose the simplest option that satisfies it. Finish only when every ticket is done and `pnpm nx build cinescope` succeeds.",
+  "repository": "https://github.com/dawidkostka-va/cinescope.git",
+  "branch": "template/react",
+  "commit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+  "image": "coding-experiment-treatment:3ae0f9761c64-265d6fdb3c5e",
+  "model": "sonnet",
+  "maxBudgetUsd": 5,
+  "tests": {
+    "e2e": {
+      "repository": "https://github.com/dawidkostka-va/cinescope.git",
+      "branch": "grading/e2e-tests",
+      "commit": "74135a370f288e01019f28207cdeeeecd6fb066d",
+      "paths": [
+        "apps/e2e"
+      ]
+    }
+  },
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "runBranch": "agent-runs/treatment-20261020-064529"
+}
