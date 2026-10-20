@@ -1,0 +1,10 @@
+{
+  "npm_config_verify_deps_before_run": "false",
+  "NPM_CONFIG_UPDATE_NOTIFIER": "false",
+  "HOME": "/tmp/agent-home",
+  "PLAYWRIGHT_BROWSERS_PATH": "/opt/ms-playwright",
+  "pnpm_config_verify_deps_before_run": "false",
+  "VALIDATION_TIMEOUT_MINUTES": "15",
+  "NG_CLI_ANALYTICS": "false",
+  "CI": "true"
+}
