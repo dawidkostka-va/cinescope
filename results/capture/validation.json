@@ -1,0 +1,70 @@
+{
+  "build": {
+    "command": "pnpm exec nx run-many -t build",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1437,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "failures": []
+    }
+  },
+  "typecheck": {
+    "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1305,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "errors": 0,
+      "failures": []
+    }
+  },
+  "lint": {
+    "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1131,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "files",
+      "passed": 21,
+      "failed": 0,
+      "total": 21,
+      "errors": 0,
+      "warnings": 0,
+      "failures": []
+    }
+  },
+  "e2e": {
+    "command": "pnpm --dir apps/e2e exec playwright test",
+    "required": false,
+    "status": "fail",
+    "exitCode": 1,
+    "durationMs": 68825,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "tests",
+      "passed": 67,
+      "failed": 2,
+      "flaky": 0,
+      "skipped": 0,
+      "total": 69,
+      "failures": [
+        "seats/seats.spec.ts:45 AC-05: The seat map has 15 rows, numbered 1 to 15, row 1 rendered directly under the screen",
+        "seats/seats.spec.ts:120 AC-11: A SCREEN indicator is rendered above row 1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-10-20T06:44:48Z",
+  "runId": "treatment-20261020-062223",
+  "profile": "treatment",
+  "model": "sonnet",
+  "commit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+  "harnessCommit": "ba08ddb493a5033d4887298280bb02ca15b1ff7a",
+  "harnessDirty": true,
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 120,
+    "durationMs": 1237632,
+    "apiDurationMs": 1190826,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-10-20T06:22:27Z",
+    "endedAt": "2026-10-20T06:44:47Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 5,
+    "totalUsd": 4.472919999999999,
+    "tokens": {
+      "input": 5648,
+      "output": 107890,
+      "cacheRead": 11378435,
+      "cacheWrite": 307534
+    },
+    "byModel": {
+      "claude-sonnet-5": {
+        "inputTokens": 5648,
+        "outputTokens": 107890,
+        "cacheReadTokens": 11378435,
+        "cacheWriteTokens": 307534,
+        "costUsd": 4.472919999999999
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14501,
+      "tools": 86845,
+      "skills": 8422
+    },
+    "tokens": {
+      "system": 4543,
+      "tools": 31700,
+      "skills": 3018
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 122,
+    "mainAgentRequests": 105,
+    "subagentRequests": 9,
+    "firstContextTokens": 39799,
+    "peakContextTokens": 165306,
+    "lastContextTokens": 96298
+  },
+  "changes": {
+    "baseCommit": "3ae0f9761c641e8da42904cd7e5f0aec942bf807",
+    "filesChanged": 19,
+    "linesAdded": 1512,
+    "linesRemoved": 3
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 1
+    },
+    "apiResponses": {
+      "total": 126,
+      "matched": 126,
+      "incomplete": 6
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-10-20T06:43:33Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 21,
+      "failed": 0,
+      "total": 21,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 67,
+      "failed": 2,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1437,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1305,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1131,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 21,
+        "failed": 0,
+        "total": 21,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 68825,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 67,
+        "failed": 2,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": [
+          "seats/seats.spec.ts:45 AC-05: The seat map has 15 rows, numbered 1 to 15, row 1 rendered directly under the screen",
+          "seats/seats.spec.ts:120 AC-11: A SCREEN indicator is rendered above row 1"
+        ]
+      }
+    }
+  }
+}

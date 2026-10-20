@@ -1,0 +1,2622 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/workspace/project/apps/e2e/node_modules/.pnpm/@playwright+test@1.62.1/node_modules/@playwright/test/cli.js",
+      "test"
+    ],
+    "configFile": "/workspace/project/apps/e2e/playwright.config.ts",
+    "rootDir": "/workspace/project/apps/e2e/src/routes",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "/workspace/project/apps/e2e/src/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/project/apps/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/workspace/project/apps/e2e/src/routes",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "checkout/checkout.spec.ts",
+      "file": "checkout/checkout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Checkout — /screenings/:id/checkout",
+          "file": "checkout/checkout.spec.ts",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AC-41: The form renders first name, last name, email, confirm email, phone number and a terms checkbox",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1327,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:43.382Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-69f3159092faee2afa6f",
+              "file": "checkout/checkout.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "AC-42: First name and last name are required and must be at least 2 characters",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1020,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:45.063Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-06b96dc86ebe59dee1b5",
+              "file": "checkout/checkout.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "AC-43: Email is required and must be a valid address; confirm email must match it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1108,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:46.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-62966f6caba9c5e00ce9",
+              "file": "checkout/checkout.spec.ts",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "AC-44: Phone number is optional; when filled it must be exactly 9 digits",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1459,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:47.205Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-abaab2cbd1ba0f6940f7",
+              "file": "checkout/checkout.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "AC-45: The terms checkbox is required",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1181,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:48.674Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-62b73188f765c1c68998",
+              "file": "checkout/checkout.spec.ts",
+              "line": 77,
+              "column": 3
+            },
+            {
+              "title": "AC-46: The pay button is enabled whenever no payment request is in flight; clicking it on an invalid form marks all fields as touched, shows the messages and shows the toast The form contains errors, without navigating",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 954,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:49.861Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-2378d170b803e9256401",
+              "file": "checkout/checkout.spec.ts",
+              "line": 87,
+              "column": 3
+            },
+            {
+              "title": "AC-47: The pay button on a valid form sends POST /reservations, is disabled while the request is in flight, navigates to /confirmation on success, and on failure stays on the form and shows the toast Payment failed. Please try again.",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5300,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:50.822Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-1be8b9ad1449ed5f11fd",
+              "file": "checkout/checkout.spec.ts",
+              "line": 107,
+              "column": 3
+            },
+            {
+              "title": "AC-61: The checkout shows the title Your details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 617,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:56.131Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-fc098262e83fc4160882",
+              "file": "checkout/checkout.spec.ts",
+              "line": 132,
+              "column": 3
+            },
+            {
+              "title": "AC-62: The pay button reads Pay <total> PLN, the total of the booking",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1157,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:56.755Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-da3f8754422acd8e06c4",
+              "file": "checkout/checkout.spec.ts",
+              "line": 136,
+              "column": 3
+            },
+            {
+              "title": "AC-63: Back on the checkout returns to the summary with the booking intact",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 739,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:57.918Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-ae4a6d593b0bc6ab53f4",
+              "file": "checkout/checkout.spec.ts",
+              "line": 144,
+              "column": 3
+            },
+            {
+              "title": "AC-64: The checkout values survive going back to the summary and forward again, and a page reload; a new booking starts with an empty form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2458,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:43:58.664Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-a099f6d33ff4a3846165",
+              "file": "checkout/checkout.spec.ts",
+              "line": 151,
+              "column": 3
+            },
+            {
+              "title": "AC-65: The labels of the five required fields end with *; the phone label does not",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 740,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:01.128Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-637d4f8357fe67f8da77",
+              "file": "checkout/checkout.spec.ts",
+              "line": 191,
+              "column": 3
+            },
+            {
+              "title": "AC-68: Every checkout identifier in section 9.4 is present with the exact names and values given there",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 854,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:01.875Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "67cdc8a4402314feb5d5-606d8e0bd3f9409e3836",
+              "file": "checkout/checkout.spec.ts",
+              "line": 206,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "confirmation/confirmation.spec.ts",
+      "file": "confirmation/confirmation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Confirmation — /confirmation",
+          "file": "confirmation/confirmation.spec.ts",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AC-48: /confirmation shows Payment successful and Your tickets will be sent shortly to <email>; Continue navigates to / and clears the booking; the booking survives a reload via sessionStorage; entering the summary, checkout or confirmation without a matching booking redirects to /",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4447,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:02.742Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df91fb263b68675ed7d6-a9db66dcf9a30fe90c63",
+              "file": "confirmation/confirmation.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "AC-69: Every confirmation identifier in section 9.5 is present with the exact names and values given there",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1037,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:07.194Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df91fb263b68675ed7d6-d8d429489668492c6c24",
+              "file": "confirmation/confirmation.spec.ts",
+              "line": 63,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "movie-list/movie-list.spec.ts",
+      "file": "movie-list/movie-list.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Movie list — /",
+          "file": "movie-list/movie-list.spec.ts",
+          "line": 20,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AC-01: Without a chosen date, / shows today's screenings: one movie card per movie with a screening today",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 506,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:08.248Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-b160d8725cd179774e99",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "AC-02: Each card shows title, genre, runtime in minutes and format (PL dubbing / PL subtitles)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 601,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:08.760Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-695cc9e21872741117a5",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "AC-03: Each card renders one button per screening of that movie on the selected day, labelled with the screening time (HH:mm), ordered by time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 600,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:09.368Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-465066cf559a1c1b9644",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "AC-04: Clicking a screening button navigates to /screenings/:id/seats for that screening id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 676,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:09.974Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-8cce95d251147a9af0b8",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 63,
+              "column": 3
+            },
+            {
+              "title": "AC-49: While the movie request is in flight, / shows a loading indicator and no movie cards",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 536,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:10.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-ae12b1b02b992fffc305",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "AC-50: When the movie request fails, / shows Failed to load movies and a Retry button that re-issues the request",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 670,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:11.198Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-2532c14e555288b2ddea",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 85,
+              "column": 3
+            },
+            {
+              "title": "AC-51: Every movie-list identifier in section 9.1 is present with the exact names and values given there",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1216,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:11.886Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-4e4ffc0772d051b78f42",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 99,
+              "column": 3
+            },
+            {
+              "title": "AC-52: Above the movie list, the day picker shows Today and the next four days by English weekday name, followed by a datepicker; Today is selected by default",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 600,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:13.109Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-3154975c7ceb965273a5",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 131,
+              "column": 3
+            },
+            {
+              "title": "AC-53: Choosing another day shows only the movies with a screening on that day, each with only that day's screenings",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 630,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:13.715Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-8c31b1b5f2328fd4b82f",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 163,
+              "column": 3
+            },
+            {
+              "title": "AC-54: A day without screenings shows No screenings on this day and no movie cards",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 692,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:14.352Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-3f10c5be138d47a9b708",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 181,
+              "column": 3
+            },
+            {
+              "title": "AC-55: The selected day is kept in the URL as ?date=YYYY-MM-DD; opening such a URL selects that day, and a missing, invalid or past date selects today",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1793,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:15.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51fda736a24355868d88-c7f9e17a0c115e680450",
+              "file": "movie-list/movie-list.spec.ts",
+              "line": 194,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "seats/seats.spec.ts",
+      "file": "seats/seats.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Seat selection — /screenings/:id/seats",
+          "file": "seats/seats.spec.ts",
+          "line": 43,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AC-66: Every seat-selection identifier in section 9.2, and the toast identifier in section 9.6, is present with the exact names and values given there",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1109,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:35.848Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d18b1513c824fb0fd8a-36afcc6223ae89c9872b",
+              "file": "seats/seats.spec.ts",
+              "line": 387,
+              "column": 3
+            }
+          ],
+          "suites": [
+            {
+              "title": "Auditorium geometry",
+              "file": "seats/seats.spec.ts",
+              "line": 44,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "AC-05: The seat map has 15 rows, numbered 1 to 15, row 1 rendered directly under the screen",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 617,
+                          "error": {
+                            "message": "Error: Element has no bounding box",
+                            "stack": "Error: Element has no bounding box\n    at boxOf (/workspace/project/apps/e2e/src/utils/geometry.ts:13:19)\n    at /workspace/project/apps/e2e/src/routes/seats/seats.spec.ts:56:21",
+                            "location": {
+                              "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                              "column": 19,
+                              "line": 13
+                            },
+                            "snippet": "   at ../utils/geometry.ts:13\n\n\u001b[0m \u001b[90m 11 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m boxOf(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[33mBox\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 12 |\u001b[39m   \u001b[36mconst\u001b[39m box \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m   \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39mbox) \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'Element has no bounding box'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mreturn\u001b[39m box\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m }\n \u001b[90m 16 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                                "column": 19,
+                                "line": 13
+                              },
+                              "message": "Error: Element has no bounding box\n\n   at ../utils/geometry.ts:13\n\n  11 | export async function boxOf(locator: Locator): Promise<Box> {\n  12 |   const box = await locator.boundingBox();\n> 13 |   if (!box) throw new Error('Element has no bounding box');\n     |                   ^\n  14 |   return box;\n  15 | }\n  16 |\n    at boxOf (/workspace/project/apps/e2e/src/utils/geometry.ts:13:19)\n    at /workspace/project/apps/e2e/src/routes/seats/seats.spec.ts:56:21"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:16.862Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/workspace/project/apps/e2e/test-results/seats-seats-Seat-selection-de9ec-d-directly-under-the-screen-chromium/error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "/workspace/project/apps/e2e/test-results/seats-seats-Seat-selection-de9ec-d-directly-under-the-screen-chromium/trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                            "column": 19,
+                            "line": 13
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-dc20fc214e4229378642",
+                  "file": "seats/seats.spec.ts",
+                  "line": 45,
+                  "column": 5
+                },
+                {
+                  "title": "AC-06: Rows 11 to 15 contain 24 columns; rows 1 to 10 contain columns 5 to 24 only",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 698,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:17.877Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-ee9472242f06fa75c83f",
+                  "file": "seats/seats.spec.ts",
+                  "line": 61,
+                  "column": 5
+                },
+                {
+                  "title": "AC-07: A two-seat-wide gap is rendered between columns 4 and 5 and between columns 20 and 21 in every row; gaps carry no seat and no number",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 830,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:18.650Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-a0cf05c8d2d0b4ea479c",
+                  "file": "seats/seats.spec.ts",
+                  "line": 72,
+                  "column": 5
+                },
+                {
+                  "title": "AC-08: Column numbering is global 1–24 and identical across rows; in rows 1–10, numbering starts at 5",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 524,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:19.488Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-2a68f2a5b58d8d3840a8",
+                  "file": "seats/seats.spec.ts",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "AC-09: The row number is rendered on both the left and the right edge of every row",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 549,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:20.022Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-d5f80e470da49838de96",
+                  "file": "seats/seats.spec.ts",
+                  "line": 100,
+                  "column": 5
+                },
+                {
+                  "title": "AC-10: Every seat renders its column number",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 414,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:20.582Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-8d4325349f4a67d1411c",
+                  "file": "seats/seats.spec.ts",
+                  "line": 109,
+                  "column": 5
+                },
+                {
+                  "title": "AC-11: A SCREEN indicator is rendered above row 1",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 475,
+                          "error": {
+                            "message": "Error: Element has no bounding box",
+                            "stack": "Error: Element has no bounding box\n    at boxOf (/workspace/project/apps/e2e/src/utils/geometry.ts:13:19)\n    at /workspace/project/apps/e2e/src/routes/seats/seats.spec.ts:126:27",
+                            "location": {
+                              "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                              "column": 19,
+                              "line": 13
+                            },
+                            "snippet": "   at ../utils/geometry.ts:13\n\n\u001b[0m \u001b[90m 11 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m boxOf(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[33mBox\u001b[39m\u001b[33m>\u001b[39m {\n \u001b[90m 12 |\u001b[39m   \u001b[36mconst\u001b[39m box \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m   \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39mbox) \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'Element has no bounding box'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mreturn\u001b[39m box\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m }\n \u001b[90m 16 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                                "column": 19,
+                                "line": 13
+                              },
+                              "message": "Error: Element has no bounding box\n\n   at ../utils/geometry.ts:13\n\n  11 | export async function boxOf(locator: Locator): Promise<Box> {\n  12 |   const box = await locator.boundingBox();\n> 13 |   if (!box) throw new Error('Element has no bounding box');\n     |                   ^\n  14 |   return box;\n  15 | }\n  16 |\n    at boxOf (/workspace/project/apps/e2e/src/utils/geometry.ts:13:19)\n    at /workspace/project/apps/e2e/src/routes/seats/seats.spec.ts:126:27"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:21.006Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/workspace/project/apps/e2e/test-results/seats-seats-Seat-selection-7599c-tor-is-rendered-above-row-1-chromium/error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "/workspace/project/apps/e2e/test-results/seats-seats-Seat-selection-7599c-tor-is-rendered-above-row-1-chromium/trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/workspace/project/apps/e2e/src/utils/geometry.ts",
+                            "column": 19,
+                            "line": 13
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-194bd93d049aa626f546",
+                  "file": "seats/seats.spec.ts",
+                  "line": 120,
+                  "column": 5
+                },
+                {
+                  "title": "AC-12: Row 1, columns 10 to 15 are accessible seats — 6 of them",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 528,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:21.791Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-249b37d3f68816b9b8d0",
+                  "file": "seats/seats.spec.ts",
+                  "line": 130,
+                  "column": 5
+                },
+                {
+                  "title": "AC-13: Row 15 renders 12 couches, each spanning two adjacent columns: 1–2, 3–4, … 23–24",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 564,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:22.379Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-98ac967d711f5c75b26d",
+                  "file": "seats/seats.spec.ts",
+                  "line": 137,
+                  "column": 5
+                },
+                {
+                  "title": "AC-14: A couch is rendered as one wide element, visually distinct from a single seat",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 546,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:22.952Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-9a719dcd832f01a16c11",
+                  "file": "seats/seats.spec.ts",
+                  "line": 148,
+                  "column": 5
+                },
+                {
+                  "title": "AC-15: The total number of selectable elements in the auditorium is 308 (200 seats in rows 1–10, 96 in rows 11–14, 12 couches in row 15)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 504,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:23.506Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-944faa74d237ee4e6517",
+                  "file": "seats/seats.spec.ts",
+                  "line": 156,
+                  "column": 5
+                },
+                {
+                  "title": "AC-56: The seat selection shows the title Choose your seats and the subtitle Show Date: <Weekday> <D> <Mon> <HH:mm> of the screening",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 791,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:24.019Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-daa4c06f0b99a8a411a5",
+                  "file": "seats/seats.spec.ts",
+                  "line": 166,
+                  "column": 5
+                },
+                {
+                  "title": "AC-57: Above the seat map, horizontally centred over it, the text You can reserve up to 10 seats per reservation is shown",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 469,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:24.817Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-63f629e13b65bf4a2d27",
+                  "file": "seats/seats.spec.ts",
+                  "line": 180,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Selecting seats",
+              "file": "seats/seats.spec.ts",
+              "line": 193,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "AC-16: Seats listed in occupiedSeats for the screening are rendered unavailable and cannot be selected",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 745,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:25.294Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-6fba38312d0498563f53",
+                  "file": "seats/seats.spec.ts",
+                  "line": 194,
+                  "column": 5
+                },
+                {
+                  "title": "AC-17: A couch is unavailable when either of its two seat identifiers is in occupiedSeats",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 504,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:26.045Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-1f5f465979034fb6ccb3",
+                  "file": "seats/seats.spec.ts",
+                  "line": 209,
+                  "column": 5
+                },
+                {
+                  "title": "AC-18: Clicking an available seat selects it; clicking it again deselects it",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 577,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:26.556Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-22451f350d506c539c6c",
+                  "file": "seats/seats.spec.ts",
+                  "line": 222,
+                  "column": 5
+                },
+                {
+                  "title": "AC-19: Clicking a couch selects both of its seats as one unit; it cannot be half-selected",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 527,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:27.140Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-0b2a3f204f6f43073acd",
+                  "file": "seats/seats.spec.ts",
+                  "line": 233,
+                  "column": 5
+                },
+                {
+                  "title": "AC-20: Selection is capped at 10 seats; a couch counts as 2",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 852,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:27.673Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-fe1d5edc9d6b994cad1d",
+                  "file": "seats/seats.spec.ts",
+                  "line": 244,
+                  "column": 5
+                },
+                {
+                  "title": "AC-21: A click that would exceed 10 seats is ignored and shows the toast Maximum 10 seats per booking",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1041,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:28.531Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-32865fbd8b680ba25627",
+                  "file": "seats/seats.spec.ts",
+                  "line": 256,
+                  "column": 5
+                },
+                {
+                  "title": "AC-22: At the cap, already selected seats and couches can still be deselected",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1024,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:29.579Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-8c24dbc8f0a21f30ed4d",
+                  "file": "seats/seats.spec.ts",
+                  "line": 270,
+                  "column": 5
+                },
+                {
+                  "title": "AC-58: Between the seat map and the Cancel / Continue buttons, the selected-seats panel shows Selected seats: <n> and one Row <r>: <seats> line per row, updated on every selection change",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 844,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:30.608Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-ed67cac498c3e1a20eef",
+                  "file": "seats/seats.spec.ts",
+                  "line": 286,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Legend and colours",
+              "file": "seats/seats.spec.ts",
+              "line": 321,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "AC-23: The legend lists exactly Available, Selected, Unavailable, Accessible",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 511,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:31.458Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-192dfb739742b6bb8fc3",
+                  "file": "seats/seats.spec.ts",
+                  "line": 322,
+                  "column": 5
+                },
+                {
+                  "title": "AC-24: Available seats use #2E7D32",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 490,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:31.975Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-88847856afe9adf50880",
+                  "file": "seats/seats.spec.ts",
+                  "line": 338,
+                  "column": 5
+                },
+                {
+                  "title": "AC-25: Selected seats use #F9A825",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 572,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:32.473Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-fa7ab329b79aa666993e",
+                  "file": "seats/seats.spec.ts",
+                  "line": 342,
+                  "column": 5
+                },
+                {
+                  "title": "AC-26: Unavailable seats use #C62828",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 428,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:33.052Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-07d1d814e9108f3d15d7",
+                  "file": "seats/seats.spec.ts",
+                  "line": 349,
+                  "column": 5
+                },
+                {
+                  "title": "AC-27: Accessible seats use #1565C0",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 398,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:33.486Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-00a6cd37edb3ea691779",
+                  "file": "seats/seats.spec.ts",
+                  "line": 354,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Navigation from the seat map",
+              "file": "seats/seats.spec.ts",
+              "line": 361,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "AC-33: Cancel navigates to / and clears the selection",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 989,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:33.889Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-f4bf8f102845e5c697e5",
+                  "file": "seats/seats.spec.ts",
+                  "line": 362,
+                  "column": 5
+                },
+                {
+                  "title": "AC-34: Continue navigates to /screenings/:id/summary",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 523,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:34.886Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-39a703db5d94f150aa33",
+                  "file": "seats/seats.spec.ts",
+                  "line": 374,
+                  "column": 5
+                },
+                {
+                  "title": "AC-35: Continue does nothing when no seat is selected",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 428,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:35.415Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "5d18b1513c824fb0fd8a-05aec366c7a71348939a",
+                  "file": "seats/seats.spec.ts",
+                  "line": 380,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "summary/summary.spec.ts",
+      "file": "summary/summary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Summary — /screenings/:id/summary",
+          "file": "summary/summary.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AC-36: Each selected item is listed with movie title, screening date, time, row number, seat description and price",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 550,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:39.730Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-04333c720f1f77b2dcd4",
+              "file": "summary/summary.spec.ts",
+              "line": 43,
+              "column": 3
+            },
+            {
+              "title": "AC-37: A couch is described as Couch <a>-<b>; a single seat is described by its column number",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 799,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:40.285Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-bfe1ba9ccaad2fce943e",
+              "file": "summary/summary.spec.ts",
+              "line": 59,
+              "column": 3
+            },
+            {
+              "title": "AC-38: The total line reads Total: <sum> PLN and equals the sum of the listed prices",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 668,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:41.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-df6a641532c8fa253c25",
+              "file": "summary/summary.spec.ts",
+              "line": 77,
+              "column": 3
+            },
+            {
+              "title": "AC-39: Back returns to the seat map with the selection intact",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 772,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:41.763Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-036e0cbb5d425e82aef3",
+              "file": "summary/summary.spec.ts",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "AC-40: Confirm navigates to /screenings/:id/checkout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 701,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:42.540Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-b92e430e3a1890c48b6c",
+              "file": "summary/summary.spec.ts",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "AC-59: The summary shows the title Your tickets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 546,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:43.246Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-a43b75de82bf031d59d3",
+              "file": "summary/summary.spec.ts",
+              "line": 107,
+              "column": 3
+            },
+            {
+              "title": "AC-60: Each summary item has a Remove button that removes it from the booking and updates the total; removing the last item returns to the seat map",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1097,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:43.797Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-912c2524106940c6a6aa",
+              "file": "summary/summary.spec.ts",
+              "line": 112,
+              "column": 3
+            },
+            {
+              "title": "AC-67: Every summary identifier in section 9.3 is present with the exact names and values given there",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 734,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-20T06:44:44.899Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "47bc0cd2c9f9c85eedd3-70b4cf1977eab737b39b",
+              "file": "summary/summary.spec.ts",
+              "line": 145,
+              "column": 3
+            }
+          ],
+          "suites": [
+            {
+              "title": "Pricing",
+              "file": "summary/summary.spec.ts",
+              "line": 14,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "AC-28: Seats in rows 1–5 cost 25.00 PLN",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 499,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:36.968Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "47bc0cd2c9f9c85eedd3-73385fac2d568ea7fb0b",
+                  "file": "summary/summary.spec.ts",
+                  "line": 15,
+                  "column": 5
+                },
+                {
+                  "title": "AC-29: Seats in rows 6–10 cost 32.00 PLN",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 532,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:37.473Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "47bc0cd2c9f9c85eedd3-4091690486ce4c2b38cb",
+                  "file": "summary/summary.spec.ts",
+                  "line": 20,
+                  "column": 5
+                },
+                {
+                  "title": "AC-30: Seats in rows 11–14 cost 39.00 PLN",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 530,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:38.010Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "47bc0cd2c9f9c85eedd3-9dfac9b9c981967c0ca6",
+                  "file": "summary/summary.spec.ts",
+                  "line": 25,
+                  "column": 5
+                },
+                {
+                  "title": "AC-31: A couch costs 89.00 PLN per couch, not per seat",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 568,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:38.545Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "47bc0cd2c9f9c85eedd3-ea7381ab79f1b2cd2e94",
+                  "file": "summary/summary.spec.ts",
+                  "line": 30,
+                  "column": 5
+                },
+                {
+                  "title": "AC-32: Accessible seats cost 25.00 PLN, like the rest of row 1",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 605,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-20T06:44:39.120Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "47bc0cd2c9f9c85eedd3-9a5f60160b4d2668167b",
+                  "file": "summary/summary.spec.ts",
+                  "line": 37,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T06:43:43.047Z",
+    "duration": 62664.884000000005,
+    "expected": 67,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
