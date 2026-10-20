@@ -1,0 +1,136 @@
+$available: #2e7d32;
+$selected: #f9a825;
+$unavailable: #c62828;
+$accessible: #1565c0;
+
+.seat-selection-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.seat-limit-info {
+  text-align: center;
+}
+
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.screen-indicator {
+  width: 60%;
+  max-width: 600px;
+  text-align: center;
+  padding: 8px;
+  background: #ccc;
+  border-radius: 4px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: 40px repeat(4, 32px) 64px repeat(16, 32px) 64px repeat(4, 32px) 40px;
+  align-items: center;
+  gap: 2px;
+}
+
+.row-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.aisle {
+  width: 100%;
+}
+
+.seat,
+.couch {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.seat--available,
+.couch--available {
+  background-color: $available;
+}
+
+.seat--selected,
+.couch--selected {
+  background-color: $selected;
+}
+
+.seat--unavailable,
+.couch--unavailable {
+  background-color: $unavailable;
+  cursor: not-allowed;
+}
+
+.seat--accessible {
+  background-color: $accessible;
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.legend-swatch--available {
+  background-color: $available;
+}
+
+.legend-swatch--selected {
+  background-color: $selected;
+}
+
+.legend-swatch--unavailable {
+  background-color: $unavailable;
+}
+
+.legend-swatch--accessible {
+  background-color: $accessible;
+}
+
+.selected-seats {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
