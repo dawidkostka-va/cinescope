@@ -1,0 +1,69 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form class="checkout-form" [formGroup]="form" (ngSubmit)="onPay()">
+  <div class="field">
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label data-testid="first-name-label">First name *</mat-label>
+      <input matInput data-testid="first-name-input" formControlName="firstName" />
+    </mat-form-field>
+    @if (firstNameError(); as msg) {
+      <span data-testid="first-name-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label data-testid="last-name-label">Last name *</mat-label>
+      <input matInput data-testid="last-name-input" formControlName="lastName" />
+    </mat-form-field>
+    @if (lastNameError(); as msg) {
+      <span data-testid="last-name-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label data-testid="email-label">Email *</mat-label>
+      <input matInput data-testid="email-input" formControlName="email" />
+    </mat-form-field>
+    @if (emailError(); as msg) {
+      <span data-testid="email-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+      <input matInput data-testid="confirm-email-input" formControlName="confirmEmail" />
+    </mat-form-field>
+    @if (confirmEmailError(); as msg) {
+      <span data-testid="confirm-email-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="phone-label">Phone number</mat-label>
+      <input matInput data-testid="phone-input" formControlName="phone" />
+    </mat-form-field>
+    @if (phoneError(); as msg) {
+      <span data-testid="phone-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="field">
+    <mat-checkbox data-testid="terms-checkbox" formControlName="terms" (change)="onTermsChanged()">
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+    @if (termsError(); as msg) {
+      <span data-testid="terms-error" class="error">{{ msg }}</span>
+    }
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="onBack()">Back</button>
+    <button mat-raised-button color="primary" type="submit" data-testid="pay-button" [disabled]="submitting()">
+      {{ submitting() ? 'Processing…' : 'Pay ' + formatPrice(total()) }}
+    </button>
+  </div>
+</form>

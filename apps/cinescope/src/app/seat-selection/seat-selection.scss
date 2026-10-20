@@ -1,0 +1,120 @@
+:host {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.auditorium-wrapper {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.seat-limit-info {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.screen {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 40px repeat(4, 28px) 56px repeat(16, 28px) 56px repeat(4, 28px) 40px;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.row-label {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.aisle {
+  display: block;
+}
+
+.empty {
+  display: block;
+}
+
+.seat,
+.couch {
+  height: 26px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #fff;
+  padding: 0;
+}
+
+.couch {
+  grid-column: span 2;
+}
+
+.seat.available,
+.couch.available {
+  background: #2e7d32;
+}
+
+.seat.selected,
+.couch.selected {
+  background: #f9a825;
+}
+
+.seat.unavailable,
+.couch.unavailable {
+  background: #c62828;
+  cursor: default;
+}
+
+.seat.accessible {
+  background: #1565c0;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.selected-seats {
+  max-width: 400px;
+  margin: 0 auto 24px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
