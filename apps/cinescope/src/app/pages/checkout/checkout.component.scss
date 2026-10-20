@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  padding: 2rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+p[data-testid$='-error'] {
+  color: #c62828;
+  margin: -0.5rem 0 0.5rem;
+  font-size: 0.85rem;
+}
+
+mat-checkbox {
+  margin: 1rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
