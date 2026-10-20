@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import App from './app/app';
+import { ToastProvider } from './toast/ToastProvider';
 
 const theme = createTheme();
 
@@ -17,7 +18,9 @@ root.render(
       <CssBaseline />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <BrowserRouter>
-          <App />
+          <ToastProvider>
+            <App />
+          </ToastProvider>
         </BrowserRouter>
       </LocalizationProvider>
     </ThemeProvider>
