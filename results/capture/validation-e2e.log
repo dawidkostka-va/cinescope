@@ -1,0 +1,346 @@
+Installed tests: apps/e2e
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 3, reused 0, downloaded 2, added 0
+Packages: +3
++++
+Progress: resolved 4, reused 0, downloaded 3, added 3, done
+
+dependencies:
++ @playwright/test 1.62.1 (1.64.1 is available)
+
+Done in 2.6s using pnpm v11.1.0
+$ json-server --watch db.json --port 3000
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:3000/movies
+  http://localhost:3000/screenings
+  http://localhost:3000/reservations
+
+  Home
+  http://localhost:3000
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+
+[2m> [22m[2mnx run[22m cinescope:serve:development
+
+[1m[33mPrebundling has been configured but will not be used because caching has been disabled.[39m[22m
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[32mchunk-E35K4JIB.js[37m  [2m | [22m[2m-[22m             [2m | [22m  [36m1.85 MB[37m[2m | [22m
+[32mchunk-O4H57F2N.js[37m  [2m | [22m[2m-[22m             [2m | [22m[36m373.02 kB[37m[2m | [22m
+[32mmain.js[37m            [2m | [22m[2mmain[22m          [2m | [22m[36m309.45 kB[37m[2m | [22m
+[32mchunk-ZUPTF2HF.js[37m  [2m | [22m[2m-[22m             [2m | [22m[36m156.95 kB[37m[2m | [22m
+[32mstyles.css[37m         [2m | [22m[2mstyles[22m        [2m | [22m  [36m8.72 kB[37m[2m | [22m
+[32mchunk-DOJ5FHYY.js[37m  [2m | [22m[2m-[22m             [2m | [22m  [36m4.58 kB[37m[2m | [22m
+[32mchunk-I5IZZOSU.js[37m  [2m | [22m[2m-[22m             [2m | [22m  [36m1.72 kB[37m[2m | [22m
+[1m [22m                  [2m | [22m[1mInitial total[22m [2m | [22m  [1m2.71 MB[22m
+[1mLazy chunk files[22m   [2m | [22m[1mNames[22m         [2m | [22m [1mRaw size[22m
+[32mchunk-7MAAEH76.js[37m  [2m | [22m[2mcheckout[22m      [2m | [22m [36m82.92 kB[37m[2m | [22m
+[32mchunk-5EJ2C6WZ.js[37m  [2m | [22m[2m-[22m             [2m | [22m [36m36.38 kB[37m[2m | [22m
+[32mchunk-UHRHKFFB.js[37m  [2m | [22m[2mseat-selection[22m[2m | [22m [36m23.85 kB[37m[2m | [22m
+[32mchunk-RQK4B2JE.js[37m  [2m | [22m[2msummary[22m       [2m | [22m [36m11.18 kB[37m[2m | [22m
+[32mchunk-P2Q4HZNA.js[37m  [2m | [22m[2mconfirmation[22m  [2m | [22m  [36m4.15 kB[37m[2m | [22m
+[32mchunk-GNKP27LT.js[37m  [2m | [22m[2m-[22m             [2m | [22m  [36m3.93 kB[37m[2m | [22m
+Application bundle generation complete. [1.568 seconds] - 2026-10-20T08:16:16.341Z
+[39m
+[37mWatch mode enabled. Watching for file changes...[39m
+[37mNOTE: Raw file sizes do not reflect development server per-request transformations.[39m
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+
+Running 69 tests using 1 worker
+
+[0mGET /screenings/1 [32m200[0m 4.002 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.697 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.419 ms - 118[0m
+  ✓   1 [chromium] › src/routes/checkout/checkout.spec.ts:22:3 › Checkout — /screenings/:id/checkout › AC-41: The form renders first name, last name, email, confirm email, phone number and a terms checkbox (642ms)
+[0mGET /screenings/1 [32m200[0m 2.472 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.517 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.524 ms - 118[0m
+  ✓   2 [chromium] › src/routes/checkout/checkout.spec.ts:32:3 › Checkout — /screenings/:id/checkout › AC-42: First name and last name are required and must be at least 2 characters (696ms)
+[0mGET /screenings/1 [32m200[0m 2.506 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.486 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.505 ms - 118[0m
+  ✓   3 [chromium] › src/routes/checkout/checkout.spec.ts:51:3 › Checkout — /screenings/:id/checkout › AC-43: Email is required and must be a valid address; confirm email must match it (668ms)
+[0mGET /screenings/1 [32m200[0m 2.476 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.394 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.491 ms - 118[0m
+  ✓   4 [chromium] › src/routes/checkout/checkout.spec.ts:66:3 › Checkout — /screenings/:id/checkout › AC-44: Phone number is optional; when filled it must be exactly 9 digits (593ms)
+[0mGET /screenings/1 [32m200[0m 2.516 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.388 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.271 ms - 118[0m
+  ✓   5 [chromium] › src/routes/checkout/checkout.spec.ts:77:3 › Checkout — /screenings/:id/checkout › AC-45: The terms checkbox is required (770ms)
+[0mGET /screenings/1 [32m200[0m 2.641 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.415 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.322 ms - 118[0m
+  ✓   6 [chromium] › src/routes/checkout/checkout.spec.ts:87:3 › Checkout — /screenings/:id/checkout › AC-46: The pay button is enabled whenever no payment request is in flight; clicking it on an invalid form marks all fields as touched, shows the messages and shows the toast The form contains errors, without navigating (650ms)
+[0mGET /screenings/1 [32m200[0m 2.425 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.353 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.268 ms - 118[0m
+  ✓   7 [chromium] › src/routes/checkout/checkout.spec.ts:107:3 › Checkout — /screenings/:id/checkout › AC-47: The pay button on a valid form sends POST /reservations, is disabled while the request is in flight, navigates to /confirmation on success, and on failure stays on the form and shows the toast Payment failed. Please try again. (774ms)
+[0mGET /screenings/1 [32m200[0m 2.347 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.421 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.266 ms - 118[0m
+  ✓   8 [chromium] › src/routes/checkout/checkout.spec.ts:132:3 › Checkout — /screenings/:id/checkout › AC-61: The checkout shows the title Your details (590ms)
+[0mGET /screenings/1 [32m200[0m 2.400 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.421 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.347 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.339 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.409 ms - -[0m
+[0mGET /movies/1 [36m304[0m 1.332 ms - -[0m
+  ✓   9 [chromium] › src/routes/checkout/checkout.spec.ts:136:3 › Checkout — /screenings/:id/checkout › AC-62: The pay button reads Pay <total> PLN, the total of the booking (869ms)
+[0mGET /screenings/1 [32m200[0m 2.390 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.432 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.545 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.385 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.288 ms - -[0m
+  ✓  10 [chromium] › src/routes/checkout/checkout.spec.ts:144:3 › Checkout — /screenings/:id/checkout › AC-63: Back on the checkout returns to the summary with the booking intact (651ms)
+[0mGET /screenings/1 [32m200[0m 3.893 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.502 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.507 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.395 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.274 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.426 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.294 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.358 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.314 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.306 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.310 ms - -[0m
+[0mGET /movies [32m200[0m 3.506 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 3.480 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 3.398 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.507 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.357 ms - -[0m
+  ✓  11 [chromium] › src/routes/checkout/checkout.spec.ts:151:3 › Checkout — /screenings/:id/checkout › AC-64: The checkout values survive going back to the summary and forward again, and a page reload; a new booking starts with an empty form (1.7s)
+[0mGET /screenings/1 [32m200[0m 3.724 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 1.403 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.428 ms - 118[0m
+  ✓  12 [chromium] › src/routes/checkout/checkout.spec.ts:191:3 › Checkout — /screenings/:id/checkout › AC-65: The labels of the five required fields end with *; the phone label does not (616ms)
+[0mGET /screenings/1 [32m200[0m 2.345 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.455 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.258 ms - 118[0m
+  ✓  13 [chromium] › src/routes/checkout/checkout.spec.ts:206:3 › Checkout — /screenings/:id/checkout › AC-68: Every checkout identifier in section 9.4 is present with the exact names and values given there (681ms)
+[0mGET /movies [32m200[0m 2.642 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 3.030 ms - -[0m
+[0mGET /movies [36m304[0m 2.393 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.671 ms - -[0m
+[0mGET /movies [36m304[0m 2.408 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.641 ms - -[0m
+[0mGET /screenings/1 [32m200[0m 2.393 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.639 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.319 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.542 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.333 ms - -[0m
+[0mGET /movies [36m304[0m 2.444 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.816 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.389 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.330 ms - -[0m
+[0mGET /movies [32m200[0m 2.475 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.733 ms - -[0m
+[0mGET /movies [32m200[0m 2.314 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.601 ms - -[0m
+[0mGET /movies [32m200[0m 2.530 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.750 ms - -[0m
+[0mGET /screenings/1 [32m200[0m 2.518 ms - 213[0m
+  ✓  14 [chromium] › src/routes/confirmation/confirmation.spec.ts:13:3 › Confirmation — /confirmation › AC-48: /confirmation shows Payment successful and Your tickets will be sent shortly to <email>; Continue navigates to / and clears the booking; the booking survives a reload via sessionStorage; entering the summary, checkout or confirmation without a matching booking redirects to / (2.1s)
+[0mGET /screenings/1 [32m200[0m 2.727 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.440 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.294 ms - 118[0m
+  ✓  15 [chromium] › src/routes/confirmation/confirmation.spec.ts:63:3 › Confirmation — /confirmation › AC-69: Every confirmation identifier in section 9.5 is present with the exact names and values given there (741ms)
+[0mGET /movies [32m200[0m 2.772 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.996 ms - -[0m
+  ✓  16 [chromium] › src/routes/movie-list/movie-list.spec.ts:21:3 › Movie list — / › AC-01: Without a chosen date, / shows today's screenings: one movie card per movie with a screening today (431ms)
+[0mGET /movies [32m200[0m 2.479 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.714 ms - -[0m
+  ✓  17 [chromium] › src/routes/movie-list/movie-list.spec.ts:32:3 › Movie list — / › AC-02: Each card shows title, genre, runtime in minutes and format (PL dubbing / PL subtitles) (387ms)
+[0mGET /movies [32m200[0m 3.440 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 3.713 ms - -[0m
+  ✓  18 [chromium] › src/routes/movie-list/movie-list.spec.ts:47:3 › Movie list — / › AC-03: Each card renders one button per screening of that movie on the selected day, labelled with the screening time (HH:mm), ordered by time (409ms)
+[0mGET /movies [32m200[0m 2.450 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 5.101 ms - -[0m
+[0mGET /movies [36m304[0m 4.582 ms - -[0m
+[0mGET /screenings?date=2026-09-16 [32m200[0m 4.934 ms - -[0m
+[0mGET /screenings/7 [32m200[0m 2.362 ms - 204[0m
+  ✓  19 [chromium] › src/routes/movie-list/movie-list.spec.ts:63:3 › Movie list — / › AC-04: Clicking a screening button navigates to /screenings/:id/seats for that screening id (498ms)
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.426 ms - -[0m
+[0mGET /movies [32m200[0m 2.323 ms - 660[0m
+  ✓  20 [chromium] › src/routes/movie-list/movie-list.spec.ts:72:3 › Movie list — / › AC-49: While the movie request is in flight, / shows a loading indicator and no movie cards (414ms)
+[0mGET /screenings?date=2026-09-15 [0m-[0m - ms - -[0m
+[0mGET /movies [32m200[0m 2.660 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.828 ms - -[0m
+  ✓  21 [chromium] › src/routes/movie-list/movie-list.spec.ts:85:3 › Movie list — / › AC-50: When the movie request fails, / shows Failed to load movies and a Retry button that re-issues the request (538ms)
+[0mGET /screenings?date=2026-09-15 [32m200[0m 1.420 ms - -[0m
+[0mGET /movies [32m200[0m 2.392 ms - 660[0m
+[0mGET /screenings?date=2026-09-18 [32m200[0m 2.092 ms - 2[0m
+[0mGET /movies [32m200[0m 2.042 ms - 660[0m
+[0mGET /screenings?date=2026-09-18 [32m200[0m 3.344 ms - 2[0m
+  ✓  22 [chromium] › src/routes/movie-list/movie-list.spec.ts:99:3 › Movie list — / › AC-51: Every movie-list identifier in section 9.1 is present with the exact names and values given there (723ms)
+[0mGET /movies [32m200[0m 2.394 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.549 ms - -[0m
+  ✓  23 [chromium] › src/routes/movie-list/movie-list.spec.ts:131:3 › Movie list — / › AC-52: Above the movie list, the day picker shows Today and the next four days by English weekday name, followed by a datepicker; Today is selected by default (410ms)
+[0mGET /movies [32m200[0m 3.900 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 3.951 ms - -[0m
+[0mGET /movies [36m304[0m 3.574 ms - -[0m
+[0mGET /screenings?date=2026-09-19 [32m200[0m 3.793 ms - 591[0m
+  ✓  24 [chromium] › src/routes/movie-list/movie-list.spec.ts:163:3 › Movie list — / › AC-53: Choosing another day shows only the movies with a screening on that day, each with only that day's screenings (464ms)
+[0mGET /movies [32m200[0m 1.428 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 4.125 ms - -[0m
+[0mGET /movies [36m304[0m 2.510 ms - -[0m
+[0mGET /screenings?date=2026-09-18 [32m200[0m 2.548 ms - 2[0m
+[0mGET /movies [36m304[0m 2.364 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.617 ms - -[0m
+  ✓  25 [chromium] › src/routes/movie-list/movie-list.spec.ts:181:3 › Movie list — / › AC-54: A day without screenings shows No screenings on this day and no movie cards (457ms)
+[0mGET /movies [32m200[0m 2.897 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.745 ms - -[0m
+[0mGET /movies [36m304[0m 2.381 ms - -[0m
+[0mGET /screenings?date=2026-09-19 [32m200[0m 2.648 ms - 591[0m
+[0mGET /screenings?date=2026-09-20 [32m200[0m 2.421 ms - 401[0m
+[0mGET /movies [36m304[0m 2.790 ms - -[0m
+[0mGET /movies [36m304[0m 2.781 ms - -[0m
+[0mGET /screenings?date=2026-09-19 [36m304[0m 2.957 ms - -[0m
+[0mGET /movies [36m304[0m 2.541 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.665 ms - -[0m
+[0mGET /movies [36m304[0m 2.372 ms - -[0m
+[0mGET /screenings?date=2026-09-15 [36m304[0m 2.578 ms - -[0m
+  ✓  26 [chromium] › src/routes/movie-list/movie-list.spec.ts:194:3 › Movie list — / › AC-55: The selected day is kept in the URL as ?date=YYYY-MM-DD; opening such a URL selects that day, and a missing, invalid or past date selects today (626ms)
+[0mGET /screenings/1 [32m200[0m 2.380 ms - 213[0m
+  ✓  27 [chromium] › src/routes/seats/seats.spec.ts:45:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-05: The seat map has 15 rows, numbered 1 to 15, row 1 rendered directly under the screen (475ms)
+[0mGET /screenings/1 [32m200[0m 2.557 ms - 213[0m
+  ✓  28 [chromium] › src/routes/seats/seats.spec.ts:61:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-06: Rows 11 to 15 contain 24 columns; rows 1 to 10 contain columns 5 to 24 only (450ms)
+[0mGET /screenings/1 [32m200[0m 2.292 ms - 213[0m
+  ✓  29 [chromium] › src/routes/seats/seats.spec.ts:72:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-07: A two-seat-wide gap is rendered between columns 4 and 5 and between columns 20 and 21 in every row; gaps carry no seat and no number (554ms)
+[0mGET /screenings/1 [32m200[0m 2.438 ms - 213[0m
+  ✓  30 [chromium] › src/routes/seats/seats.spec.ts:83:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-08: Column numbering is global 1–24 and identical across rows; in rows 1–10, numbering starts at 5 (418ms)
+[0mGET /screenings/1 [32m200[0m 2.450 ms - 213[0m
+  ✓  31 [chromium] › src/routes/seats/seats.spec.ts:100:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-09: The row number is rendered on both the left and the right edge of every row (486ms)
+[0mGET /screenings/1 [32m200[0m 3.776 ms - 213[0m
+  ✓  32 [chromium] › src/routes/seats/seats.spec.ts:109:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-10: Every seat renders its column number (349ms)
+[0mGET /screenings/1 [32m200[0m 2.460 ms - 213[0m
+  ✓  33 [chromium] › src/routes/seats/seats.spec.ts:120:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-11: A SCREEN indicator is rendered above row 1 (379ms)
+[0mGET /screenings/1 [32m200[0m 2.295 ms - 213[0m
+  ✓  34 [chromium] › src/routes/seats/seats.spec.ts:130:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-12: Row 1, columns 10 to 15 are accessible seats — 6 of them (468ms)
+[0mGET /screenings/1 [32m200[0m 2.433 ms - 213[0m
+  ✓  35 [chromium] › src/routes/seats/seats.spec.ts:137:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-13: Row 15 renders 12 couches, each spanning two adjacent columns: 1–2, 3–4, … 23–24 (454ms)
+[0mGET /screenings/1 [32m200[0m 2.409 ms - 213[0m
+  ✓  36 [chromium] › src/routes/seats/seats.spec.ts:148:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-14: A couch is rendered as one wide element, visually distinct from a single seat (346ms)
+[0mGET /screenings/1 [32m200[0m 4.913 ms - 213[0m
+  ✓  37 [chromium] › src/routes/seats/seats.spec.ts:156:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-15: The total number of selectable elements in the auditorium is 308 (200 seats in rows 1–10, 96 in rows 11–14, 12 couches in row 15) (339ms)
+[0mGET /screenings/1 [32m200[0m 2.542 ms - 213[0m
+[0mGET /screenings/7 [32m200[0m 2.363 ms - 204[0m
+  ✓  38 [chromium] › src/routes/seats/seats.spec.ts:166:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-56: The seat selection shows the title Choose your seats and the subtitle Show Date: <Weekday> <D> <Mon> <HH:mm> of the screening (421ms)
+[0mGET /screenings/1 [32m200[0m 2.443 ms - 213[0m
+  ✓  39 [chromium] › src/routes/seats/seats.spec.ts:180:5 › Seat selection — /screenings/:id/seats › Auditorium geometry › AC-57: Above the seat map, horizontally centred over it, the text You can reserve up to 10 seats per reservation is shown (415ms)
+[0mGET /screenings/1 [32m200[0m 2.373 ms - 213[0m
+  ✓  40 [chromium] › src/routes/seats/seats.spec.ts:194:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-16: Seats listed in occupiedSeats for the screening are rendered unavailable and cannot be selected (498ms)
+[0mGET /screenings/1 [32m200[0m 3.526 ms - 213[0m
+  ✓  41 [chromium] › src/routes/seats/seats.spec.ts:209:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-17: A couch is unavailable when either of its two seat identifiers is in occupiedSeats (442ms)
+[0mGET /screenings/1 [32m200[0m 2.377 ms - 213[0m
+  ✓  42 [chromium] › src/routes/seats/seats.spec.ts:222:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-18: Clicking an available seat selects it; clicking it again deselects it (498ms)
+[0mGET /screenings/1 [32m200[0m 2.636 ms - 213[0m
+  ✓  43 [chromium] › src/routes/seats/seats.spec.ts:233:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-19: Clicking a couch selects both of its seats as one unit; it cannot be half-selected (404ms)
+[0mGET /screenings/1 [32m200[0m 2.332 ms - 213[0m
+  ✓  44 [chromium] › src/routes/seats/seats.spec.ts:244:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-20: Selection is capped at 10 seats; a couch counts as 2 (599ms)
+[0mGET /screenings/1 [32m200[0m 2.421 ms - 213[0m
+  ✓  45 [chromium] › src/routes/seats/seats.spec.ts:256:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-21: A click that would exceed 10 seats is ignored and shows the toast Maximum 10 seats per booking (796ms)
+[0mGET /screenings/1 [32m200[0m 2.297 ms - 213[0m
+  ✓  46 [chromium] › src/routes/seats/seats.spec.ts:270:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-22: At the cap, already selected seats and couches can still be deselected (821ms)
+[0mGET /screenings/1 [32m200[0m 3.443 ms - 213[0m
+  ✓  47 [chromium] › src/routes/seats/seats.spec.ts:286:5 › Seat selection — /screenings/:id/seats › Selecting seats › AC-58: Between the seat map and the Cancel / Continue buttons, the selected-seats panel shows Selected seats: <n> and one Row <r>: <seats> line per row, updated on every selection change (606ms)
+[0mGET /screenings/1 [32m200[0m 2.419 ms - 213[0m
+  ✓  48 [chromium] › src/routes/seats/seats.spec.ts:322:5 › Seat selection — /screenings/:id/seats › Legend and colours › AC-23: The legend lists exactly Available, Selected, Unavailable, Accessible (410ms)
+[0mGET /screenings/1 [32m200[0m 2.449 ms - 213[0m
+  ✓  49 [chromium] › src/routes/seats/seats.spec.ts:338:5 › Seat selection — /screenings/:id/seats › Legend and colours › AC-24: Available seats use #2E7D32 (392ms)
+[0mGET /screenings/1 [32m200[0m 4.398 ms - 213[0m
+  ✓  50 [chromium] › src/routes/seats/seats.spec.ts:342:5 › Seat selection — /screenings/:id/seats › Legend and colours › AC-25: Selected seats use #F9A825 (470ms)
+[0mGET /screenings/1 [32m200[0m 2.327 ms - 213[0m
+  ✓  51 [chromium] › src/routes/seats/seats.spec.ts:349:5 › Seat selection — /screenings/:id/seats › Legend and colours › AC-26: Unavailable seats use #C62828 (408ms)
+[0mGET /screenings/1 [32m200[0m 2.345 ms - 213[0m
+  ✓  52 [chromium] › src/routes/seats/seats.spec.ts:354:5 › Seat selection — /screenings/:id/seats › Legend and colours › AC-27: Accessible seats use #1565C0 (3.5s)
+[0mGET /screenings/1 [32m200[0m 2.365 ms - 213[0m
+[0mGET /movies [32m200[0m 2.890 ms - 660[0m
+[0mGET /screenings?date=2026-09-15 [32m200[0m 2.853 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.314 ms - -[0m
+  ✓  53 [chromium] › src/routes/seats/seats.spec.ts:362:5 › Seat selection — /screenings/:id/seats › Navigation from the seat map › AC-33: Cancel navigates to / and clears the selection (685ms)
+[0mGET /screenings/1 [32m200[0m 2.529 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.384 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.418 ms - 118[0m
+  ✓  54 [chromium] › src/routes/seats/seats.spec.ts:374:5 › Seat selection — /screenings/:id/seats › Navigation from the seat map › AC-34: Continue navigates to /screenings/:id/summary (496ms)
+[0mGET /screenings/1 [32m200[0m 2.819 ms - 213[0m
+  ✓  55 [chromium] › src/routes/seats/seats.spec.ts:380:5 › Seat selection — /screenings/:id/seats › Navigation from the seat map › AC-35: Continue does nothing when no seat is selected (352ms)
+[0mGET /screenings/1 [32m200[0m 2.323 ms - 213[0m
+  ✓  56 [chromium] › src/routes/seats/seats.spec.ts:387:3 › Seat selection — /screenings/:id/seats › AC-66: Every seat-selection identifier in section 9.2, and the toast identifier in section 9.6, is present with the exact names and values given there (806ms)
+[0mGET /screenings/1 [32m200[0m 2.367 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.445 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.257 ms - 118[0m
+  ✓  57 [chromium] › src/routes/summary/summary.spec.ts:15:5 › Summary — /screenings/:id/summary › Pricing › AC-28: Seats in rows 1–5 cost 25.00 PLN (523ms)
+[0mGET /screenings/1 [32m200[0m 2.449 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.461 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.398 ms - 118[0m
+  ✓  58 [chromium] › src/routes/summary/summary.spec.ts:20:5 › Summary — /screenings/:id/summary › Pricing › AC-29: Seats in rows 6–10 cost 32.00 PLN (521ms)
+[0mGET /screenings/1 [32m200[0m 2.361 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.458 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.400 ms - 118[0m
+  ✓  59 [chromium] › src/routes/summary/summary.spec.ts:25:5 › Summary — /screenings/:id/summary › Pricing › AC-30: Seats in rows 11–14 cost 39.00 PLN (529ms)
+[0mGET /screenings/1 [32m200[0m 3.424 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.518 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.577 ms - 118[0m
+  ✓  60 [chromium] › src/routes/summary/summary.spec.ts:30:5 › Summary — /screenings/:id/summary › Pricing › AC-31: A couch costs 89.00 PLN per couch, not per seat (486ms)
+[0mGET /screenings/1 [32m200[0m 4.850 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.529 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.323 ms - 118[0m
+  ✓  61 [chromium] › src/routes/summary/summary.spec.ts:37:5 › Summary — /screenings/:id/summary › Pricing › AC-32: Accessible seats cost 25.00 PLN, like the rest of row 1 (483ms)
+[0mGET /screenings/1 [32m200[0m 2.374 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.458 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.274 ms - 118[0m
+  ✓  62 [chromium] › src/routes/summary/summary.spec.ts:43:3 › Summary — /screenings/:id/summary › AC-36: Each selected item is listed with movie title, screening date, time, row number, seat description and price (510ms)
+[0mGET /screenings/1 [32m200[0m 2.371 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.457 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.625 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.370 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.365 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.264 ms - -[0m
+  ✓  63 [chromium] › src/routes/summary/summary.spec.ts:59:3 › Summary — /screenings/:id/summary › AC-37: A couch is described as Couch <a>-<b>; a single seat is described by its column number (743ms)
+[0mGET /screenings/1 [32m200[0m 2.418 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.447 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.408 ms - 118[0m
+  ✓  64 [chromium] › src/routes/summary/summary.spec.ts:77:3 › Summary — /screenings/:id/summary › AC-38: The total line reads Total: <sum> PLN and equals the sum of the listed prices (591ms)
+[0mGET /screenings/1 [32m200[0m 2.353 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.511 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.332 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.313 ms - -[0m
+  ✓  65 [chromium] › src/routes/summary/summary.spec.ts:92:3 › Summary — /screenings/:id/summary › AC-39: Back returns to the seat map with the selection intact (548ms)
+[0mGET /screenings/1 [32m200[0m 2.284 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.375 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.456 ms - 118[0m
+  ✓  66 [chromium] › src/routes/summary/summary.spec.ts:101:3 › Summary — /screenings/:id/summary › AC-40: Confirm navigates to /screenings/:id/checkout (560ms)
+[0mGET /screenings/1 [32m200[0m 2.521 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.436 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.268 ms - 118[0m
+  ✓  67 [chromium] › src/routes/summary/summary.spec.ts:107:3 › Summary — /screenings/:id/summary › AC-59: The summary shows the title Your tickets (481ms)
+[0mGET /screenings/1 [32m200[0m 3.463 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 2.633 ms - -[0m
+[0mGET /movies/1 [32m200[0m 3.359 ms - 118[0m
+[0mGET /screenings/1 [36m304[0m 2.300 ms - -[0m
+[0mGET /movies/1 [36m304[0m 2.541 ms - -[0m
+[0mGET /screenings/1 [36m304[0m 2.387 ms - -[0m
+  ✓  68 [chromium] › src/routes/summary/summary.spec.ts:112:3 › Summary — /screenings/:id/summary › AC-60: Each summary item has a Remove button that removes it from the booking and updates the total; removing the last item returns to the seat map (906ms)
+[0mGET /screenings/1 [32m200[0m 2.338 ms - 213[0m
+[0mGET /screenings/1 [36m304[0m 3.455 ms - -[0m
+[0mGET /movies/1 [32m200[0m 2.296 ms - 118[0m
+  ✓  69 [chromium] › src/routes/summary/summary.spec.ts:145:3 › Summary — /screenings/:id/summary › AC-67: Every summary identifier in section 9.3 is present with the exact names and values given there (547ms)
+
+  69 passed (43.9s)
+[ELIFECYCLE] Command failed.
+
+[2m[32m[39m[22m
+
+[7m[1m[32m NX [39m[22m[27m  [32mSuccessfully ran target [1mserve[22m for project cinescope[39m
+
+

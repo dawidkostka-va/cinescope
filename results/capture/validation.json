@@ -1,0 +1,67 @@
+{
+  "build": {
+    "command": "pnpm exec nx run-many -t build",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 1206,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "failures": []
+    }
+  },
+  "typecheck": {
+    "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 669,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "check",
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "errors": 0,
+      "failures": []
+    }
+  },
+  "lint": {
+    "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+    "required": true,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 796,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "files",
+      "passed": 27,
+      "failed": 0,
+      "total": 27,
+      "errors": 0,
+      "warnings": 0,
+      "failures": []
+    }
+  },
+  "e2e": {
+    "command": "pnpm --dir apps/e2e exec playwright test",
+    "required": false,
+    "status": "pass",
+    "exitCode": 0,
+    "durationMs": 51458,
+    "timeoutMinutes": 15,
+    "score": {
+      "unit": "tests",
+      "passed": 69,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "total": 69,
+      "failures": []
+    }
+  }
+}
