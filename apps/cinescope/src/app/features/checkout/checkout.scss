@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  width: 100%;
+}
+
+p[data-testid$='-error'] {
+  color: #c62828;
+  margin: -12px 0 12px;
+  font-size: 12px;
+}
+
+.terms {
+  margin: 8px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
