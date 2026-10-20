@@ -1,0 +1,21 @@
+<h1 data-testid="summary-title">Your tickets</h1>
+
+<div class="summary-list" data-testid="summary-list">
+  @for (item of items(); track item.ids.join(',')) {
+    <div class="summary-item" data-testid="summary-item">
+      <span data-testid="summary-item-title">{{ movieTitle() }}</span>
+      <span data-testid="summary-item-datetime">{{ dateTime() }}</span>
+      <span data-testid="summary-item-row">{{ item.row }}</span>
+      <span data-testid="summary-item-seat">{{ item.seatLabel }}</span>
+      <span data-testid="summary-item-price">{{ item.priceLabel }}</span>
+      <button mat-stroked-button type="button" data-testid="summary-item-remove-button" (click)="remove(item)">Remove</button>
+    </div>
+  }
+</div>
+
+<div data-testid="summary-total">{{ totalLabel() }}</div>
+
+<div class="actions">
+  <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">Back</button>
+  <button mat-raised-button color="primary" type="button" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+</div>

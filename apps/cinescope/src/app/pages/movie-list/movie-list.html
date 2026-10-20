@@ -1,0 +1,53 @@
+<div class="day-picker" data-testid="day-picker">
+  @for (day of dayButtons(); track day.date) {
+    <button
+      mat-stroked-button
+      type="button"
+      data-testid="day-button"
+      [attr.data-date]="day.date"
+      [attr.data-selected]="day.selected"
+      [color]="day.selected ? 'primary' : null"
+      (click)="selectDate(day.date)"
+    >
+      {{ day.label }}
+    </button>
+  }
+
+  <mat-form-field appearance="outline" class="date-picker-field">
+    <mat-label>Choose a date</mat-label>
+    <input matInput data-testid="date-picker" [matDatepicker]="picker" [min]="minDate" [value]="datepickerValue()" (dateChange)="onDatepickerChange($event.value)" readonly />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<div class="movie-section">
+  @if (loading()) {
+    <div data-testid="movies-loading">Loading…</div>
+  } @else if (error()) {
+    <div data-testid="movies-error">Failed to load movies</div>
+    <button mat-raised-button type="button" data-testid="movies-retry-button" (click)="retry()">Retry</button>
+  } @else if (cards().length === 0) {
+    <div data-testid="movies-empty">No screenings on this day</div>
+  } @else {
+    <div class="movie-list" data-testid="movie-list">
+      @for (card of cards(); track card.movie.id) {
+        <div class="movie-card" data-testid="movie-card" [attr.data-movie-id]="card.movie.id">
+          <div class="movie-title" data-testid="movie-title">{{ card.movie.title }}</div>
+          <div class="movie-meta">
+            <span data-testid="movie-genre">{{ card.movie.genre }}</span>
+            <span data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</span>
+            <span data-testid="movie-format">{{ card.movie.format }}</span>
+          </div>
+          <div class="screenings">
+            @for (s of card.screenings; track s.id) {
+              <button mat-stroked-button type="button" data-testid="screening-button" [attr.data-screening-id]="s.id" (click)="openSeats(s.id)">
+                {{ s.time }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

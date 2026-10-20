@@ -1,0 +1,87 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<div class="checkout-form">
+  <mat-form-field appearance="outline">
+    <mat-label data-testid="first-name-label">First name *</mat-label>
+    <input
+      matInput
+      data-testid="first-name-input"
+      [value]="values().firstName"
+      (input)="update('firstName', $any($event.target).value)"
+      (blur)="markTouched('firstName')"
+    />
+  </mat-form-field>
+  @if (errors().firstName) {
+    <div data-testid="first-name-error">{{ errors().firstName }}</div>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label data-testid="last-name-label">Last name *</mat-label>
+    <input
+      matInput
+      data-testid="last-name-input"
+      [value]="values().lastName"
+      (input)="update('lastName', $any($event.target).value)"
+      (blur)="markTouched('lastName')"
+    />
+  </mat-form-field>
+  @if (errors().lastName) {
+    <div data-testid="last-name-error">{{ errors().lastName }}</div>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label data-testid="email-label">Email *</mat-label>
+    <input
+      matInput
+      data-testid="email-input"
+      [value]="values().email"
+      (input)="update('email', $any($event.target).value)"
+      (blur)="markTouched('email')"
+    />
+  </mat-form-field>
+  @if (errors().email) {
+    <div data-testid="email-error">{{ errors().email }}</div>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+    <input
+      matInput
+      data-testid="confirm-email-input"
+      [value]="values().confirmEmail"
+      (input)="update('confirmEmail', $any($event.target).value)"
+      (blur)="markTouched('confirmEmail')"
+    />
+  </mat-form-field>
+  @if (errors().confirmEmail) {
+    <div data-testid="confirm-email-error">{{ errors().confirmEmail }}</div>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label data-testid="phone-label">Phone number</mat-label>
+    <input
+      matInput
+      data-testid="phone-input"
+      [value]="values().phone"
+      (input)="update('phone', $any($event.target).value)"
+      (blur)="markTouched('phone')"
+    />
+  </mat-form-field>
+  @if (errors().phone) {
+    <div data-testid="phone-error">{{ errors().phone }}</div>
+  }
+
+  <mat-checkbox data-testid="terms-checkbox" [checked]="values().terms" (change)="toggleTerms($event.checked)">
+    <span data-testid="terms-label">I accept the terms and conditions *</span>
+  </mat-checkbox>
+  @if (errors().terms) {
+    <div data-testid="terms-error">{{ errors().terms }}</div>
+  }
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button mat-raised-button color="primary" type="button" data-testid="pay-button" [disabled]="submitting()" (click)="pay()">
+      {{ submitting() ? 'Processing…' : payLabel() }}
+    </button>
+  </div>
+</div>

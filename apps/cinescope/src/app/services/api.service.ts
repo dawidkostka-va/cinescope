@@ -1,0 +1,40 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Movie } from '../models/movie.model';
+import { Reservation, ReservationRequest } from '../models/reservation.model';
+import { Screening } from '../models/screening.model';
+
+const BASE_URL = 'http://localhost:3000';
+
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+  private readonly http = inject(HttpClient);
+
+  getMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${BASE_URL}/movies`);
+  }
+
+  getMovie(id: number): Observable<Movie> {
+    return this.http.get<Movie>(`${BASE_URL}/movies/${id}`);
+  }
+
+  getScreenings(params?: { date?: string; movieId?: number }): Observable<Screening[]> {
+    let httpParams = new HttpParams();
+    if (params?.date) {
+      httpParams = httpParams.set('date', params.date);
+    }
+    if (params?.movieId !== undefined) {
+      httpParams = httpParams.set('movieId', params.movieId);
+    }
+    return this.http.get<Screening[]>(`${BASE_URL}/screenings`, { params: httpParams });
+  }
+
+  getScreening(id: number): Observable<Screening> {
+    return this.http.get<Screening>(`${BASE_URL}/screenings/${id}`);
+  }
+
+  createReservation(request: ReservationRequest): Observable<Reservation> {
+    return this.http.post<Reservation>(`${BASE_URL}/reservations`, request);
+  }
+}
