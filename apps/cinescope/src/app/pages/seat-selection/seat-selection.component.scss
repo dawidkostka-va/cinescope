@@ -1,0 +1,116 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.seat-limit-info {
+  text-align: center;
+}
+
+.auditorium-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen {
+  width: 70%;
+  text-align: center;
+  background: #bbb;
+  padding: 8px;
+  border-radius: 4px;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.row-label {
+  width: 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.block {
+  display: flex;
+  gap: 4px;
+}
+
+.block-main {
+  flex-wrap: nowrap;
+}
+
+.aisle {
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.seat,
+.couch,
+.empty {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.couch {
+  width: 60px;
+}
+
+.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.selected-seats {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
