@@ -1,0 +1,21 @@
+<h1 data-testid="summary-title">Your tickets</h1>
+
+<div class="summary-list" data-testid="summary-list">
+  @for (row of rows(); track row.seatLabel + '-' + row.item.row) {
+    <div class="summary-item" data-testid="summary-item">
+      <span data-testid="summary-item-title">{{ data().movie.title }}</span>
+      <span data-testid="summary-item-datetime">{{ dateTime() }}</span>
+      <span data-testid="summary-item-row">{{ row.item.row }}</span>
+      <span data-testid="summary-item-seat">{{ row.seatLabel }}</span>
+      <span data-testid="summary-item-price">{{ row.price }}</span>
+      <button mat-stroked-button type="button" data-testid="summary-item-remove-button" (click)="remove(row.item)">Remove</button>
+    </div>
+  }
+</div>
+
+<div data-testid="summary-total">Total: {{ total() }}</div>
+
+<div class="actions">
+  <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">Back</button>
+  <button mat-flat-button type="button" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+</div>

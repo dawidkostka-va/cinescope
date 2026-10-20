@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.terms {
+  margin: 8px 0 16px;
+}
+
+.terms-error {
+  color: var(--mat-sys-error, #c62828);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}

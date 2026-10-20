@@ -1,0 +1,69 @@
+<div class="day-picker" data-testid="day-picker">
+  @for (day of dayButtons; track day.iso) {
+    <button
+      mat-flat-button
+      type="button"
+      data-testid="day-button"
+      [attr.data-date]="day.iso"
+      [attr.data-selected]="selectedButtonIso() === day.iso"
+      [color]="selectedButtonIso() === day.iso ? 'primary' : undefined"
+      (click)="selectDay(day.iso)"
+    >
+      {{ day.label }}
+    </button>
+  }
+
+  <mat-form-field data-testid="date-picker" subscriptSizing="dynamic">
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [min]="minDate"
+      [value]="datepickerValue()"
+      (dateChange)="onDatepickerChange($event.value)"
+      placeholder="Choose a date"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+@switch (status()) {
+  @case ('loading') {
+    <p data-testid="movies-loading">Loading…</p>
+  }
+  @case ('error') {
+    <div data-testid="movies-error">
+      <p>Failed to load movies</p>
+      <button mat-flat-button type="button" data-testid="movies-retry-button" (click)="retry()">Retry</button>
+    </div>
+  }
+  @case ('loaded') {
+    @if (cards().length === 0) {
+      <p data-testid="movies-empty">No screenings on this day</p>
+    }
+  }
+}
+
+<div class="movie-list" data-testid="movie-list">
+  @for (card of cards(); track card.movie.id) {
+    <div class="movie-card" data-testid="movie-card" [attr.data-movie-id]="card.movie.id">
+      <h2 data-testid="movie-title">{{ card.movie.title }}</h2>
+      <p data-testid="movie-genre">{{ card.movie.genre }}</p>
+      <p data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</p>
+      <p data-testid="movie-format">{{ card.movie.format }}</p>
+      <div class="screenings">
+        @for (screening of card.screenings; track screening.id) {
+          <button
+            mat-stroked-button
+            type="button"
+            data-testid="screening-button"
+            [attr.data-screening-id]="screening.id"
+            [routerLink]="['/screenings', screening.id, 'seats']"
+          >
+            {{ screening.time }}
+          </button>
+        }
+      </div>
+    </div>
+  }
+</div>
