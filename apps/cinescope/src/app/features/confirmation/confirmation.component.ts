@@ -1,0 +1,22 @@
+import { Component, computed, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { BookingService } from '../../core/services/booking.service';
+
+@Component({
+  selector: 'app-confirmation',
+  imports: [MatButtonModule],
+  templateUrl: './confirmation.component.html',
+  styleUrl: './confirmation.component.scss',
+})
+export class ConfirmationComponent {
+  private readonly bookingService = inject(BookingService);
+  private readonly router = inject(Router);
+
+  readonly email = computed(() => this.bookingService.booking()?.customerEmail ?? '');
+
+  continue(): void {
+    this.bookingService.clear();
+    this.router.navigateByUrl('/');
+  }
+}

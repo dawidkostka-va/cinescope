@@ -1,0 +1,28 @@
+<div data-testid="day-picker" class="day-picker">
+  @for (day of days; track day.iso) {
+    <button
+      type="button"
+      mat-stroked-button
+      data-testid="day-button"
+      [attr.data-date]="day.iso"
+      [attr.data-selected]="isDayButtonSelected(day.iso)"
+      [class.selected]="isDayButtonSelected(day.iso)"
+      (click)="selectDay(day.iso)"
+    >
+      {{ day.label }}
+    </button>
+  }
+
+  <mat-form-field data-testid="date-picker" subscriptSizing="dynamic" class="date-picker-field">
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [min]="minDate"
+      [value]="datepickerValue()"
+      (dateChange)="onDatepickerChange($event.value)"
+      placeholder="Choose a date"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>

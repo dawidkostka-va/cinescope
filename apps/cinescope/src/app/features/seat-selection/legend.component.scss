@@ -1,0 +1,18 @@
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.swatch {
+  width: 1em;
+  height: 1em;
+  border-radius: 3px;
+  display: inline-block;
+}

@@ -1,0 +1,6 @@
+<div data-testid="selected-seats" class="selected-seats">
+  <div data-testid="selected-seats-count">Selected seats: {{ count() }}</div>
+  @for (line of rowLines(); track line.row) {
+    <div data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</div>
+  }
+</div>

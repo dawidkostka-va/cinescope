@@ -1,0 +1,102 @@
+<div data-testid="screen-indicator" class="screen">SCREEN</div>
+
+<div data-testid="seat-map" class="seat-map">
+  @for (row of rows; track row.row) {
+    <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+      <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row">{{ row.row }}</span>
+
+      @for (cell of row.blockA; track cell.kind === 'seat' ? cell.id : cell.id1) {
+        @if (cell.kind === 'seat') {
+          <button
+            type="button"
+            class="seat"
+            [class]="'state-' + seatState(cell)"
+            data-testid="seat"
+            [attr.data-row]="cell.row"
+            [attr.data-column]="cell.column"
+            [attr.data-state]="seatState(cell)"
+            [style.grid-column]="cell.gridColumn"
+            (click)="onSeatClick(cell)"
+          >{{ cell.column }}</button>
+        } @else {
+          <button
+            type="button"
+            class="couch"
+            [class]="'state-' + couchState(cell)"
+            data-testid="couch"
+            [attr.data-row]="cell.row"
+            [attr.data-column-start]="cell.columnStart"
+            [attr.data-column-end]="cell.columnEnd"
+            [attr.data-state]="couchState(cell)"
+            [style.grid-column]="cell.gridColumnStart + ' / ' + cell.gridColumnEnd"
+            (click)="onCouchClick(cell)"
+          >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+        }
+      }
+
+      <span class="aisle" data-testid="aisle" [attr.data-row]="row.row" style="grid-column: 6"></span>
+
+      @for (cell of row.blockB; track cell.kind === 'seat' ? cell.id : cell.id1) {
+        @if (cell.kind === 'seat') {
+          <button
+            type="button"
+            class="seat"
+            [class]="'state-' + seatState(cell)"
+            data-testid="seat"
+            [attr.data-row]="cell.row"
+            [attr.data-column]="cell.column"
+            [attr.data-state]="seatState(cell)"
+            [style.grid-column]="cell.gridColumn"
+            (click)="onSeatClick(cell)"
+          >{{ cell.column }}</button>
+        } @else {
+          <button
+            type="button"
+            class="couch"
+            [class]="'state-' + couchState(cell)"
+            data-testid="couch"
+            [attr.data-row]="cell.row"
+            [attr.data-column-start]="cell.columnStart"
+            [attr.data-column-end]="cell.columnEnd"
+            [attr.data-state]="couchState(cell)"
+            [style.grid-column]="cell.gridColumnStart + ' / ' + cell.gridColumnEnd"
+            (click)="onCouchClick(cell)"
+          >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+        }
+      }
+
+      <span class="aisle" data-testid="aisle" [attr.data-row]="row.row" style="grid-column: 23"></span>
+
+      @for (cell of row.blockC; track cell.kind === 'seat' ? cell.id : cell.id1) {
+        @if (cell.kind === 'seat') {
+          <button
+            type="button"
+            class="seat"
+            [class]="'state-' + seatState(cell)"
+            data-testid="seat"
+            [attr.data-row]="cell.row"
+            [attr.data-column]="cell.column"
+            [attr.data-state]="seatState(cell)"
+            [style.grid-column]="cell.gridColumn"
+            (click)="onSeatClick(cell)"
+          >{{ cell.column }}</button>
+        } @else {
+          <button
+            type="button"
+            class="couch"
+            [class]="'state-' + couchState(cell)"
+            data-testid="couch"
+            [attr.data-row]="cell.row"
+            [attr.data-column-start]="cell.columnStart"
+            [attr.data-column-end]="cell.columnEnd"
+            [attr.data-state]="couchState(cell)"
+            [style.grid-column]="cell.gridColumnStart + ' / ' + cell.gridColumnEnd"
+            (click)="onCouchClick(cell)"
+          >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+        }
+      }
+
+      <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row" style="grid-column: 28">{{ row.row }}</span>
+    </div>
+  }
+</div>

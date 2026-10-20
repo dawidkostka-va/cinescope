@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  width: 100%;
+}
+
+.error {
+  color: #c62828;
+  font-size: 0.8em;
+  margin: -0.75rem 0 0.75rem;
+}
+
+.terms-row {
+  margin: 0.5rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}

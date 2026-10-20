@@ -1,0 +1,59 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="checkout-form">
+  <mat-form-field class="field">
+    <mat-label data-testid="first-name-label">First name *</mat-label>
+    <input matInput data-testid="first-name-input" formControlName="firstName" />
+  </mat-form-field>
+  @if (showError('firstName')) {
+    <div data-testid="first-name-error" class="error">{{ errorMessage('firstName') }}</div>
+  }
+
+  <mat-form-field class="field">
+    <mat-label data-testid="last-name-label">Last name *</mat-label>
+    <input matInput data-testid="last-name-input" formControlName="lastName" />
+  </mat-form-field>
+  @if (showError('lastName')) {
+    <div data-testid="last-name-error" class="error">{{ errorMessage('lastName') }}</div>
+  }
+
+  <mat-form-field class="field">
+    <mat-label data-testid="email-label">Email *</mat-label>
+    <input matInput data-testid="email-input" formControlName="email" />
+  </mat-form-field>
+  @if (showError('email')) {
+    <div data-testid="email-error" class="error">{{ errorMessage('email') }}</div>
+  }
+
+  <mat-form-field class="field">
+    <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+    <input matInput data-testid="confirm-email-input" formControlName="confirmEmail" />
+  </mat-form-field>
+  @if (showError('confirmEmail')) {
+    <div data-testid="confirm-email-error" class="error">{{ errorMessage('confirmEmail') }}</div>
+  }
+
+  <mat-form-field class="field">
+    <mat-label data-testid="phone-label">Phone number</mat-label>
+    <input matInput data-testid="phone-input" formControlName="phone" />
+  </mat-form-field>
+  @if (showError('phone')) {
+    <div data-testid="phone-error" class="error">{{ errorMessage('phone') }}</div>
+  }
+
+  <div class="terms-row">
+    <mat-checkbox data-testid="terms-checkbox" formControlName="terms" (change)="onTermsChange()">
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+  </div>
+  @if (showTermsError()) {
+    <div data-testid="terms-error" class="error">{{ termsErrorMessage() }}</div>
+  }
+
+  <div class="actions">
+    <button type="button" mat-stroked-button data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button type="submit" mat-raised-button data-testid="pay-button" [disabled]="submitting()">
+      {{ payButtonText() }}
+    </button>
+  </div>
+</form>

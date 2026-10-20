@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.auditorium-wrapper {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.seat-limit-info {
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
