@@ -1,0 +1,101 @@
+.screen-indicator {
+  margin: 0 auto 16px;
+  width: 60%;
+  max-width: 640px;
+  padding: 8px;
+  text-align: center;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: #fff;
+  background: #424242;
+  border-radius: 4px 4px 40px 40px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row-label {
+  width: 20px;
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 12px;
+  color: #616161;
+}
+
+.row-body {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.seat,
+.empty-cell {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.aisle {
+  width: 60px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.seat,
+.couch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #fff;
+  user-select: none;
+}
+
+.seat[data-state='unavailable'],
+.couch[data-state='unavailable'] {
+  cursor: not-allowed;
+}
+
+.seat:not([data-state='unavailable']),
+.couch:not([data-state='unavailable']) {
+  cursor: pointer;
+}
+
+.couch {
+  width: 60px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
