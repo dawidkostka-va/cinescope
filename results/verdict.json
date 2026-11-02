@@ -1,0 +1,187 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-11-02T15:06:48Z",
+  "runId": "control-20261102-150010",
+  "profile": "control",
+  "model": "claude-sonnet-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "2b8e26cbb308944299f0f411ed5897eefdb6cf7f",
+  "harnessDirty": false,
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 21,
+    "durationMs": 305882,
+    "apiDurationMs": 280559,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-11-02T15:00:15Z",
+    "endedAt": "2026-11-02T15:06:46Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": 1.1973804000000001,
+    "tokens": {
+      "input": 38,
+      "output": 43403,
+      "cacheRead": 1569512,
+      "cacheWrite": 112343
+    },
+    "byModel": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 38,
+        "outputTokens": 43403,
+        "cacheReadTokens": 1569512,
+        "cacheWriteTokens": 112343,
+        "costUsd": 1.1973804000000001
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14441,
+      "tools": 86846,
+      "skills": 8122
+    },
+    "tokens": {
+      "system": 4529,
+      "tools": 31632,
+      "skills": 2890
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 19,
+    "mainAgentRequests": 19,
+    "subagentRequests": 0,
+    "firstContextTokens": 39570,
+    "peakContextTokens": 112345,
+    "lastContextTokens": 112345
+  },
+  "changes": {
+    "baseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+    "filesChanged": 35,
+    "linesAdded": 1691,
+    "linesRemoved": 83
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 21,
+      "matched": 21,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-02T15:05:38Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 29,
+      "failed": 0,
+      "total": 29,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 67,
+      "failed": 2,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 5392,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 943,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1119,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 29,
+        "failed": 0,
+        "total": 29,
+        "errors": 0,
+        "warnings": 17,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 59303,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 67,
+        "failed": 2,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": [
+          "checkout/checkout.spec.ts:32 AC-42: First name and last name are required and must be at least 2 characters",
+          "checkout/checkout.spec.ts:51 AC-43: Email is required and must be a valid address; confirm email must match it"
+        ]
+      }
+    }
+  }
+}
