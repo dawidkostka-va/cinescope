@@ -1,0 +1,55 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.day-button--selected {
+  background-color: #1565c0;
+  color: #fff;
+}
+
+.date-field {
+  width: 220px;
+  margin-left: 8px;
+}
+
+.status {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.movie-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+}
+
+.details {
+  display: flex;
+  gap: 16px;
+  color: #616161;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.screenings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

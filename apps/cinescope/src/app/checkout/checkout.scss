@@ -1,0 +1,31 @@
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+.field {
+  margin-bottom: 4px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.error {
+  margin: 0 0 8px;
+  color: #c62828;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
