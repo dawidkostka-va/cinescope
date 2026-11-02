@@ -1,0 +1,27 @@
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field mat-form-field {
+  width: 100%;
+}
+
+.error {
+  color: #b3261e;
+  font-size: 13px;
+  margin: 4px 0 0 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}

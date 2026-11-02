@@ -1,0 +1,25 @@
+@if (screening() && movie()) {
+  <div class="page">
+    <h1 data-testid="summary-title">Your tickets</h1>
+
+    <ul class="list" data-testid="summary-list">
+      @for (item of booking.tickets(); track item.ids[0]) {
+        <li class="item" data-testid="summary-item">
+          <span class="movie" data-testid="summary-item-title">{{ movie()!.title }}</span>
+          <span data-testid="summary-item-datetime">{{ screening()!.date }} {{ screening()!.time }}</span>
+          <span class="field">Row <span data-testid="summary-item-row">{{ item.row }}</span></span>
+          <span class="field">Seat <span data-testid="summary-item-seat">{{ describe(item) }}</span></span>
+          <span class="price" data-testid="summary-item-price">{{ formatPrice(item.price) }}</span>
+          <button matButton="outlined" data-testid="summary-item-remove-button" (click)="remove(item)">Remove</button>
+        </li>
+      }
+    </ul>
+
+    <p class="total" data-testid="summary-total">Total: {{ formatPrice(booking.total()) }}</p>
+
+    <div class="actions">
+      <button matButton="outlined" data-testid="back-button" (click)="goTo('seats')">Back</button>
+      <button matButton="filled" data-testid="confirm-button" (click)="goTo('checkout')">Confirm</button>
+    </div>
+  </div>
+}

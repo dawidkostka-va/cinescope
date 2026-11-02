@@ -1,0 +1,149 @@
+$seat: 32px;
+$gap: 4px;
+$pitch: $seat + $gap;
+
+.page {
+  padding: 24px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.auditorium {
+  display: inline-block;
+  margin: 16px 0;
+  text-align: center;
+}
+
+.limit {
+  margin: 0 0 12px;
+}
+
+.screen {
+  background: #424242;
+  color: #fff;
+  letter-spacing: 6px;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: $pitch;
+}
+
+.row-label {
+  width: $seat;
+  font-weight: 500;
+}
+
+.seat {
+  box-sizing: border-box;
+  flex: none;
+  width: $seat;
+  height: $seat;
+  margin: 0 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font: 500 12px Roboto, sans-serif;
+  cursor: pointer;
+  outline-offset: 2px;
+
+  &.couch {
+    width: 2 * $seat + $gap;
+    margin: 0 2px;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 2px solid rgba(0, 0, 0, 0.35);
+  }
+
+  &[data-state='unavailable'] {
+    cursor: not-allowed;
+  }
+}
+
+.aisle {
+  flex: none;
+  width: 2 * $pitch + $gap;
+}
+
+.entrance {
+  flex: none;
+  width: 4 * $pitch;
+}
+
+.seat[data-state='available'] {
+  background-color: #2e7d32;
+}
+
+.seat[data-state='selected'] {
+  background-color: #f9a825;
+  color: #000;
+}
+
+.seat[data-state='unavailable'] {
+  background-color: #c62828;
+}
+
+.seat[data-state='accessible'] {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  margin: 8px 0 24px;
+  min-height: 60px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.swatch[data-state='available'] {
+  background-color: #2e7d32;
+}
+
+.swatch[data-state='selected'] {
+  background-color: #f9a825;
+}
+
+.swatch[data-state='unavailable'] {
+  background-color: #c62828;
+}
+
+.swatch[data-state='accessible'] {
+  background-color: #1565c0;
+}
