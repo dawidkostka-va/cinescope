@@ -8,11 +8,11 @@
 
 **Status:** ready
 
-- [ ] AC-28 — Seats in rows 1–5 cost `25.00 PLN`.
-- [ ] AC-29 — Seats in rows 6–10 cost `32.00 PLN`.
-- [ ] AC-30 — Seats in rows 11–14 cost `39.00 PLN`.
-- [ ] AC-31 — A couch costs `89.00 PLN` per couch, not per seat.
-- [ ] AC-32 — Accessible seats cost `25.00 PLN`, like the rest of row 1.
+- [x] AC-28 — Seats in rows 1–5 cost `25.00 PLN`.
+- [x] AC-29 — Seats in rows 6–10 cost `32.00 PLN`.
+- [x] AC-30 — Seats in rows 11–14 cost `39.00 PLN`.
+- [x] AC-31 — A couch costs `89.00 PLN` per couch, not per seat.
+- [x] AC-32 — Accessible seats cost `25.00 PLN`, like the rest of row 1.
 - [ ] AC-33 — `Cancel` navigates to `/` and clears the selection.
 - [ ] AC-34 — `Continue` navigates to `/screenings/:id/summary`.
 - [ ] AC-35 — `Continue` does nothing when no seat is selected.

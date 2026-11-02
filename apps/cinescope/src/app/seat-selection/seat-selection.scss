@@ -1,0 +1,135 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.subtitle,
+.limit {
+  margin: 0;
+  text-align: center;
+}
+
+.screen {
+  width: 720px;
+  padding: 6px 0;
+  text-align: center;
+  background: var(--mat-sys-surface-variant);
+  border-radius: 0 0 50% 50%;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: max-content;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: 32px repeat(4, 36px) 72px repeat(16, 36px) 72px repeat(4, 36px) 32px;
+  align-items: center;
+
+  > * {
+    grid-row: 1;
+  }
+}
+
+.row-label {
+  font-size: 12px;
+  text-align: center;
+  grid-column: 1;
+}
+
+.row-label-right {
+  grid-column: 28;
+}
+
+.aisle {
+  height: 32px;
+}
+
+.aisle-left {
+  grid-column: 6;
+}
+
+.aisle-right {
+  grid-column: 23;
+}
+
+.seat,
+.couch {
+  height: 32px;
+  margin: 2px;
+  justify-self: stretch;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.seat[data-state='available'],
+.couch[data-state='available'],
+.swatch[data-state='available'] {
+  background-color: #2e7d32;
+}
+
+.seat[data-state='accessible'],
+.swatch[data-state='accessible'] {
+  background-color: #1565c0;
+}
+
+.seat[data-state='unavailable'],
+.couch[data-state='unavailable'],
+.swatch[data-state='unavailable'] {
+  background-color: #c62828;
+  cursor: not-allowed;
+}
+
+.seat[data-state='selected'],
+.couch[data-state='selected'],
+.swatch[data-state='selected'] {
+  background-color: #f9a825;
+  color: #212121;
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.selection {
+  align-self: stretch;
+  margin: 0;
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
