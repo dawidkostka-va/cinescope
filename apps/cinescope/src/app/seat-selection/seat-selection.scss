@@ -1,0 +1,155 @@
+$seat: 30px;
+$gap: 4px;
+$label: 28px;
+$aisle: 72px;
+$side-block: 4 * $seat + 3 * $gap;
+$centre-block: 16 * $seat + 15 * $gap;
+$couch: 2 * $seat + $gap;
+
+:host {
+  display: block;
+  padding: 24px;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+}
+
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.limit {
+  margin: 16px 0;
+}
+
+.screen {
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 4px;
+  background: var(--mat-sys-surface-container-highest);
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  margin-top: 16px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+}
+
+.row-label {
+  width: $label;
+  flex: none;
+  font-size: 12px;
+}
+
+.aisle {
+  width: $aisle;
+  flex: none;
+}
+
+.block {
+  display: flex;
+  gap: $gap;
+  flex: none;
+  width: $centre-block;
+
+  &.side {
+    width: $side-block;
+  }
+}
+
+.seat,
+.couch {
+  box-sizing: border-box;
+  height: $seat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  flex: none;
+}
+
+.seat {
+  width: $seat;
+}
+
+.couch {
+  width: $couch;
+}
+
+$state-colours: (
+  'available': #2e7d32,
+  'selected': #f9a825,
+  'unavailable': #c62828,
+  'accessible': #1565c0,
+);
+
+@each $state, $colour in $state-colours {
+  .seat[data-state='#{$state}'],
+  .couch[data-state='#{$state}'],
+  .legend-item[data-state='#{$state}'] .swatch {
+    background: $colour;
+  }
+}
+
+.seat[data-state='selected'] {
+  color: #000;
+}
+
+.seat[data-state='available'],
+.seat[data-state='selected'],
+.couch[data-state='available'],
+.couch[data-state='selected'] {
+  cursor: pointer;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  margin-top: 16px;
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

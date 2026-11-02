@@ -1,0 +1,94 @@
+@let loaded = data(); @if (loaded) {
+<h1 data-testid="seat-map-title">Choose your seats</h1>
+<p class="subtitle" data-testid="seat-map-subtitle">Show Date: {{ subtitle(loaded.screening) }}</p>
+
+<div class="auditorium">
+  <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+  <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+  <div class="seat-map" data-testid="seat-map">
+    @for (row of rows(); track row.row) {
+    <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+      <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row"
+        >{{ row.row }}</span
+      >
+      @for (segment of row.segments; track $index) { @if (segment.kind === 'aisle') {
+      <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+      } @else {
+      <div class="block" [class.side]="segment.side">
+        @for (cell of segment.cells; track cell.key) { @if (cell.kind === 'seat') {
+        <div
+          class="seat"
+          data-testid="seat"
+          [attr.data-row]="cell.row"
+          [attr.data-column]="cell.column"
+          [attr.data-state]="stateOf(cell)"
+          role="button"
+          tabindex="0"
+          (click)="toggle(cell)"
+          (keydown.enter)="toggle(cell)"
+        >
+          {{ cell.column }}
+        </div>
+        } @else {
+        <div
+          class="couch"
+          data-testid="couch"
+          [attr.data-row]="cell.row"
+          [attr.data-column-start]="cell.start"
+          [attr.data-column-end]="cell.end"
+          [attr.data-state]="stateOf(cell)"
+          role="button"
+          tabindex="0"
+          (click)="toggle(cell)"
+          (keydown.enter)="toggle(cell)"
+        >
+          {{ cell.start }}-{{ cell.end }}
+        </div>
+        } }
+      </div>
+      } }
+      <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row"
+        >{{ row.row }}</span
+      >
+    </div>
+    }
+  </div>
+</div>
+
+<ul class="legend" data-testid="legend">
+  <li class="legend-item" data-testid="legend-item" data-state="available">
+    <span class="swatch"></span>Available
+  </li>
+  <li class="legend-item" data-testid="legend-item" data-state="selected">
+    <span class="swatch"></span>Selected
+  </li>
+  <li class="legend-item" data-testid="legend-item" data-state="unavailable">
+    <span class="swatch"></span>Unavailable
+  </li>
+  <li class="legend-item" data-testid="legend-item" data-state="accessible">
+    <span class="swatch"></span>Accessible
+  </li>
+</ul>
+
+<section class="selected-seats" data-testid="selected-seats">
+  <p data-testid="selected-seats-count">Selected seats: {{ seatCount() }}</p>
+  @for (line of rowLines(); track line.row) {
+  <p data-testid="selected-seats-row" [attr.data-row]="line.row">
+    Row {{ line.row }}: {{ line.text }}
+  </p>
+  }
+</section>
+
+<div class="actions">
+  <button mat-stroked-button data-testid="cancel-button" (click)="cancel()">Cancel</button>
+  <button
+    mat-flat-button
+    data-testid="continue-button"
+    [disabled]="seatCount() === 0"
+    (click)="continue(loaded.screening.id)"
+  >
+    Continue
+  </button>
+</div>
+}

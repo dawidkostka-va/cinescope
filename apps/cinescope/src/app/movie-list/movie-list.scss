@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  .selected {
+    background-color: var(--mat-sys-primary-container);
+  }
+}
+
+.date-field {
+  width: 220px;
+}
+
+.status {
+  text-align: center;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movie-card {
+  padding: 16px;
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 12px;
+
+  h2 {
+    margin: 0 0 8px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 16px;
+    margin: 0 0 12px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  .screenings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

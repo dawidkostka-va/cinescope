@@ -1,0 +1,63 @@
+<section class="day-picker" data-testid="day-picker">
+  @for (day of dayButtons; track day.date) {
+  <button
+    mat-stroked-button
+    data-testid="day-button"
+    [class.selected]="day.date === selectedDate()"
+    [attr.data-date]="day.date"
+    [attr.data-selected]="day.date === selectedDate()"
+    (click)="selectDay(day.date)"
+  >
+    {{ day.label }}
+  </button>
+  }
+  <mat-form-field class="date-field">
+    <mat-label>Other date</mat-label>
+    <input
+      matInput
+      data-testid="date-picker"
+      [matDatepicker]="picker"
+      [min]="today"
+      [value]="pickedDate()"
+      (dateChange)="onDatePicked($event.value)"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker" />
+    <mat-datepicker #picker />
+  </mat-form-field>
+</section>
+
+@let state = view(); @if (state.status === 'loading') {
+<p class="status" data-testid="movies-loading">Loading…</p>
+} @else if (state.status === 'error') {
+<div class="status">
+  <p data-testid="movies-error">Failed to load movies</p>
+  <button mat-flat-button data-testid="movies-retry-button" (click)="retry()">Retry</button>
+</div>
+} @else if (state.cards.length === 0) {
+<p class="status" data-testid="movies-empty">No screenings on this day</p>
+} @else {
+<section class="movie-list" data-testid="movie-list">
+  @for (card of state.cards; track card.movie.id) {
+  <article class="movie-card" data-testid="movie-card" [attr.data-movie-id]="card.movie.id">
+    <h2 data-testid="movie-title">{{ card.movie.title }}</h2>
+    <p class="meta">
+      <span data-testid="movie-genre">{{ card.movie.genre }}</span>
+      <span data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</span>
+      <span data-testid="movie-format">{{ card.movie.format }}</span>
+    </p>
+    <div class="screenings">
+      @for (screening of card.screenings; track screening.id) {
+      <button
+        mat-stroked-button
+        data-testid="screening-button"
+        [attr.data-screening-id]="screening.id"
+        (click)="openScreening(screening.id)"
+      >
+        {{ screening.time }}
+      </button>
+      }
+    </div>
+  </article>
+  }
+</section>
+}
