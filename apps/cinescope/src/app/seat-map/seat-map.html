@@ -1,0 +1,77 @@
+@if (screening()) {
+  <main class="page seat-page">
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p class="subtitle" data-testid="seat-map-subtitle">{{ subtitle() }}</p>
+    <p class="seat-limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+    <div class="screen-indicator" data-testid="screen-indicator">SCREEN</div>
+
+    <div class="seat-map" data-testid="seat-map">
+      @for (row of layout; track row.row) {
+        <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+          <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row">{{ row.row }}</span>
+          @if (row.entrance) {
+            <div class="entrance"></div>
+          } @else {
+            @for (cell of row.left; track cell.key) {
+              <ng-container *ngTemplateOutlet="cellTemplate; context: { $implicit: cell }" />
+            }
+          }
+          <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+          @for (cell of row.middle; track cell.key) {
+            <ng-container *ngTemplateOutlet="cellTemplate; context: { $implicit: cell }" />
+          }
+          <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+          @for (cell of row.right; track cell.key) {
+            <ng-container *ngTemplateOutlet="cellTemplate; context: { $implicit: cell }" />
+          }
+          <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row">{{ row.row }}</span>
+        </div>
+      }
+    </div>
+
+    <ng-template #cellTemplate let-cell>
+      @if (cell.kind === 'seat') {
+        <button
+          type="button"
+          class="seat"
+          data-testid="seat"
+          [attr.data-row]="cell.row"
+          [attr.data-column]="cell.start"
+          [attr.data-state]="stateOf(cell)"
+          (click)="toggle(cell)"
+        >{{ cell.start }}</button>
+      } @else {
+        <button
+          type="button"
+          class="couch"
+          data-testid="couch"
+          [attr.data-row]="cell.row"
+          [attr.data-column-start]="cell.start"
+          [attr.data-column-end]="cell.end"
+          [attr.data-state]="stateOf(cell)"
+          (click)="toggle(cell)"
+        >{{ cell.start }}-{{ cell.end }}</button>
+      }
+    </ng-template>
+
+    <div class="legend" data-testid="legend">
+      <span class="legend-item" data-testid="legend-item" data-state="available"><i class="swatch available"></i>Available</span>
+      <span class="legend-item" data-testid="legend-item" data-state="selected"><i class="swatch selected"></i>Selected</span>
+      <span class="legend-item" data-testid="legend-item" data-state="unavailable"><i class="swatch unavailable"></i>Unavailable</span>
+      <span class="legend-item" data-testid="legend-item" data-state="accessible"><i class="swatch accessible"></i>Accessible</span>
+    </div>
+
+    <div class="selected-seats" data-testid="selected-seats">
+      <div data-testid="selected-seats-count">Selected seats: {{ seats().length }}</div>
+      @for (group of ticketGroups(); track group[0]) {
+        <div data-testid="selected-seats-row" [attr.data-row]="group[0]">Row {{ group[0] }}: {{ group[1].join(', ') }}</div>
+      }
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button mat-flat-button data-testid="continue-button" [disabled]="seats().length === 0" (click)="continue()">Continue</button>
+    </div>
+  </main>
+}

@@ -7,7 +7,7 @@ confirmation — against the specification, fixing whatever does not match.
 
 **Blocked by:** 01–06.
 
-**Status:** ready
+**Status:** done
 
-- [ ] Every acceptance criterion in section 10 is met.
-- [ ] `pnpm nx build cinescope` succeeds.
+- [x] Every acceptance criterion in section 10 is met.
+- [x] `pnpm nx build cinescope` succeeds.

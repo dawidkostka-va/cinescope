@@ -1,0 +1,74 @@
+<main class="page">
+  <h1 data-testid="checkout-title">Your details</h1>
+  <form class="checkout-form" (submit)="$event.preventDefault()">
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="first-name-label">First name *</mat-label>
+        <input matInput data-testid="first-name-input" [value]="form().firstName" (input)="setField('firstName', $event)" (blur)="blur('firstName')" />
+      </mat-form-field>
+      @if (shownError('firstName'); as message) {
+        <div class="field-error" data-testid="first-name-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="last-name-label">Last name *</mat-label>
+        <input matInput data-testid="last-name-input" [value]="form().lastName" (input)="setField('lastName', $event)" (blur)="blur('lastName')" />
+      </mat-form-field>
+      @if (shownError('lastName'); as message) {
+        <div class="field-error" data-testid="last-name-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="email-label">Email *</mat-label>
+        <input matInput data-testid="email-input" [value]="form().email" (input)="setField('email', $event)" (blur)="blur('email')" />
+      </mat-form-field>
+      @if (shownError('email'); as message) {
+        <div class="field-error" data-testid="email-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+        <input matInput data-testid="confirm-email-input" [value]="form().confirmEmail" (input)="setField('confirmEmail', $event)" (blur)="blur('confirmEmail')" />
+      </mat-form-field>
+      @if (shownError('confirmEmail'); as message) {
+        <div class="field-error" data-testid="confirm-email-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="phone-label">Phone number</mat-label>
+        <input matInput type="tel" data-testid="phone-input" [value]="form().phone" (input)="setField('phone', $event)" (blur)="blur('phone')" />
+      </mat-form-field>
+      @if (shownError('phone'); as message) {
+        <div class="field-error" data-testid="phone-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-checkbox data-testid="terms-checkbox" [checked]="form().terms" (change)="setTerms($event.checked)">
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (shownError('terms'); as message) {
+        <div class="field-error" data-testid="terms-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="actions">
+      <button type="button" mat-stroked-button data-testid="checkout-back-button" (click)="back()">Back</button>
+      <button
+        type="button"
+        mat-flat-button
+        data-testid="pay-button"
+        [disabled]="submitting()"
+        (click)="pay()"
+      >{{ submitting() ? 'Processing…' : 'Pay ' + total().toFixed(2) + ' PLN' }}</button>
+    </div>
+  </form>
+</main>
