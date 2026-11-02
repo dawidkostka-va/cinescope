@@ -1,0 +1,31 @@
+{
+  "startedAt": "2026-11-02T15:35:56.897Z",
+  "claudeVersion": "2.1.278 (Claude Code)",
+  "claudeArgs": [
+    "-p",
+    "Build the cinema seat-booking web application described in spec/README.md, as the Angular application already set up in this Nx workspace (Nx project `cinescope` in apps/cinescope); its stack is described in spec/stack.md. The work is split into tickets in spec/tickets/; implement them in order. spec/README.md is the complete specification: do not ask any questions, and where it is silent choose the simplest option that satisfies it. Finish only when every ticket is done and `pnpm nx build cinescope` succeeds.",
+    "--dangerously-skip-permissions",
+    "--disallowedTools",
+    "mcp__*",
+    "--max-budget-usd",
+    "10",
+    "--model",
+    "claude-sonnet-5-5",
+    "--output-format",
+    "stream-json",
+    "--verbose",
+    "--debug-file",
+    "/capture/claude-debug.log"
+  ],
+  "projectBaseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "env": {
+    "MAX_BUDGET_USD": "10",
+    "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "0",
+    "HOME": "/tmp/agent-home",
+    "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "CLAUDE_CONFIG_DIR": "/capture/claude-config",
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8787",
+    "CLAUDE_MODEL": "claude-sonnet-5-5"
+  }
+}
