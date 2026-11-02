@@ -1,0 +1,565 @@
+2026-11-02T09:01:23.032Z [DEBUG] MDM settings load completed in 3ms
+2026-11-02T09:01:23.042Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /capture/claude-config/settings.json
+2026-11-02T09:01:23.043Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /etc/claude-code/managed-settings.json
+2026-11-02T09:01:23.044Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /workspace/project/.claude/settings.json
+2026-11-02T09:01:23.044Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /workspace/project/.claude/settings.local.json
+2026-11-02T09:01:23.044Z [DEBUG] CA certs: Config fallback - globalEnv keys: , settingsEnv keys: none
+2026-11-02T09:01:23.047Z [DEBUG] [init] configureGlobalMTLS starting
+2026-11-02T09:01:23.048Z [DEBUG] [init] configureGlobalMTLS complete
+2026-11-02T09:01:23.048Z [DEBUG] [init] configureGlobalAgents starting
+2026-11-02T09:01:23.048Z [DEBUG] CA certs: stores=bundled,system, extraCertsPath=undefined
+2026-11-02T09:01:23.048Z [DEBUG] CA certs: Loaded 121 bundled root certificates
+2026-11-02T09:01:23.074Z [DEBUG] CA certs: Dropped 1 expired certificate(s) from system store
+2026-11-02T09:01:23.074Z [DEBUG] CA certs: Loaded 149 system CA certificates
+2026-11-02T09:01:23.074Z [DEBUG] mTLS: Creating HTTPS agent with custom certificates
+2026-11-02T09:01:23.074Z [DEBUG] [init] configureGlobalAgents complete
+2026-11-02T09:01:23.078Z [DEBUG] Git remote URL: null
+2026-11-02T09:01:23.079Z [DEBUG] No git remote URL found
+2026-11-02T09:01:23.081Z [DEBUG] Error log sink initialized
+2026-11-02T09:01:23.100Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/capture/claude-config/.claude.json'
+2026-11-02T09:01:23.110Z [DEBUG] Setting permissions for new file: 600
+2026-11-02T09:01:23.110Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.c6cb379928a1
+2026-11-02T09:01:23.234Z [DEBUG] Temp file written successfully, size: 84 bytes
+2026-11-02T09:01:23.234Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.c6cb379928a1 to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.235Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.244Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.244Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.9c623379c41c
+2026-11-02T09:01:23.245Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.248Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-11-02T09:01:23.248Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.9c623379c41c to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.248Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.252Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.252Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.9e9d29364d52
+2026-11-02T09:01:23.254Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.257Z [DEBUG] Temp file written successfully, size: 203 bytes
+2026-11-02T09:01:23.257Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.9e9d29364d52 to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.257Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.261Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.261Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.5baf64a9cca5
+2026-11-02T09:01:23.262Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.266Z [DEBUG] Temp file written successfully, size: 242 bytes
+2026-11-02T09:01:23.266Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.5baf64a9cca5 to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.266Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.271Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.271Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.5bd95bbbd60b
+2026-11-02T09:01:23.271Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.275Z [DEBUG] Temp file written successfully, size: 269 bytes
+2026-11-02T09:01:23.275Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.5bd95bbbd60b to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.275Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.278Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.278Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.e5d69d506a3c
+2026-11-02T09:01:23.279Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.282Z [DEBUG] Temp file written successfully, size: 317 bytes
+2026-11-02T09:01:23.282Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.e5d69d506a3c to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.282Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.285Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.285Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.250af4949f81
+2026-11-02T09:01:23.286Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.290Z [DEBUG] Temp file written successfully, size: 343 bytes
+2026-11-02T09:01:23.291Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.250af4949f81 to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.291Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.314Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-11-02T09:01:23.338Z [DEBUG] [Claude in Chrome] Disabled: OAuth token has no scope accepted by /api/oauth/validate (needs user:profile, user:office, or user:ccr_inference; env-var and setup-token sessions default to user:inference only)
+2026-11-02T09:01:23.351Z [DEBUG] [ToolSearch:optimistic] disabled: ANTHROPIC_BASE_URL=http://127.0.0.1:8787 is not a first-party Anthropic host. Set ENABLE_TOOL_SEARCH=true (or auto / auto:N) if your proxy forwards tool_reference blocks.
+2026-11-02T09:01:23.353Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-11-02T09:01:23.360Z [DEBUG] [STARTUP] Running setup()...
+2026-11-02T09:01:23.367Z [DEBUG] [claudeai-mcp] Missing user:mcp_servers scope (scopes=user:inference)
+2026-11-02T09:01:23.368Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/capture/claude-config/skills, project=[]
+2026-11-02T09:01:23.370Z [DEBUG] Failed to stat directory /etc/claude-code/.claude/agents: ENOENT: no such file or directory, stat '/etc/claude-code/.claude/agents'
+2026-11-02T09:01:23.370Z [DEBUG] Failed to stat directory /capture/claude-config/agents: ENOENT: no such file or directory, stat '/capture/claude-config/agents'
+2026-11-02T09:01:23.371Z [DEBUG] Failed to stat directory /etc/claude-code/.claude/commands: ENOENT: no such file or directory, stat '/etc/claude-code/.claude/commands'
+2026-11-02T09:01:23.372Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2026-11-02T09:01:23.373Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2026-11-02T09:01:23.373Z [DEBUG] Checking plugin agents-md: skillsPath=none, skillsPaths=0 paths
+2026-11-02T09:01:23.373Z [DEBUG] Total plugin workflows loaded: 0
+2026-11-02T09:01:23.373Z [DEBUG] Total plugin commands loaded: 0
+2026-11-02T09:01:23.375Z [DEBUG] Total plugin skills loaded: 0 (0 duplicate/user-owned entries skipped)
+2026-11-02T09:01:23.375Z [DEBUG] Total plugin agents loaded: 0
+2026-11-02T09:01:23.377Z [DEBUG] Failed to stat directory /capture/claude-config/commands: ENOENT: no such file or directory, stat '/capture/claude-config/commands'
+2026-11-02T09:01:23.378Z [DEBUG] Loaded 0 unique skills (0 unconditional, 0 conditional, managed: 0, user: 0, project: 0, additional: 0, legacy commands: 0)
+2026-11-02T09:01:23.382Z [DEBUG] Git remote URL: null
+2026-11-02T09:01:23.382Z [DEBUG] No git remote URL found
+2026-11-02T09:01:23.383Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.383Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.30b7621edd4c
+2026-11-02T09:01:23.384Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.387Z [INFO] [uds-messaging] Listening: /tmp/cc-socks/62.sock
+2026-11-02T09:01:23.387Z [INFO] [uds-messaging] Inject messages (auth line optional here): { echo '{"type":"auth","token":"[REDACTED]"$CLAUDE_CODE_MESSAGING_TOKEN"'"}'; echo '{"type":"user","message":{"role":"user","content":"hello"}}'; } | socat - UNIX-CONNECT:/tmp/cc-socks/62.sock
+2026-11-02T09:01:23.389Z [INFO] [uds-messaging] Connect when the data is ready (e.g. out=$(cmd); printf '%s\n' "$out" | nc -N -U "$CLAUDE_CODE_MESSAGING_SOCKET" — or the socat form above): a connection that sends no complete line within 30000 ms is closed
+2026-11-02T09:01:23.391Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /etc/claude-code/managed-settings.json
+2026-11-02T09:01:23.391Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /capture/claude-config/settings.json
+2026-11-02T09:01:23.391Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /workspace/project/.claude/settings.json
+2026-11-02T09:01:23.391Z [DEBUG] Broken symlink or missing file encountered for settings.json at path: /workspace/project/.claude/settings.local.json
+2026-11-02T09:01:23.392Z [DEBUG] Error log sink initialized
+2026-11-02T09:01:23.398Z [DEBUG] installed plugins' hooks modules not loaded: rollout flag (tengu_plugin_hooks_modules) is off, from GrowthBook (this session's payload); built-in plugins load regardless
+2026-11-02T09:01:23.398Z [DEBUG] sec-default@builtin not seated: installed plugins' hooks modules are off in this process
+2026-11-02T09:01:23.401Z [DEBUG] [STARTUP] setup() completed in 40ms
+2026-11-02T09:01:23.401Z [DEBUG] Cleared mTLS configuration cache
+2026-11-02T09:01:23.402Z [DEBUG] Cleared proxy agent cache
+2026-11-02T09:01:23.402Z [DEBUG] mTLS: Creating HTTPS agent with custom certificates
+2026-11-02T09:01:23.417Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-11-02T09:01:23.424Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 40 bundled skills, 0 builtin plugin skills
+2026-11-02T09:01:23.431Z [DEBUG] [STARTUP] Commands and agents loaded in 14ms
+2026-11-02T09:01:23.434Z [WARN] [autocompact] "claude-sonnet-5-5" isn't described by this version's model catalog; update Claude Code, or map it with behavesAs on a modelPicker row (or modelOverrides, if it is a provider id of a model this version knows). Until then auto-compact keeps this session within 200k tokens (the context window it assumes); if the model accepts more, append [1m] to the model name for 1M; CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1 restores the previous wait-for-the-API behavior.
+2026-11-02T09:01:23.434Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-11-02T09:01:23.434Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-11-02T09:01:23.434Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-11-02T09:01:23.435Z [DEBUG] Starting background startup prefetches
+2026-11-02T09:01:23.435Z [DEBUG] [Bootstrap] Fetching
+2026-11-02T09:01:23.441Z [DEBUG] [STARTUP] MCP configs resolved in 22ms (awaited at +88ms)
+2026-11-02T09:01:23.447Z [DEBUG] Cleared mTLS configuration cache
+2026-11-02T09:01:23.447Z [DEBUG] Cleared proxy agent cache
+2026-11-02T09:01:23.447Z [DEBUG] mTLS: Creating HTTPS agent with custom certificates
+2026-11-02T09:01:23.448Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-11-02T09:01:23.450Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:23.450Z [DEBUG] [MCP] --mcp-config servers running fully async (nonblocking)
+2026-11-02T09:01:23.450Z [DEBUG] [MCP] claude.ai connectors running fully async (nonblocking)
+2026-11-02T09:01:23.454Z [DEBUG] Total LSP servers loaded: 0
+2026-11-02T09:01:23.457Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-11-02T09:01:23.457Z [DEBUG] LSP manager initialized with 0 servers
+2026-11-02T09:01:23.458Z [DEBUG] LSP server manager initialized successfully
+2026-11-02T09:01:23.458Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-11-02T09:01:23.458Z [DEBUG] [auto-mode] verifyAutoModeGateAccess: enabledState=enabled disabledBySettings=false model=claude-sonnet-5-5 modelSupported=true disableFastModeBreakerFires=false carouselAvailable=true canEnterAuto=true
+2026-11-02T09:01:23.463Z [DEBUG] [servedCatalog] off (not_first_party)
+2026-11-02T09:01:23.476Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-11-02T09:01:23.476Z [DEBUG] [3P telemetry] isTelemetryEnabled=false (CLAUDE_CODE_ENABLE_TELEMETRY=undefined)
+2026-11-02T09:01:23.485Z [DEBUG] [event-loop-stall] detector started (interval=200ms, threshold=500ms)
+2026-11-02T09:01:23.492Z [DEBUG] plugin agents-md: no pluginConfigs["agents-md@builtin"].options in user, --settings or managed settings (project settings are not read); every option is its default
+2026-11-02T09:01:23.494Z [DEBUG] hooks module agents-md@builtin loaded (native, environment 1, tier builtin); events: session.start,prompt.context,agent.spawn,tool.call
+2026-11-02T09:01:23.495Z [DEBUG] engine.create: no plugin-provided interfaces; $ built for agents-md
+2026-11-02T09:01:23.495Z [DEBUG] plugin.register: agents-md (builtin, agents-md@builtin), judged by core alone: admitted
+2026-11-02T09:01:23.496Z [DEBUG] Registered 0 hooks from 1 plugins
+2026-11-02T09:01:23.507Z [DEBUG] [ScheduledTasks] scheduler start() — enabled=false, hasTasks=false
+2026-11-02T09:01:23.509Z [DEBUG] session.start: raised (surface none, not interactive)
+2026-11-02T09:01:23.521Z [DEBUG] hooks module agents-md@builtin session.start settled in 10.8ms (native link, next() included)
+2026-11-02T09:01:23.532Z [DEBUG] $.fs.ancestors (agents-md): project memory is off
+2026-11-02T09:01:23.532Z [DEBUG] $.fs.ancestors (agents-md): project memory is off
+2026-11-02T09:01:23.532Z [DEBUG] hooks module agents-md@builtin prompt.context settled in 1.3ms (native link, next() included)
+2026-11-02T09:01:23.532Z [DEBUG] Temp file written successfully, size: 423 bytes
+2026-11-02T09:01:23.532Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.30b7621edd4c to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.534Z [DEBUG] installPluginsForHeadless: starting
+2026-11-02T09:01:23.534Z [DEBUG] installPluginsForHeadless: no marketplaces declared
+2026-11-02T09:01:23.535Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.537Z [DEBUG] Failed to stat directory /etc/claude-code/.claude/output-styles: ENOENT: no such file or directory, stat '/etc/claude-code/.claude/output-styles'
+2026-11-02T09:01:23.537Z [DEBUG] Failed to stat directory /capture/claude-config/output-styles: ENOENT: no such file or directory, stat '/capture/claude-config/output-styles'
+2026-11-02T09:01:23.537Z [DEBUG] Total plugin output styles loaded: 0
+2026-11-02T09:01:23.541Z [DEBUG] intro_frame_arm_active source=growthbook
+2026-11-02T09:01:23.546Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:01:23.546Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:01:23.546Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:01:23.548Z [DEBUG] Sending 13 skills via attachment (initial)
+2026-11-02T09:01:23.548Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:01:23.553Z [WARN] [3P telemetry] Event dropped (no event logger initialized): user_prompt
+2026-11-02T09:01:23.557Z [DEBUG] [sessionRegistry] sweep declined by isRegistrySweepPermitted() — dead records are left in place (neither counted nor deleted)
+2026-11-02T09:01:23.564Z [DEBUG] Ripgrep first use test: PASSED (mode=embedded, path=/usr/local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe)
+2026-11-02T09:01:23.565Z [DEBUG] "rg error (signal=undefined, code=2, stderr: rg: /capture/claude-config/plugins/cache: IO error for operation on /capture/claude-config/plugins/cache: No such file or directory (os error 2)\n), 0 results"
+2026-11-02T09:01:23.574Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:23.574Z [DEBUG] [session-notices] advertise=false mode=bypassPermissions flag=true(payload) pollChannel=false remote=false remoteEnv=false nonInteractive=true
+2026-11-02T09:01:23.584Z [DEBUG] [engine] turn 1 start
+2026-11-02T09:01:23.592Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:01:23.601Z [DEBUG] Watching /workspace/project for /workspace/project/.claude to appear
+2026-11-02T09:01:23.601Z [DEBUG] Watching for changes in setting files /capture/claude-config/settings.json...
+2026-11-02T09:01:23.610Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.610Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.0052969316d6
+2026-11-02T09:01:23.648Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:01:23.648Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:23.651Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:23.657Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:23.658Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:01:23.659Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:01:23.662Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.680Z [DEBUG] Temp file written successfully, size: 57179 bytes
+2026-11-02T09:01:23.680Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.0052969316d6 to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.681Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.701Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:23.702Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.abe77a2be9fa
+2026-11-02T09:01:23.703Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:23.719Z [DEBUG] Temp file written successfully, size: 57325 bytes
+2026-11-02T09:01:23.719Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.abe77a2be9fa to /capture/claude-config/.claude.json
+2026-11-02T09:01:23.720Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:23.796Z [DEBUG] [mcp-registry] Loaded 294 official MCP URLs (legacy)
+2026-11-02T09:01:23.810Z [DEBUG] [Bootstrap] Skipped: 403 for OAuth token without profile scope
+2026-11-02T09:01:23.970Z [DEBUG] [fs.watch probe] verdict: delivers
+2026-11-02T09:01:25.236Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:01:25.236Z [DEBUG] [API:timing] first byte after 1578ms
+2026-11-02T09:01:26.222Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01G2K4QT3wzkrAqQQrKVyah9 permissionDecisionMs=12
+2026-11-02T09:01:26.240Z [DEBUG] Preserving file permissions: 100600
+2026-11-02T09:01:26.240Z [DEBUG] Writing to temp file: /capture/claude-config/.claude.json.tmp.62.3ce08c2fab11
+2026-11-02T09:01:26.241Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2026-11-02T09:01:26.241Z [DEBUG] Looking for shell config file: /tmp/agent-home/.bashrc
+2026-11-02T09:01:26.242Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:01:26.243Z [DEBUG] Shell config file not found: /tmp/agent-home/.bashrc, creating snapshot with Claude Code defaults only
+2026-11-02T09:01:26.243Z [DEBUG] Snapshots directory: /capture/claude-config/shell-snapshots
+2026-11-02T09:01:26.244Z [DEBUG] Creating snapshot at: /capture/claude-config/shell-snapshots/snapshot-bash-1793610086243-erhne3.sh
+2026-11-02T09:01:26.244Z [DEBUG] Execution timeout: 10000ms
+2026-11-02T09:01:26.245Z [DEBUG] Spawn-env probe captured 32 keys
+2026-11-02T09:01:26.246Z [DEBUG] Temp file written successfully, size: 57367 bytes
+2026-11-02T09:01:26.246Z [DEBUG] Renaming /capture/claude-config/.claude.json.tmp.62.3ce08c2fab11 to /capture/claude-config/.claude.json
+2026-11-02T09:01:26.246Z [DEBUG] File /capture/claude-config/.claude.json written atomically
+2026-11-02T09:01:26.252Z [DEBUG] Shell snapshot created successfully (3485 bytes)
+2026-11-02T09:01:26.253Z [DEBUG] No session environment scripts found
+2026-11-02T09:01:26.254Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:01:26.289Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01G2K4QT3wzkrAqQQrKVyah9 outcome=ok durationMs=67
+2026-11-02T09:01:26.296Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:01:26.296Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:01:26.296Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:01:26.296Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:01:26.298Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:01:26.302Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:01:26.302Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:26.303Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:26.304Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:26.305Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:01:26.305Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:01:27.316Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:01:27.316Z [DEBUG] [API:timing] first byte after 1012ms
+2026-11-02T09:01:28.157Z [INFO] [Stall] tool_dispatch_start tool=Read toolUseId=toolu_01SSb1xdW46rUQwm3Fk2apK2 permissionDecisionMs=4
+2026-11-02T09:01:28.168Z [DEBUG] [API REQUEST] /v1/messages/count_tokens source=count_tokens
+2026-11-02T09:01:28.368Z [INFO] [Stall] tool_dispatch_end tool=Read toolUseId=toolu_01SSb1xdW46rUQwm3Fk2apK2 outcome=ok durationMs=212
+2026-11-02T09:01:28.371Z [DEBUG] hooks module agents-md@builtin tool.call settled in 221.0ms (native link, next() included)
+2026-11-02T09:01:28.375Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:01:28.375Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:01:28.375Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:01:28.375Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:01:28.376Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:01:28.380Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:01:28.380Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:28.380Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:28.382Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:28.382Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:01:28.383Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:01:29.499Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:01:29.499Z [DEBUG] [API:timing] first byte after 1118ms
+2026-11-02T09:01:30.684Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01HCWM4hqZq8PK6uTjhgsuVp permissionDecisionMs=13
+2026-11-02T09:01:30.690Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:01:30.743Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01HCWM4hqZq8PK6uTjhgsuVp outcome=ok durationMs=59
+2026-11-02T09:01:30.752Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:01:30.752Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:01:30.752Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:01:30.752Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:01:30.754Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:01:30.759Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:01:30.759Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:30.760Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:30.761Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:30.762Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:01:30.762Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:01:31.852Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:01:31.852Z [DEBUG] [API:timing] first byte after 1091ms
+2026-11-02T09:01:32.884Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01GB18SAGwmoJGXfs82tARvD permissionDecisionMs=13
+2026-11-02T09:01:32.888Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:01:32.901Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01GB18SAGwmoJGXfs82tARvD outcome=ok durationMs=18
+2026-11-02T09:01:32.905Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:01:32.905Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:01:32.905Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:01:32.905Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:01:32.907Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:01:32.909Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:01:32.909Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:32.910Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:32.911Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:01:32.911Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:01:32.912Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:01:34.289Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:01:34.289Z [DEBUG] [API:timing] first byte after 1378ms
+2026-11-02T09:03:30.153Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01BTzyeifZyrxxiQqocEdWBF permissionDecisionMs=18
+2026-11-02T09:03:30.164Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:03:30.182Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:03:30.185Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01BTzyeifZyrxxiQqocEdWBF outcome=ok durationMs=32
+2026-11-02T09:03:30.193Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:03:30.193Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:03:30.193Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:03:30.193Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:03:30.194Z [DEBUG] Failed to stat directory /etc/claude-code/.claude/output-styles: ENOENT: no such file or directory, stat '/etc/claude-code/.claude/output-styles'
+2026-11-02T09:03:30.194Z [DEBUG] Failed to stat directory /capture/claude-config/output-styles: ENOENT: no such file or directory, stat '/capture/claude-config/output-styles'
+2026-11-02T09:03:30.198Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:03:30.205Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:03:30.205Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:30.207Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:30.209Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:30.210Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:03:30.211Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:03:31.744Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:03:31.744Z [DEBUG] [API:timing] first byte after 1535ms
+2026-11-02T09:03:32.337Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01LJiNYThWXsd7KanaaYrdmW permissionDecisionMs=5
+2026-11-02T09:03:32.343Z [DEBUG] No session environment scripts found
+2026-11-02T09:03:32.343Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:03:32.357Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:03:32.361Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01LJiNYThWXsd7KanaaYrdmW outcome=ok durationMs=24
+2026-11-02T09:03:32.365Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:03:32.365Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:03:32.365Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:03:32.365Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:03:32.366Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:03:32.369Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:03:32.369Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:32.370Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:32.371Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:03:32.371Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:03:32.372Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:03:33.387Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:03:33.388Z [DEBUG] [API:timing] first byte after 1016ms
+2026-11-02T09:03:48.941Z [WARN] [Stall] stream_idle_partial lastChunkAgeMs=15000 bytesTotal=3507 idleDeadlineMs=180000
+2026-11-02T09:04:00.199Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01D6iMML8d8mQVGriWysZNiF permissionDecisionMs=2
+2026-11-02T09:04:00.203Z [DEBUG] No session environment scripts found
+2026-11-02T09:04:00.203Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:04:00.217Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:04:00.218Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01D6iMML8d8mQVGriWysZNiF outcome=ok durationMs=19
+2026-11-02T09:04:00.222Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:04:00.222Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:04:00.222Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:04:00.222Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:04:00.223Z [DEBUG] Failed to stat directory /etc/claude-code/.claude/output-styles: ENOENT: no such file or directory, stat '/etc/claude-code/.claude/output-styles'
+2026-11-02T09:04:00.223Z [DEBUG] Failed to stat directory /capture/claude-config/output-styles: ENOENT: no such file or directory, stat '/capture/claude-config/output-styles'
+2026-11-02T09:04:00.224Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:04:00.228Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:04:00.228Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:00.228Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:00.230Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:00.230Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:04:00.231Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:04:01.173Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:04:01.173Z [DEBUG] [API:timing] first byte after 943ms
+2026-11-02T09:04:15.934Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01CRGjhRLU6TAJDXm4kkSZGt permissionDecisionMs=4
+2026-11-02T09:04:15.941Z [DEBUG] No session environment scripts found
+2026-11-02T09:04:15.941Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:04:16.785Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:04:16.790Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01CRGjhRLU6TAJDXm4kkSZGt outcome=ok durationMs=856
+2026-11-02T09:04:16.794Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:04:16.794Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:04:16.794Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:04:16.794Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:04:16.796Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:04:16.799Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:04:16.799Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:16.800Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:16.802Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:16.802Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:04:16.803Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:04:17.891Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:04:17.891Z [DEBUG] [API:timing] first byte after 1090ms
+2026-11-02T09:04:20.343Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01YAJvZVvce3DTdYUvHoVod5 permissionDecisionMs=14
+2026-11-02T09:04:20.347Z [DEBUG] No session environment scripts found
+2026-11-02T09:04:20.347Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:04:20.369Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01YAJvZVvce3DTdYUvHoVod5 outcome=ok durationMs=26
+2026-11-02T09:04:20.373Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:04:20.373Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:04:20.373Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:04:20.373Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:04:20.374Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:04:20.377Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:04:20.377Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:20.378Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:20.380Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:20.380Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:04:20.381Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:04:21.265Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:04:21.266Z [DEBUG] [API:timing] first byte after 886ms
+2026-11-02T09:04:26.288Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01AXzPqBYPwri17MKsfEbh1Z permissionDecisionMs=25
+2026-11-02T09:04:26.306Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:04:26.931Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01AXzPqBYPwri17MKsfEbh1Z outcome=ok durationMs=643
+2026-11-02T09:04:26.935Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:04:26.935Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:04:26.935Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:04:26.935Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:04:26.937Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:04:26.942Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:04:26.942Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:26.943Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:26.944Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:26.944Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:04:26.946Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:04:27.981Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:04:27.981Z [DEBUG] [API:timing] first byte after 1037ms
+2026-11-02T09:04:32.570Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01DWiNc75aXiUfv1eEzAaXdJ permissionDecisionMs=17
+2026-11-02T09:04:32.578Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:04:37.361Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01DWiNc75aXiUfv1eEzAaXdJ outcome=ok durationMs=4791
+2026-11-02T09:04:37.365Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:04:37.365Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:04:37.365Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:04:37.365Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:04:37.367Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:04:37.370Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:04:37.370Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:37.372Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:37.373Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:04:37.373Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:04:37.375Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:04:38.402Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:04:38.402Z [DEBUG] [API:timing] first byte after 1029ms
+2026-11-02T09:04:54.126Z [WARN] [Stall] stream_idle_partial lastChunkAgeMs=15004 bytesTotal=3914 idleDeadlineMs=180000
+2026-11-02T09:05:02.918Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_0167yHCFCP7xeWoC8qbp78BN permissionDecisionMs=6
+2026-11-02T09:05:02.953Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:05:03.073Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:05:03.081Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_0167yHCFCP7xeWoC8qbp78BN outcome=ok durationMs=162
+2026-11-02T09:05:03.097Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:05:03.097Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:05:03.097Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:05:03.098Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:05:03.112Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:05:03.142Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:05:03.143Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:03.146Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:03.150Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:03.151Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:05:03.161Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:05:04.187Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:05:04.187Z [DEBUG] [API:timing] first byte after 1037ms
+2026-11-02T09:05:20.804Z [WARN] [Stall] stream_idle_partial lastChunkAgeMs=15000 bytesTotal=3970 idleDeadlineMs=180000
+2026-11-02T09:05:23.431Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01HhWAJXcr3uAF1ur7DDXhMn permissionDecisionMs=5
+2026-11-02T09:05:23.436Z [DEBUG] No session environment scripts found
+2026-11-02T09:05:23.436Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:05:27.857Z [DEBUG] Invalidating session environment cache
+2026-11-02T09:05:27.861Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01HhWAJXcr3uAF1ur7DDXhMn outcome=ok durationMs=4430
+2026-11-02T09:05:27.865Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:05:27.865Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:05:27.865Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:05:27.865Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:05:27.866Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:05:27.870Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:05:27.870Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:27.871Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:27.873Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:27.873Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:05:27.874Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:05:30.056Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:05:30.057Z [DEBUG] [API:timing] first byte after 2184ms
+2026-11-02T09:05:32.304Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_013Lb5GqywTwXN8v5EZ2Qi7e permissionDecisionMs=18
+2026-11-02T09:05:32.313Z [DEBUG] No session environment scripts found
+2026-11-02T09:05:32.313Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:05:32.812Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_013Lb5GqywTwXN8v5EZ2Qi7e outcome=ok durationMs=508
+2026-11-02T09:05:32.815Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:05:32.815Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:05:32.815Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:05:32.815Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:05:32.816Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:05:32.819Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:05:32.819Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:32.820Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:32.821Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:05:32.821Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:05:32.822Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:05:33.740Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:05:33.740Z [DEBUG] [API:timing] first byte after 919ms
+2026-11-02T09:05:53.331Z [WARN] [Stall] stream_idle_partial lastChunkAgeMs=15001 bytesTotal=6219 idleDeadlineMs=180000
+2026-11-02T09:06:05.070Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_019UH9cw73nrp2yeX9in7Ruf permissionDecisionMs=1
+2026-11-02T09:06:05.075Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:06:09.850Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_019UH9cw73nrp2yeX9in7Ruf outcome=ok durationMs=4780
+2026-11-02T09:06:09.855Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:09.855Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:09.855Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:09.855Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:09.856Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:09.861Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:09.861Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:09.863Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:09.865Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:09.865Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:09.867Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:11.567Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:11.567Z [DEBUG] [API:timing] first byte after 1702ms
+2026-11-02T09:06:16.564Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01HhnvkxMErKPPEXhEd9A4AH permissionDecisionMs=6
+2026-11-02T09:06:16.570Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:06:20.546Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01HhnvkxMErKPPEXhEd9A4AH outcome=ok durationMs=3982
+2026-11-02T09:06:20.549Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:20.550Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:20.550Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:20.550Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:20.551Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:20.556Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:20.556Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:20.557Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:20.559Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:20.559Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:20.560Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:21.861Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:21.861Z [DEBUG] [API:timing] first byte after 1303ms
+2026-11-02T09:06:23.873Z [INFO] [Stall] tool_dispatch_start tool=Edit toolUseId=toolu_01AGe36YvabRxHG9rMKXe3bb permissionDecisionMs=3
+2026-11-02T09:06:23.882Z [DEBUG] Preserving file permissions: 100644
+2026-11-02T09:06:23.882Z [DEBUG] Writing to temp file: /proc/self/fd/12/flow.spec.ts.tmp.62.f0f5895cbc15
+2026-11-02T09:06:23.883Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:06:23.886Z [DEBUG] Temp file written successfully, size: 9647 bytes
+2026-11-02T09:06:23.886Z [DEBUG] Renaming /proc/self/fd/12/flow.spec.ts.tmp.62.f0f5895cbc15 to /proc/self/fd/12/flow.spec.ts
+2026-11-02T09:06:23.886Z [DEBUG] File /proc/self/fd/12/flow.spec.ts written atomically
+2026-11-02T09:06:23.888Z [INFO] [Stall] tool_dispatch_end tool=Edit toolUseId=toolu_01AGe36YvabRxHG9rMKXe3bb outcome=ok durationMs=15
+2026-11-02T09:06:24.672Z [INFO] [Stall] tool_dispatch_start tool=Edit toolUseId=toolu_016jHYNmxkqNA76ht7eMgm8G permissionDecisionMs=3
+2026-11-02T09:06:24.678Z [DEBUG] Preserving file permissions: 100644
+2026-11-02T09:06:24.679Z [DEBUG] Writing to temp file: /proc/self/fd/12/flow.spec.ts.tmp.62.4fdfd7b411fd
+2026-11-02T09:06:24.679Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:06:24.683Z [DEBUG] Temp file written successfully, size: 9681 bytes
+2026-11-02T09:06:24.683Z [DEBUG] Renaming /proc/self/fd/12/flow.spec.ts.tmp.62.4fdfd7b411fd to /proc/self/fd/12/flow.spec.ts
+2026-11-02T09:06:24.683Z [DEBUG] File /proc/self/fd/12/flow.spec.ts written atomically
+2026-11-02T09:06:24.684Z [INFO] [Stall] tool_dispatch_end tool=Edit toolUseId=toolu_016jHYNmxkqNA76ht7eMgm8G outcome=ok durationMs=12
+2026-11-02T09:06:25.269Z [INFO] [Stall] tool_dispatch_start tool=Edit toolUseId=toolu_017kcuRkcYGrfTRbvTDdRo62 permissionDecisionMs=3
+2026-11-02T09:06:25.282Z [DEBUG] Preserving file permissions: 100644
+2026-11-02T09:06:25.282Z [DEBUG] Writing to temp file: /proc/self/fd/12/flow.spec.ts.tmp.62.6cc8f0763dca
+2026-11-02T09:06:25.283Z [DEBUG] Applied original permissions to temp file
+2026-11-02T09:06:25.288Z [DEBUG] Temp file written successfully, size: 9748 bytes
+2026-11-02T09:06:25.288Z [DEBUG] Renaming /proc/self/fd/12/flow.spec.ts.tmp.62.6cc8f0763dca to /proc/self/fd/12/flow.spec.ts
+2026-11-02T09:06:25.288Z [DEBUG] File /proc/self/fd/12/flow.spec.ts written atomically
+2026-11-02T09:06:25.289Z [INFO] [Stall] tool_dispatch_end tool=Edit toolUseId=toolu_017kcuRkcYGrfTRbvTDdRo62 outcome=ok durationMs=20
+2026-11-02T09:06:25.292Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:25.292Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:25.292Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:25.292Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:25.293Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:25.296Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:25.296Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:25.296Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:25.297Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:25.297Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:25.299Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:26.480Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:26.480Z [DEBUG] [API:timing] first byte after 1183ms
+2026-11-02T09:06:27.112Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01YAhKgYmazUwheVWyfsZM7G permissionDecisionMs=13
+2026-11-02T09:06:27.119Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:06:30.982Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01YAhKgYmazUwheVWyfsZM7G outcome=ok durationMs=3870
+2026-11-02T09:06:30.985Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:30.985Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:30.985Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:30.985Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:30.986Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:30.989Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:30.989Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:30.990Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:30.991Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:30.992Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:30.992Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:32.088Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:32.088Z [DEBUG] [API:timing] first byte after 1097ms
+2026-11-02T09:06:36.342Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_01DjXj2vzuwhy85U7ag8SBAE permissionDecisionMs=11
+2026-11-02T09:06:36.348Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:06:38.288Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_01DjXj2vzuwhy85U7ag8SBAE outcome=ok durationMs=1947
+2026-11-02T09:06:38.291Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:38.291Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:38.291Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:38.291Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:38.292Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:38.295Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:38.295Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:38.296Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:38.297Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:38.297Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:38.298Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:39.647Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:39.647Z [DEBUG] [API:timing] first byte after 1350ms
+2026-11-02T09:06:44.321Z [INFO] [Stall] tool_dispatch_start tool=Bash toolUseId=toolu_016RPUuPyFQrf5tac4z6YPWb permissionDecisionMs=25
+2026-11-02T09:06:44.322Z [DEBUG] Spawning shell without login (-l flag skipped)
+2026-11-02T09:06:53.361Z [INFO] [Stall] tool_dispatch_end tool=Bash toolUseId=toolu_016RPUuPyFQrf5tac4z6YPWb outcome=ok durationMs=9040
+2026-11-02T09:06:53.363Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-11-02T09:06:53.363Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-11-02T09:06:53.363Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-11-02T09:06:53.363Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-11-02T09:06:53.368Z [DEBUG] autocompact: tokens=[REDACTED] level=ok effectiveWindow=180000
+2026-11-02T09:06:53.371Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.278.d2f; cc_entrypoint=sdk-cli;
+2026-11-02T09:06:53.371Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:53.372Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:53.373Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:53.373Z [DEBUG] [API:timing] dispatching to firstParty model=claude-sonnet-5-5
+2026-11-02T09:06:53.374Z [DEBUG] [API REQUEST] /v1/messages source=sdk
+2026-11-02T09:06:54.419Z [DEBUG] Stream started - received first chunk
+2026-11-02T09:06:54.419Z [DEBUG] [API:timing] first byte after 1046ms
+2026-11-02T09:06:59.627Z [DEBUG] [engine] turn 1 end (turns=23 usage in=42 out=46189 cost=$1.1921 api=300342ms stop=end_turn resultLen=1727)
+2026-11-02T09:06:59.627Z [DEBUG] Fast mode unavailable: Fast mode is not available in the Agent SDK
+2026-11-02T09:06:59.634Z [DEBUG] [uds-messaging] Shutting down
+2026-11-02T09:06:59.635Z [DEBUG] LSP server manager shut down successfully
+2026-11-02T09:06:59.637Z [DEBUG] Cleaned up session snapshot: /capture/claude-config/shell-snapshots/snapshot-bash-1793610086243-erhne3.sh
