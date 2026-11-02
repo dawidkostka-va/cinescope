@@ -1,0 +1,88 @@
+<main class="page">
+  <h1 class="title" data-testid="checkout-title">Your details</h1>
+
+  <div class="form">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="first-name-label">First name *</mat-label>
+      <input
+        matInput
+        data-testid="first-name-input"
+        [formControl]="form.controls.firstName"
+        (blur)="touch('firstName')"
+      />
+    </mat-form-field>
+    @if (shown('firstName'); as message) {
+    <p class="error" data-testid="first-name-error">{{ message }}</p>
+    }
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="last-name-label">Last name *</mat-label>
+      <input
+        matInput
+        data-testid="last-name-input"
+        [formControl]="form.controls.lastName"
+        (blur)="touch('lastName')"
+      />
+    </mat-form-field>
+    @if (shown('lastName'); as message) {
+    <p class="error" data-testid="last-name-error">{{ message }}</p>
+    }
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="email-label">Email *</mat-label>
+      <input
+        matInput
+        data-testid="email-input"
+        [formControl]="form.controls.email"
+        (blur)="touch('email')"
+      />
+    </mat-form-field>
+    @if (shown('email'); as message) {
+    <p class="error" data-testid="email-error">{{ message }}</p>
+    }
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+      <input
+        matInput
+        data-testid="confirm-email-input"
+        [formControl]="form.controls.confirmEmail"
+        (blur)="touch('confirmEmail')"
+      />
+    </mat-form-field>
+    @if (shown('confirmEmail'); as message) {
+    <p class="error" data-testid="confirm-email-error">{{ message }}</p>
+    }
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="phone-label">Phone number</mat-label>
+      <input
+        matInput
+        data-testid="phone-input"
+        [formControl]="form.controls.phone"
+        (blur)="touch('phone')"
+      />
+    </mat-form-field>
+    @if (shown('phone'); as message) {
+    <p class="error" data-testid="phone-error">{{ message }}</p>
+    }
+
+    <mat-checkbox
+      data-testid="terms-checkbox"
+      [formControl]="form.controls.terms"
+      (change)="touch('terms')"
+    >
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+    @if (shown('terms'); as message) {
+    <p class="error" data-testid="terms-error">{{ message }}</p>
+    }
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button mat-flat-button data-testid="pay-button" [disabled]="submitting()" (click)="pay()">
+      {{ payLabel() }}
+    </button>
+  </div>
+</main>

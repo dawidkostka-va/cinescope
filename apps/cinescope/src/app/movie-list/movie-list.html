@@ -1,0 +1,76 @@
+<main class="page">
+  <section class="day-picker" data-testid="day-picker">
+    @for (day of days; track day.iso) { @if (day.iso === selectedDate()) {
+    <button
+      mat-flat-button
+      data-testid="day-button"
+      [attr.data-date]="day.iso"
+      [attr.data-selected]="true"
+      (click)="selectDay(day.iso)"
+    >
+      {{ day.label }}
+    </button>
+    } @else {
+    <button
+      mat-stroked-button
+      data-testid="day-button"
+      [attr.data-date]="day.iso"
+      [attr.data-selected]="false"
+      (click)="selectDay(day.iso)"
+    >
+      {{ day.label }}
+    </button>
+    } }
+    <mat-form-field subscriptSizing="dynamic" class="date-field">
+      <mat-label>Other date</mat-label>
+      <input
+        matInput
+        data-testid="date-picker"
+        [matDatepicker]="picker"
+        [min]="today"
+        [value]="selectedDateValue()"
+        (dateChange)="pickDate($event.value)"
+      />
+      <mat-datepicker-toggle matIconSuffix [for]="picker" />
+      <mat-datepicker #picker />
+    </mat-form-field>
+  </section>
+
+  @let current = state(); @if (current.status === 'loading') {
+  <p class="status" data-testid="movies-loading">Loading…</p>
+  } @else if (current.status === 'error') {
+  <div class="status">
+    <p data-testid="movies-error">Failed to load movies</p>
+    <button mat-flat-button data-testid="movies-retry-button" (click)="retry()">Retry</button>
+  </div>
+  } @else if (current.groups.length === 0) {
+  <p class="status" data-testid="movies-empty">No screenings on this day</p>
+  } @else {
+  <div class="movie-list" data-testid="movie-list">
+    @for (group of current.groups; track group.movie.id) {
+    <article class="movie-card" data-testid="movie-card" [attr.data-movie-id]="group.movie.id">
+      <h2 class="movie-title" data-testid="movie-title">{{ group.movie.title }}</h2>
+      <p class="movie-meta">
+        <span data-testid="movie-genre">{{ group.movie.genre }}</span>
+        <span aria-hidden="true"> · </span>
+        <span data-testid="movie-runtime">{{ group.movie.runtimeMinutes }} min</span>
+        <span aria-hidden="true"> · </span>
+        <span data-testid="movie-format">{{ group.movie.format }}</span>
+      </p>
+      <div class="screenings">
+        @for (screening of group.screenings; track screening.id) {
+        <button
+          mat-stroked-button
+          data-testid="screening-button"
+          [attr.data-screening-id]="screening.id"
+          (click)="openSeats(screening.id)"
+        >
+          {{ screening.time }}
+        </button>
+        }
+      </div>
+    </article>
+    }
+  </div>
+  }
+</main>

@@ -1,0 +1,165 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.subtitle,
+.limit {
+  margin: 0;
+  text-align: center;
+}
+
+.limit {
+  color: #555;
+}
+
+.auditorium {
+  --seat-size: 32px;
+  --gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.screen {
+  width: 640px;
+  padding: 6px 0;
+  border-radius: 4px;
+  background: #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #424242;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+.row-label {
+  width: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.block {
+  display: flex;
+  gap: var(--gap);
+}
+
+.aisle {
+  width: calc(2 * var(--seat-size) + var(--gap));
+}
+
+.entrance {
+  width: calc(4 * var(--seat-size) + 3 * var(--gap));
+}
+
+.seat,
+.couch {
+  height: var(--seat-size);
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: #212121;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+    cursor: not-allowed;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &[data-state='available'] .swatch {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] .swatch {
+    background-color: #f9a825;
+  }
+
+  &[data-state='unavailable'] .swatch {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] .swatch {
+    background-color: #1565c0;
+  }
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.selected-count,
+.selected-row {
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
+
+.seat {
+  width: var(--seat-size);
+}
+
+.couch {
+  width: calc(2 * var(--seat-size) + var(--gap));
+}
