@@ -1,0 +1,44 @@
+<div class="screen-bar" data-testid="screen-indicator">SCREEN</div>
+
+<div class="seat-map" data-testid="seat-map">
+  @for (row of auditorium; track row.row) {
+    <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+      <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row">{{ row.row }}</span>
+      @for (segment of row.segments; track $index) {
+        @if (segment.type === 'block') {
+          <div class="block">
+            @for (cell of segment.cells; track $index) {
+              @if (cell.kind === 'seat') {
+                <button
+                  type="button"
+                  class="seat"
+                  data-testid="seat"
+                  [attr.data-row]="cell.row"
+                  [attr.data-column]="cell.column"
+                  [attr.data-state]="seatState(cell)"
+                  (click)="cellClick.emit(cell)"
+                >{{ cell.column }}</button>
+              } @else {
+                <button
+                  type="button"
+                  class="couch"
+                  data-testid="couch"
+                  [attr.data-row]="cell.row"
+                  [attr.data-column-start]="cell.start"
+                  [attr.data-column-end]="cell.end"
+                  [attr.data-state]="couchState(cell)"
+                  (click)="cellClick.emit(cell)"
+                >{{ cell.start }}-{{ cell.end }}</button>
+              }
+            }
+          </div>
+        } @else if (segment.type === 'aisle') {
+          <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+        } @else {
+          <div class="entrance"></div>
+        }
+      }
+      <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row">{{ row.row }}</span>
+    </div>
+  }
+</div>

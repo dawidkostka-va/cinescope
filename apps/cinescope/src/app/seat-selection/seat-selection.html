@@ -1,0 +1,46 @@
+@let data = loaded();
+@if (data) {
+  <section class="seat-selection">
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p class="subtitle" data-testid="seat-map-subtitle">Show Date: {{ dateLabel(data.screening) }}</p>
+    <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+    <app-seat-map
+      [occupied]="occupied()"
+      [selected]="selectedKeys()"
+      (cellClick)="toggle($event)"
+    />
+
+    <div class="legend" data-testid="legend">
+      <div class="legend-item" data-testid="legend-item" data-state="available">
+        <span class="swatch" data-state="available"></span>Available
+      </div>
+      <div class="legend-item" data-testid="legend-item" data-state="selected">
+        <span class="swatch" data-state="selected"></span>Selected
+      </div>
+      <div class="legend-item" data-testid="legend-item" data-state="unavailable">
+        <span class="swatch" data-state="unavailable"></span>Unavailable
+      </div>
+      <div class="legend-item" data-testid="legend-item" data-state="accessible">
+        <span class="swatch" data-state="accessible"></span>Accessible
+      </div>
+    </div>
+
+    <section class="selected-seats" data-testid="selected-seats">
+      <p data-testid="selected-seats-count">Selected seats: {{ seatCount() }}</p>
+      @for (line of selectedRows(); track line.row) {
+        <p data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.label }}</p>
+      }
+    </section>
+
+    <div class="actions">
+      <button mat-stroked-button data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button
+        mat-flat-button
+        data-testid="continue-button"
+        [disabled]="seatCount() === 0"
+        (click)="proceed()"
+      >Continue</button>
+    </div>
+  </section>
+}

@@ -1,0 +1,74 @@
+$seat: 32px;
+$gap: 4px;
+
+.screen-bar {
+  width: 480px;
+  margin: 0 auto 24px;
+  padding: 6px 0;
+  text-align: center;
+  background: #e0e0e0;
+  border-radius: 0 0 50% 50%;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.row-label {
+  width: 24px;
+  margin: 0 8px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.block {
+  display: flex;
+  gap: $gap;
+}
+
+.entrance {
+  width: 4 * $seat + 3 * $gap;
+}
+
+.aisle {
+  width: 2 * $seat + 2 * $gap;
+}
+
+.seat,
+.couch {
+  height: $seat;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 6px 2px 2px;
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  line-height: $seat;
+  text-align: center;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+}
+
+.seat {
+  width: $seat;
+}
+
+.couch {
+  width: 2 * $seat + $gap;
+}
+
+[data-state='unavailable'] {
+  cursor: not-allowed;
+}

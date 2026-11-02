@@ -1,0 +1,23 @@
+<section class="summary">
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  <ul class="summary-list" data-testid="summary-list">
+    @for (item of items(); track $index) {
+      <li class="summary-item" data-testid="summary-item">
+        <span data-testid="summary-item-title">{{ item.movieTitle }}</span>
+        <span data-testid="summary-item-datetime">{{ item.dateTime }}</span>
+        <span>Row <span data-testid="summary-item-row">{{ item.row }}</span></span>
+        <span>Seat <span data-testid="summary-item-seat">{{ item.seat }}</span></span>
+        <span data-testid="summary-item-price">{{ formatPln(item.price) }}</span>
+        <button mat-stroked-button data-testid="summary-item-remove-button" (click)="remove(item.cell)">Remove</button>
+      </li>
+    }
+  </ul>
+
+  <p class="total" data-testid="summary-total">Total: {{ formatPln(total()) }}</p>
+
+  <div class="actions">
+    <button mat-stroked-button data-testid="back-button" (click)="back()">Back</button>
+    <button mat-flat-button data-testid="confirm-button" (click)="confirm()">Confirm</button>
+  </div>
+</section>

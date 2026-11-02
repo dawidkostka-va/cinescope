@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.checkout {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.error {
+  margin: 0;
+  color: #c62828;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}

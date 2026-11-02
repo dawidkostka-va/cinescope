@@ -15,3 +15,24 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.seat,
+.couch,
+.swatch {
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: #212121;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
