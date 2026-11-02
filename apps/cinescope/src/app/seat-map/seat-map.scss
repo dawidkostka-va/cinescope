@@ -1,0 +1,121 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px 32px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 4px 0 16px;
+  font-size: 18px;
+}
+
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+.limit {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen {
+  align-self: stretch;
+  margin: 0 40px 16px;
+  padding: 6px 0;
+  background: #455a64;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 6px;
+  border-radius: 4px 4px 24px 24px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label {
+  width: 32px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.block {
+  display: flex;
+  gap: 4px;
+  flex: none;
+}
+
+.aisle {
+  flex: none;
+  width: 72px;
+  height: 30px;
+}
+
+.seat {
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font:
+    500 12px Roboto,
+    sans-serif;
+  cursor: pointer;
+
+  &[data-state='unavailable'] {
+    cursor: not-allowed;
+  }
+
+  &.couch {
+    width: 68px;
+  }
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  margin-top: 20px;
+  min-width: 240px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}

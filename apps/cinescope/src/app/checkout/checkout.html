@@ -1,0 +1,73 @@
+<div class="page">
+  <h1 data-testid="checkout-title">Your details</h1>
+
+  <form class="form" [formGroup]="form" novalidate (ngSubmit)="pay()">
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="first-name-label">First name *</mat-label>
+      <input matInput data-testid="first-name-input" formControlName="firstName" />
+      @if (error(form.controls.firstName); as message) {
+        <mat-error data-testid="first-name-error">{{ message }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="last-name-label">Last name *</mat-label>
+      <input matInput data-testid="last-name-input" formControlName="lastName" />
+      @if (error(form.controls.lastName); as message) {
+        <mat-error data-testid="last-name-error">{{ message }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="email-label">Email *</mat-label>
+      <input matInput data-testid="email-input" formControlName="email" />
+      @if (error(form.controls.email); as message) {
+        <mat-error data-testid="email-error">{{ message }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+      <input matInput data-testid="confirm-email-input" formControlName="confirmEmail" />
+      @if (error(form.controls.confirmEmail); as message) {
+        <mat-error data-testid="confirm-email-error">{{ message }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label data-testid="phone-label">Phone number</mat-label>
+      <input matInput data-testid="phone-input" formControlName="phone" />
+      @if (error(form.controls.phone); as message) {
+        <mat-error data-testid="phone-error">{{ message }}</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="terms">
+      <mat-checkbox
+        data-testid="terms-checkbox"
+        formControlName="terms"
+        (change)="termsToggled()"
+      >
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (error(form.controls.terms); as message) {
+        <div class="terms-error" data-testid="terms-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="actions">
+      <button matButton="outlined" type="button" data-testid="checkout-back-button" (click)="back()">
+        Back
+      </button>
+      <button
+        matButton="filled"
+        type="button"
+        data-testid="pay-button"
+        [disabled]="processing()"
+        (click)="pay()"
+      >
+        {{ payLabel() }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.picker {
+  margin-left: 8px;
+  width: 200px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movie-card {
+  padding: 16px 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+
+  h2 {
+    margin: 0 0 8px;
+  }
+}
+
+.details {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.screenings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
