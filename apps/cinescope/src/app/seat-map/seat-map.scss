@@ -1,0 +1,130 @@
+$seat: 32px;
+$gap: 4px;
+
+.page {
+  padding: 24px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin: 0 0 8px;
+}
+
+.stage {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.limit {
+  text-align: center;
+}
+
+.screen {
+  background: #555;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+  margin-bottom: $gap;
+}
+
+.label {
+  width: $seat;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.entrance {
+  width: 4 * $seat + 3 * $gap;
+  height: $seat;
+}
+
+.aisle {
+  width: 2 * $seat + $gap;
+  height: $seat;
+}
+
+.seat,
+.couch {
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  padding: 0;
+  height: $seat;
+  font: inherit;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.seat {
+  width: $seat;
+}
+
+.couch {
+  width: 2 * $seat + $gap;
+  border-radius: 10px;
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: -2px;
+}
+
+.available {
+  background-color: #2e7d32;
+}
+
+.selected {
+  background-color: #f9a825;
+  color: #000;
+}
+
+.unavailable {
+  background-color: #c62828;
+  cursor: not-allowed;
+}
+
+.accessible {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.panel {
+  width: fit-content;
+  margin: 24px auto 16px;
+  text-align: left;
+  min-width: 200px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}

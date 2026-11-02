@@ -1,0 +1,70 @@
+<div class="page">
+  <div class="day-picker" data-testid="day-picker">
+    @for (d of days; track d.date) {
+      <button
+        mat-stroked-button
+        type="button"
+        data-testid="day-button"
+        [class.selected]="d.date === selected()"
+        [attr.data-date]="d.date"
+        [attr.data-selected]="d.date === selected()"
+        (click)="selectDate(d.date)"
+      >{{ d.label }}</button>
+    }
+    <mat-form-field class="date-field" subscriptSizing="dynamic">
+      <mat-label>Other date</mat-label>
+      <input
+        matInput
+        data-testid="date-picker"
+        [matDatepicker]="dp"
+        [min]="today"
+        [value]="pickerValue()"
+        (dateChange)="onPick($event)"
+        (click)="dp.open()"
+      />
+      <mat-datepicker-toggle matIconSuffix [for]="dp" />
+      <mat-datepicker #dp />
+    </mat-form-field>
+  </div>
+
+  @switch (status()) {
+    @case ('loading') {
+      <p data-testid="movies-loading">Loading…</p>
+    }
+    @case ('error') {
+      <div data-testid="movies-error" class="error">
+        <p>Failed to load movies</p>
+      </div>
+      <button mat-flat-button type="button" data-testid="movies-retry-button" (click)="load()">Retry</button>
+    }
+    @case ('loaded') {
+      @if (cards().length === 0) {
+        <p data-testid="movies-empty">No screenings on this day</p>
+      } @else {
+        <div class="movies" data-testid="movie-list">
+          @for (c of cards(); track c.movie.id) {
+            <div class="card" data-testid="movie-card" [attr.data-movie-id]="c.movie.id">
+              <h2 data-testid="movie-title">{{ c.movie.title }}</h2>
+              <div class="meta">
+                <span data-testid="movie-genre">{{ c.movie.genre }}</span>
+                <span data-testid="movie-runtime">{{ c.movie.runtimeMinutes }} min</span>
+                <span data-testid="movie-format">{{ c.movie.format }}</span>
+              </div>
+              <div class="times">
+                @for (s of c.screenings; track s.id) {
+                  <button
+                    mat-stroked-button
+                    type="button"
+                    data-testid="screening-button"
+                    [attr.data-screening-id]="s.id"
+                    (click)="openSeats(s.id)"
+                  >{{ s.time }}</button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+    }
+  }
+</div>
