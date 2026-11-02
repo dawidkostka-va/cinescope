@@ -1,0 +1,186 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-11-02T15:34:50Z",
+  "runId": "control-20261102-152835",
+  "profile": "control",
+  "model": "claude-sonnet-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "2b8e26cbb308944299f0f411ed5897eefdb6cf7f",
+  "harnessDirty": false,
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 17,
+    "durationMs": 278341,
+    "apiDurationMs": 243973,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-11-02T15:28:39Z",
+    "endedAt": "2026-11-02T15:34:48Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": 0.8883416000000001,
+    "tokens": {
+      "input": 30,
+      "output": 38928,
+      "cacheRead": 1171668,
+      "cacheWrite": 66167
+    },
+    "byModel": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 30,
+        "outputTokens": 38928,
+        "cacheReadTokens": 1171668,
+        "cacheWriteTokens": 66167,
+        "costUsd": 0.8883416000000001
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14441,
+      "tools": 86846,
+      "skills": 8122
+    },
+    "tokens": {
+      "system": 4529,
+      "tools": 31632,
+      "skills": 2890
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 15,
+    "mainAgentRequests": 15,
+    "subagentRequests": 0,
+    "firstContextTokens": 39570,
+    "peakContextTokens": 105737,
+    "lastContextTokens": 105737
+  },
+  "changes": {
+    "baseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+    "filesChanged": 23,
+    "linesAdded": 1406,
+    "linesRemoved": 2
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 17,
+      "matched": 17,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-02T15:33:22Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 25,
+      "failed": 0,
+      "total": 25,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 68,
+      "failed": 1,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 809,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 747,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 914,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 25,
+        "failed": 0,
+        "total": 25,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 82299,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 68,
+        "failed": 1,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": [
+          "summary/summary.spec.ts:15 AC-28: Seats in rows 1–5 cost 25.00 PLN"
+        ]
+      }
+    }
+  }
+}
