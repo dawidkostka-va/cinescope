@@ -1,0 +1,30 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr 0.7fr 1.2fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.total {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}

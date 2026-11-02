@@ -1,0 +1,35 @@
+<div class="page">
+  <h1 data-testid="checkout-title">Your details</h1>
+  <form novalidate (submit)="submit($event)">
+    @for (f of fields; track f.key) {
+      <div class="field">
+        <mat-form-field appearance="outline">
+          <mat-label [attr.data-testid]="f.id + '-label'">{{ f.label }}</mat-label>
+          <input
+            matInput
+            type="text"
+            [attr.data-testid]="f.id + '-input'"
+            [value]="values()[f.key]"
+            (input)="onInput(f.key, $event)"
+            (blur)="touch(f.key)"
+          />
+        </mat-form-field>
+        @if (error(f.key); as message) {
+          <div class="error" [attr.data-testid]="f.id + '-error'">{{ message }}</div>
+        }
+      </div>
+    }
+    <div class="field">
+      <mat-checkbox data-testid="terms-checkbox" [checked]="values().terms" (change)="onTerms($event.checked)">
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (error('terms'); as message) {
+        <div class="error" data-testid="terms-error">{{ message }}</div>
+      }
+    </div>
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+      <button mat-flat-button type="submit" data-testid="pay-button" [disabled]="processing()">{{ payLabel() }}</button>
+    </div>
+  </form>
+</div>
