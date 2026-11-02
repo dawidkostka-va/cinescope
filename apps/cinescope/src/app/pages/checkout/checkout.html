@@ -1,0 +1,71 @@
+<div class="page">
+  <h1 data-testid="checkout-title">Your details</h1>
+
+  <div class="form" [formGroup]="form">
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="first-name-label">First name *</mat-label>
+        <input matInput type="text" autocomplete="off" data-testid="first-name-input" formControlName="firstName" [errorStateMatcher]="matchers.firstName" />
+      </mat-form-field>
+      @if (messages().firstName; as message) {
+        <div class="error" data-testid="first-name-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="last-name-label">Last name *</mat-label>
+        <input matInput type="text" autocomplete="off" data-testid="last-name-input" formControlName="lastName" [errorStateMatcher]="matchers.lastName" />
+      </mat-form-field>
+      @if (messages().lastName; as message) {
+        <div class="error" data-testid="last-name-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="email-label">Email *</mat-label>
+        <input matInput type="text" autocomplete="off" data-testid="email-input" formControlName="email" [errorStateMatcher]="matchers.email" />
+      </mat-form-field>
+      @if (messages().email; as message) {
+        <div class="error" data-testid="email-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+        <input matInput type="text" autocomplete="off" data-testid="confirm-email-input" formControlName="confirmEmail" [errorStateMatcher]="matchers.confirmEmail" />
+      </mat-form-field>
+      @if (messages().confirmEmail; as message) {
+        <div class="error" data-testid="confirm-email-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label data-testid="phone-label">Phone number</mat-label>
+        <input matInput type="text" autocomplete="off" data-testid="phone-input" formControlName="phone" [errorStateMatcher]="matchers.phone" />
+      </mat-form-field>
+      @if (messages().phone; as message) {
+        <div class="error" data-testid="phone-error">{{ message }}</div>
+      }
+    </div>
+
+    <div class="field">
+      <mat-checkbox data-testid="terms-checkbox" formControlName="terms" (change)="touchTerms()">
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (messages().terms; as message) {
+        <div class="error" data-testid="terms-error">{{ message }}</div>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <button matButton="outlined" type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button matButton="filled" type="button" data-testid="pay-button" [disabled]="processing()" (click)="pay()">
+      {{ payLabel() }}
+    </button>
+  </div>
+</div>

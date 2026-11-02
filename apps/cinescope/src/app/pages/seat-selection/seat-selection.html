@@ -1,0 +1,68 @@
+@if (loaded()) {
+  <div class="page">
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p class="subtitle" data-testid="seat-map-subtitle">{{ subtitle() }}</p>
+
+    <div class="auditorium">
+      <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+      <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+      <div class="seat-map" data-testid="seat-map">
+        @for (rowLayout of layout; track rowLayout.row) {
+          <div class="seat-row" data-testid="seat-row" [attr.data-row]="rowLayout.row">
+            <span class="row-label left" data-testid="row-label-left" [attr.data-row]="rowLayout.row">{{ rowLayout.row }}</span>
+            <div class="aisle" style="grid-column: 6" data-testid="aisle" [attr.data-row]="rowLayout.row"></div>
+            <div class="aisle" style="grid-column: 23" data-testid="aisle" [attr.data-row]="rowLayout.row"></div>
+            @for (cell of rowLayout.cells; track cell.key) {
+              @if (cell.couch) {
+                <button
+                  type="button"
+                  class="couch"
+                  data-testid="couch"
+                  [attr.data-row]="rowLayout.row"
+                  [attr.data-column-start]="cell.columnStart"
+                  [attr.data-column-end]="cell.columnEnd"
+                  [attr.data-state]="state(rowLayout.row, cell)"
+                  [style.grid-column]="cell.gridColumn + ' / span ' + cell.span"
+                  (click)="toggle(rowLayout.row, cell)"
+                >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+              } @else {
+                <button
+                  type="button"
+                  class="seat"
+                  data-testid="seat"
+                  [attr.data-row]="rowLayout.row"
+                  [attr.data-column]="cell.columnStart"
+                  [attr.data-state]="state(rowLayout.row, cell)"
+                  [style.grid-column]="cell.gridColumn"
+                  (click)="toggle(rowLayout.row, cell)"
+                >{{ cell.columnStart }}</button>
+              }
+            }
+            <span class="row-label right" data-testid="row-label-right" [attr.data-row]="rowLayout.row">{{ rowLayout.row }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="legend" data-testid="legend">
+        @for (item of legend; track item.state) {
+          <span class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+            <span class="swatch" [attr.data-state]="item.state"></span>{{ item.label }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="selected-seats" data-testid="selected-seats">
+      <div data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</div>
+      @for (line of selectedRows(); track line.row) {
+        <div data-testid="selected-seats-row" [attr.data-row]="line.row">{{ line.text }}</div>
+      }
+    </div>
+
+    <div class="actions">
+      <button matButton="outlined" type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button matButton="filled" type="button" data-testid="continue-button" (click)="next()">Continue</button>
+    </div>
+  </div>
+}
