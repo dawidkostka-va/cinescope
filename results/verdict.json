@@ -1,0 +1,80 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-11-02T15:48:14Z",
+  "runId": "treatment-20261102-154247",
+  "profile": "treatment",
+  "model": "claude-haiku-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "2b8e26cbb308944299f0f411ed5897eefdb6cf7f",
+  "harnessDirty": false,
+  "verdict": "INVALID",
+  "invalidReason": "no_result_event",
+  "failReasons": [],
+  "session": {
+    "endedBy": null,
+    "subtype": null,
+    "terminalReason": null,
+    "apiErrorStatus": null,
+    "numTurns": null,
+    "durationMs": null,
+    "apiDurationMs": null,
+    "containerExitCode": 1,
+    "validationExitCode": 141,
+    "startedAt": "2026-11-02T15:42:51Z",
+    "endedAt": "2026-11-02T15:48:12Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": null,
+    "tokens": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "byModel": {}
+  },
+  "context": {
+    "model": "claude-haiku-5-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14441,
+      "tools": 86846,
+      "skills": 8121
+    },
+    "tokens": {
+      "system": 4529,
+      "tools": 31632,
+      "skills": 2889
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 7,
+    "mainAgentRequests": 4,
+    "subagentRequests": 0,
+    "firstContextTokens": 39569,
+    "peakContextTokens": 67318,
+    "lastContextTokens": 67318
+  },
+  "changes": null,
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 8,
+      "matched": 8,
+      "incomplete": 2
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-02T15:48:08Z",
+      "capture": []
+    }
+  },
+  "scores": {},
+  "checks": {}
+}
