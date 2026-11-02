@@ -6,19 +6,19 @@
 
 **Blocked by:** 02 — Auditorium map.
 
-**Status:** ready
+**Status:** done
 
-- [ ] AC-16 — Seats listed in `occupiedSeats` for the screening are rendered unavailable and cannot be selected.
-- [ ] AC-17 — A couch is unavailable when either of its two seat identifiers is in `occupiedSeats`.
-- [ ] AC-18 — Clicking an available seat selects it; clicking it again deselects it.
-- [ ] AC-19 — Clicking a couch selects both of its seats as one unit; it cannot be half-selected.
-- [ ] AC-20 — Selection is capped at 10 seats; a couch counts as 2.
-- [ ] AC-21 — A click that would exceed 10 seats is ignored and shows the toast `Maximum 10 seats per booking`.
-- [ ] AC-22 — At the cap, already selected seats and couches can still be deselected.
-- [ ] AC-23 — The legend lists exactly `Available`, `Selected`, `Unavailable`, `Accessible`.
-- [ ] AC-24 — Available seats use `#2E7D32`.
-- [ ] AC-25 — Selected seats use `#F9A825`.
-- [ ] AC-26 — Unavailable seats use `#C62828`.
-- [ ] AC-27 — Accessible seats use `#1565C0`.
-- [ ] AC-58 — Between the seat map and the `Cancel` / `Continue` buttons, the selected-seats panel shows `Selected seats: <n>` and one `Row <r>: <seats>` line per row, updated on every selection change.
-- [ ] AC-66 — Every seat-selection identifier in section 9.2, and the toast identifier in section 9.6, is present with the exact names and values given there.
+- [x] AC-16 — Seats listed in `occupiedSeats` for the screening are rendered unavailable and cannot be selected.
+- [x] AC-17 — A couch is unavailable when either of its two seat identifiers is in `occupiedSeats`.
+- [x] AC-18 — Clicking an available seat selects it; clicking it again deselects it.
+- [x] AC-19 — Clicking a couch selects both of its seats as one unit; it cannot be half-selected.
+- [x] AC-20 — Selection is capped at 10 seats; a couch counts as 2.
+- [x] AC-21 — A click that would exceed 10 seats is ignored and shows the toast `Maximum 10 seats per booking`.
+- [x] AC-22 — At the cap, already selected seats and couches can still be deselected.
+- [x] AC-23 — The legend lists exactly `Available`, `Selected`, `Unavailable`, `Accessible`.
+- [x] AC-24 — Available seats use `#2E7D32`.
+- [x] AC-25 — Selected seats use `#F9A825`.
+- [x] AC-26 — Unavailable seats use `#C62828`.
+- [x] AC-27 — Accessible seats use `#1565C0`.
+- [x] AC-58 — Between the seat map and the `Cancel` / `Continue` buttons, the selected-seats panel shows `Selected seats: <n>` and one `Row <r>: <seats>` line per row, updated on every selection change.
+- [x] AC-66 — Every seat-selection identifier in section 9.2, and the toast identifier in section 9.6, is present with the exact names and values given there.

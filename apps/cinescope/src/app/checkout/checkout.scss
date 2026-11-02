@@ -1,0 +1,25 @@
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.field {
+  margin-bottom: 12px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.error {
+  color: #b3261e;
+  font-size: 12px;
+  margin: 2px 0 0 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
