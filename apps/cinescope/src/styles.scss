@@ -12,6 +12,20 @@ html {
 }
 
 body {
+  background: #fafafa;
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.page {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
 }
