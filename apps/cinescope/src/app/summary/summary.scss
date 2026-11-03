@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+}
+
+.details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+
+  .meta {
+    color: #555;
+  }
+}
+
+.price {
+  min-width: 96px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.total {
+  margin: 24px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}

@@ -1,0 +1,69 @@
+<section class="day-picker" data-testid="day-picker">
+  @for (day of dayButtons(); track day.iso) {
+    @if (day.selected) {
+      <button
+        mat-flat-button
+        data-testid="day-button"
+        [attr.data-date]="day.iso"
+        [attr.data-selected]="true"
+        (click)="selectDay(day.iso)"
+      >{{ day.label }}</button>
+    } @else {
+      <button
+        mat-stroked-button
+        data-testid="day-button"
+        [attr.data-date]="day.iso"
+        [attr.data-selected]="false"
+        (click)="selectDay(day.iso)"
+      >{{ day.label }}</button>
+    }
+  }
+
+  <mat-form-field class="date-field">
+    <mat-label>Other date</mat-label>
+    <input
+      matInput
+      data-testid="date-picker"
+      [matDatepicker]="picker"
+      [min]="minDate"
+      [value]="pickerValue()"
+      (dateChange)="onDatePicked($event.value)"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker" />
+    <mat-datepicker #picker />
+  </mat-form-field>
+</section>
+
+@if (loading()) {
+  <p class="status" data-testid="movies-loading">Loading…</p>
+} @else if (failed()) {
+  <div class="status" data-testid="movies-error">
+    <p>Failed to load movies</p>
+    <button mat-flat-button data-testid="movies-retry-button" (click)="load()">Retry</button>
+  </div>
+} @else if (cards().length > 0) {
+  <section class="movie-list" data-testid="movie-list">
+    @for (card of cards(); track card.movie.id) {
+      <article class="movie-card" data-testid="movie-card" [attr.data-movie-id]="card.movie.id">
+        <h2 data-testid="movie-title">{{ card.movie.title }}</h2>
+        <p class="meta">
+          <span data-testid="movie-genre">{{ card.movie.genre }}</span>
+          <span data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</span>
+          <span data-testid="movie-format">{{ card.movie.format }}</span>
+        </p>
+        <div class="screenings">
+          @for (screening of card.screenings; track screening.id) {
+            <button
+              mat-stroked-button
+              data-testid="screening-button"
+              [attr.data-screening-id]="screening.id"
+              (click)="openSeats(screening.id)"
+            >{{ screening.time }}</button>
+          }
+        </div>
+      </article>
+    }
+  </section>
+} @else {
+  <p class="status" data-testid="movies-empty">No screenings on this day</p>
+}

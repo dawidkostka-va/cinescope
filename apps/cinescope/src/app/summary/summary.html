@@ -1,0 +1,27 @@
+@if (screening() && movie()) {
+  <section class="summary">
+    <h1 data-testid="summary-title">Your tickets</h1>
+
+    <ul class="items" data-testid="summary-list">
+      @for (item of items(); track item.key) {
+        <li class="item" data-testid="summary-item">
+          <div class="details">
+            <strong data-testid="summary-item-title">{{ movie()?.title }}</strong>
+            <span data-testid="summary-item-datetime">{{ showDate() }}</span>
+            <span class="meta">Row <span data-testid="summary-item-row">{{ item.cell.row }}</span></span>
+            <span class="meta">Seat <span data-testid="summary-item-seat">{{ item.seat }}</span></span>
+          </div>
+          <span class="price" data-testid="summary-item-price">{{ item.price }}</span>
+          <button mat-stroked-button data-testid="summary-item-remove-button" (click)="remove(item.cell)">Remove</button>
+        </li>
+      }
+    </ul>
+
+    <p class="total" data-testid="summary-total">{{ total() }}</p>
+
+    <div class="actions">
+      <button mat-stroked-button data-testid="back-button" (click)="back()">Back</button>
+      <button mat-flat-button data-testid="confirm-button" (click)="confirm()">Confirm</button>
+    </div>
+  </section>
+}
