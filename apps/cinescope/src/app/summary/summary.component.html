@@ -1,0 +1,32 @@
+<main class="page">
+  <h1 class="title" data-testid="summary-title">Your tickets</h1>
+
+  <ul class="list" data-testid="summary-list">
+    @for (item of items(); track item.key) {
+      <li class="item" data-testid="summary-item">
+        <div class="info">
+          <span class="movie" data-testid="summary-item-title">{{ item.title }}</span>
+          <span data-testid="summary-item-datetime">{{ item.datetime }}</span>
+          <span>Row <span data-testid="summary-item-row">{{ item.row }}</span></span>
+          <span>Seat <span data-testid="summary-item-seat">{{ item.seat }}</span></span>
+          <span data-testid="summary-item-price">{{ item.price }}</span>
+        </div>
+        <button
+          mat-stroked-button
+          type="button"
+          data-testid="summary-item-remove-button"
+          (click)="remove(item)"
+        >
+          Remove
+        </button>
+      </li>
+    }
+  </ul>
+
+  <p class="total" data-testid="summary-total">{{ totalLabel() }}</p>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">Back</button>
+    <button mat-flat-button type="button" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+  </div>
+</main>
