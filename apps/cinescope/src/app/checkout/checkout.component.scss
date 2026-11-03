@@ -1,0 +1,27 @@
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.terms {
+  margin: 8px 0 16px;
+}
+
+.error {
+  color: #b3261e;
+  font-size: 12px;
+  margin: 4px 16px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}

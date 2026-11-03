@@ -1,0 +1,146 @@
+$available: #2e7d32;
+$selected: #f9a825;
+$unavailable: #c62828;
+$accessible: #1565c0;
+
+@mixin seat-state($color) {
+  background-color: $color;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active,
+  &:disabled {
+    background-color: $color;
+  }
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.subtitle {
+  color: #555;
+  margin: 4px 0 12px;
+}
+
+.limit {
+  margin: 0 0 16px;
+}
+
+.auditorium {
+  display: inline-block;
+}
+
+.screen {
+  background: #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 0;
+  margin-bottom: 16px;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: 32px repeat(4, 36px) 80px repeat(16, 36px) 80px repeat(4, 36px) 32px;
+  align-items: center;
+  justify-items: stretch;
+}
+
+.row-label {
+  font-size: 13px;
+  color: #555;
+}
+
+.aisle {
+  height: 100%;
+}
+
+.seat,
+.couch {
+  height: 32px;
+  margin: 2px;
+  border: none;
+  border-radius: 4px 4px 2px 2px;
+  color: #fff;
+  font-size: 11px;
+  padding: 0;
+  cursor: pointer;
+
+  &[data-state='available'] {
+    @include seat-state($available);
+  }
+
+  &[data-state='selected'] {
+    @include seat-state($selected);
+    color: #212121;
+  }
+
+  &[data-state='unavailable'] {
+    @include seat-state($unavailable);
+    cursor: not-allowed;
+  }
+
+  &[data-state='accessible'] {
+    @include seat-state($accessible);
+  }
+}
+
+.couch {
+  font-weight: 500;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+
+  &.available { background: #2e7d32; }
+  &.selected { background: #f9a825; }
+  &.unavailable { background: #c62828; }
+  &.accessible { background: #1565c0; }
+}
+
+.selected-seats {
+  margin: 16px auto;
+  text-align: left;
+  display: inline-block;
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}

@@ -1,0 +1,57 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.day-button.selected {
+  background: #1565c0;
+  color: #fff;
+}
+
+.date-field {
+  width: 200px;
+}
+
+.status {
+  text-align: center;
+  font-size: 18px;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movie-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px 20px;
+
+  h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+  }
+
+  p {
+    margin: 2px 0;
+    color: #555;
+  }
+}
+
+.screenings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
