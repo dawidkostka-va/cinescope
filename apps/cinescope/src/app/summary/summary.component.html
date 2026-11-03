@@ -1,0 +1,27 @@
+<main class="page">
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  @if (screening(); as current) {
+    @if (movie(); as currentMovie) {
+      <div class="summary-list" data-testid="summary-list">
+        @for (unit of units(); track unit.ids.join()) {
+          <div class="summary-item" data-testid="summary-item">
+            <span class="cell title" data-testid="summary-item-title">{{ currentMovie.title }}</span>
+            <span class="cell" data-testid="summary-item-datetime">{{ current.date }} {{ current.time }}</span>
+            <span class="cell" data-testid="summary-item-row">{{ unit.row }}</span>
+            <span class="cell" data-testid="summary-item-seat">{{ describe(unit) }}</span>
+            <span class="cell" data-testid="summary-item-price">{{ price(unit) }}</span>
+            <button mat-stroked-button type="button" data-testid="summary-item-remove-button" (click)="remove(unit)">Remove</button>
+          </div>
+        }
+      </div>
+
+      <p class="total" data-testid="summary-total">Total: {{ total() }}</p>
+
+      <div class="actions">
+        <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">Back</button>
+        <button mat-flat-button type="button" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+      </div>
+    }
+  }
+</main>
