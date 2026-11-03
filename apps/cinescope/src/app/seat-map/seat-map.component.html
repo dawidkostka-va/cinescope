@@ -1,0 +1,86 @@
+@if (data.value(); as value) {
+  <main class="page">
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p data-testid="seat-map-subtitle">Show Date: {{ dateLabel(value.screening) }}</p>
+    <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+
+    <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+    <div class="auditorium" data-testid="seat-map">
+      @for (row of rows; track row.row) {
+        <div class="row" data-testid="seat-row" [attr.data-row]="row.row">
+          <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row">{{ row.row }}</span>
+          @if (row.left) {
+            <div class="block outer">
+              <ng-container *ngTemplateOutlet="cellsTpl; context: { $implicit: row.left, occupied: value.occupied }" />
+            </div>
+          } @else {
+            <div class="entrance"></div>
+          }
+          <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+          <div class="block middle">
+            <ng-container *ngTemplateOutlet="cellsTpl; context: { $implicit: row.middle, occupied: value.occupied }" />
+          </div>
+          <div class="aisle" data-testid="aisle" [attr.data-row]="row.row"></div>
+          <div class="block outer">
+            <ng-container *ngTemplateOutlet="cellsTpl; context: { $implicit: row.right, occupied: value.occupied }" />
+          </div>
+          <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row">{{ row.row }}</span>
+        </div>
+      }
+    </div>
+
+    <section class="legend" data-testid="legend">
+      @for (item of legend; track item.state) {
+        <span class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+          <span class="swatch"></span>{{ item.label }}
+        </span>
+      }
+    </section>
+
+    <section class="selected-panel" data-testid="selected-seats">
+      <p data-testid="selected-seats-count">Selected seats: {{ booking.seatCount() }}</p>
+      @for (line of selectedRows(); track line.row) {
+        <p data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</p>
+      }
+    </section>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button
+        mat-flat-button
+        type="button"
+        data-testid="continue-button"
+        [disabled]="booking.seatCount() === 0"
+        (click)="continue()"
+      >Continue</button>
+    </div>
+  </main>
+}
+
+<ng-template #cellsTpl let-cells let-occupied="occupied">
+  @for (cell of cells; track $index) {
+    @if (cell.kind === 'couch') {
+      <button
+        type="button"
+        class="couch"
+        data-testid="couch"
+        [attr.data-row]="cell.row"
+        [attr.data-column-start]="cell.start"
+        [attr.data-column-end]="cell.end"
+        [attr.data-state]="stateOf(cell, occupied)"
+        (click)="onCellClick(cell, occupied)"
+      >{{ cell.start }}-{{ cell.end }}</button>
+    } @else {
+      <button
+        type="button"
+        class="seat"
+        data-testid="seat"
+        [attr.data-row]="cell.row"
+        [attr.data-column]="cell.column"
+        [attr.data-state]="stateOf(cell, occupied)"
+        (click)="onCellClick(cell, occupied)"
+      >{{ cell.column }}</button>
+    }
+  }
+</ng-template>

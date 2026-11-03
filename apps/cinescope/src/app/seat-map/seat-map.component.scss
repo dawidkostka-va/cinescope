@@ -1,0 +1,149 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.limit {
+  margin: 8px 0 24px;
+}
+
+.screen {
+  width: 540px;
+  margin: 0 auto 16px;
+  padding: 6px 0;
+  background: var(--mat-sys-surface-variant);
+  border-radius: 0 0 50% 50%;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row-label {
+  width: 32px;
+  font-size: 12px;
+}
+
+.block {
+  display: flex;
+  gap: 4px;
+}
+
+.outer {
+  width: 132px;
+  justify-content: flex-start;
+}
+
+.middle {
+  width: 540px;
+  justify-content: flex-start;
+}
+
+.entrance {
+  width: 132px;
+}
+
+.aisle {
+  width: 64px;
+}
+
+.seat,
+.couch {
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 6px 2px 2px;
+  color: #fff;
+  font-size: 11px;
+  cursor: default;
+}
+
+.seat {
+  width: 30px;
+}
+
+.couch {
+  width: 64px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-item[data-state='available'] .swatch {
+  background-color: #2e7d32;
+}
+
+.legend-item[data-state='selected'] .swatch {
+  background-color: #f9a825;
+}
+
+.legend-item[data-state='unavailable'] .swatch {
+  background-color: #c62828;
+}
+
+.legend-item[data-state='accessible'] .swatch {
+  background-color: #1565c0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.selected-panel {
+  margin-bottom: 24px;
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.seat[data-state='available'],
+.couch[data-state='available'] {
+  background-color: #2e7d32;
+}
+
+.seat[data-state='selected'],
+.couch[data-state='selected'] {
+  background-color: #f9a825;
+  color: #000;
+}
+
+.seat[data-state='unavailable'],
+.couch[data-state='unavailable'] {
+  background-color: #c62828;
+}
+
+.seat[data-state='accessible'] {
+  background-color: #1565c0;
+}
