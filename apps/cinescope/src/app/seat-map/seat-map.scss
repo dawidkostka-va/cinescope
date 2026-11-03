@@ -1,0 +1,129 @@
+$seat: 32px;
+$gap: 2px;
+
+.page {
+  padding: 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 4px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-weight: 400;
+}
+
+.auditorium {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.limit {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen {
+  margin: 0 $seat + 8px 20px;
+  padding: 6px 0;
+  background: #cfd8dc;
+  color: #37474f;
+  letter-spacing: 6px;
+  font-weight: 500;
+  border-radius: 4px 4px 40px 40px / 4px 4px 12px 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  flex: none;
+  width: $seat + 8px;
+  font-size: 13px;
+  color: #555;
+}
+
+.aisle {
+  flex: none;
+  width: 80px;
+}
+
+.entrance {
+  flex: none;
+  width: 4 * ($seat + 2 * $gap);
+}
+
+.cell {
+  flex: none;
+  box-sizing: border-box;
+  width: $seat;
+  height: $seat;
+  margin: $gap;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font: 500 12px Roboto, sans-serif;
+  cursor: pointer;
+}
+
+.cell.couch {
+  width: 2 * $seat + 2 * $gap;
+  height: $seat + 4px;
+  border-radius: 10px;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.35);
+}
+
+.available {
+  background-color: #2e7d32;
+}
+
+.selected {
+  background-color: #f9a825;
+  color: #000;
+}
+
+.unavailable {
+  background-color: #c62828;
+  cursor: default;
+}
+
+.accessible {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.panel {
+  margin: 20px auto;
+  width: 240px;
+  text-align: left;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
