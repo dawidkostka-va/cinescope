@@ -1,0 +1,718 @@
+HEAD detached at 17128d5
+nothing to commit, working tree clean
+17128d5 feat: scaffold app
+total 504
+drwxr-xr-x 7 node  node    4096 Nov  2 08:39 .
+drwxr-xr-x 1 agent agent   4096 Nov  4 16:16 ..
+drwxr-xr-x 8 node  node    4096 Nov  4 16:16 .git
+-rw-r--r-- 1 node  node     812 Nov  2 08:39 .gitignore
+-rw-r--r-- 1 node  node       7 Nov  2 08:39 .nvmrc
+-rw-r--r-- 1 node  node     150 Nov  2 08:39 .prettierignore
+-rw-r--r-- 1 node  node      47 Nov  2 08:39 .prettierrc
+drwxr-xr-x 2 node  node    4096 Nov  2 08:39 .vscode
+-rw-r--r-- 1 node  node    1008 Nov  2 08:39 README.md
+drwxr-xr-x 3 node  node    4096 Nov  2 08:39 apps
+-rw-r--r-- 1 node  node    4579 Nov  2 08:39 db.json
+-rw-r--r-- 1 node  node     721 Nov  2 08:39 eslint.config.mjs
+drwxr-xr-x 7 node  node    4096 Nov  2 08:39 node_modules
+-rw-r--r-- 1 node  node    1042 Nov  2 08:39 nx.json
+-rw-r--r-- 1 node  node    1227 Nov  2 08:39 package.json
+-rw-r--r-- 1 node  node  437328 Nov  2 08:39 pnpm-lock.yaml
+-rw-r--r-- 1 node  node     117 Nov  2 08:39 pnpm-workspace.yaml
+drwxr-xr-x 3 node  node    4096 Nov  2 08:39 spec
+-rw-r--r-- 1 node  node     451 Nov  2 08:39 tsconfig.base.json
+# Cinescope — cinema seat booking
+
+A web application for booking cinema seats. A customer picks a day and a movie screening,
+chooses seats on a map of the auditorium, reviews the tickets, fills in their details and
+pays.
+
+This file is the complete specification. The work is split into tickets in
+[`tickets/`](tickets/README.md); each ticket points back to the sections below and lists
+the acceptance criteria it has to satisfy.
+
+---
+
+## 1. Project setup
+
+The framework, the libraries and the state of the scaffold are described in
+[`stack.md`](stack.md). The application is the Nx project `cinescope` in `apps/cinescope`.
+
+All commands run from the workspace root:
+
+| Command | What it does |
+|---|---|
+| `pnpm install` | installs dependencies (already done) |
+| `pnpm nx serve cinescope` | starts the application at `http://localhost:4200` |
+| `pnpm api` | starts the backend at `http://localhost:3000` |
+| `pnpm nx build cinescope` | production build — must succeed |
+| `pnpm nx test cinescope` | unit tests (Vitest) |
+| `pnpm nx lint cinescope` | ESLint |
+
+Rules for the environment:
+
+- The package manager is pnpm. Do not use `npm` or `yarn`.
+- The application is served at `http://localhost:4200`. Do not change the port.
+- Do not add dependencies. Everything the application needs is already installed.
+- Do not edit `db.json` by hand. It is the backend's data.
+- The application is desktop-only (viewport 1280 × 720 or larger). All user-facing text is
+  in English.
+
+### 1.1 UI library
+
+Use components of the UI library named in [`stack.md`](stack.md) for every button (including the day buttons and the
+screening buttons), text field, checkbox, toast and for the datepicker. The seat map, the
+legend and the selected-seats panel are drawn by the application itself.
+
+---
+
+## 2. Backend
+
+The backend is [`json-server`](https://github.com/typicode/json-server/tree/v0) 0.17.4
+serving `db.json` from the workspace root. Start it with `pnpm api` and keep it running
+while you work on the application.
+
+- **Base URL:** `http://localhost:3000`
+- CORS is enabled; the application calls the base URL directly.
+- Every response is JSON. Requests with a body send `Content-Type: application/json`.
+- `json-server` writes every successful `POST` into `db.json`. That is expected.
+
+### 2.1 Data model
+
+```ts
+interface Movie {
+  id: number;
+  title: string;            // "The Silent Harbor"
+  genre: string;            // "Drama"
+  runtimeMinutes: number;   // 128
+  format: 'PL dubbing' | 'PL subtitles';
+}
+
+interface Screening {
+  id: number;
+  movieId: number;          // references Movie.id
+  date: string;             // "2026-09-15" (YYYY-MM-DD)
+  time: string;             // "16:00" (HH:mm, 24-hour)
+  occupiedSeats: string[];  // seat identifiers already sold, e.g. ["R3C7", "R15C5", "R15C6"]
+}
+
+interface Reservation {
+  id: number;               // assigned by the backend
+  screeningId: number;
+  seats: string[];          // seat identifiers, a couch contributes both of its identifiers
+  customer: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;          // "" when not provided
+  };
+  totalPrice: number;       // in PLN, e.g. 121
+}
+```
+
+**Seat identifier** — `R<row>C<column>`, for example `R7C12` is row 7, column 12. A couch
+occupies two identifiers: the couch over columns 5–6 of row 15 is `R15C5` + `R15C6`.
+
+### 2.2 Endpoints
+
+| Method | Path | Returns |
+|---|---|---|
+| `GET` | `/movies` | `Movie[]` — 5 movies |
+| `GET` | `/movies/:id` | `Movie`, or `404` |
+| `GET` | `/screenings` | `Screening[]` — all screenings, in no guaranteed order |
+| `GET` | `/screenings?date=:date` | `Screening[]` of one day, e.g. `?date=2026-09-15` |
+| `GET` | `/screenings?movieId=:movieId` | `Screening[]` of one movie |
+| `GET` | `/screenings/:id` | `Screening`, or `404` |
+| `POST` | `/reservations` | `201` with the created `Reservation` |
+
+`GET /screenings/1` returns:
+
+```json
+{
+  "id": 1,
+  "movieId": 1,
+  "date": "2026-09-15",
+  "time": "16:00",
+  "occupiedSeats": ["R3C7", "R3C8", "R3C9", "R6C12", "R6C13", "R11C21", "R11C22", "R15C5", "R15C6"]
+}
+```
+
+`POST /reservations` request body:
+
+```json
+{
+  "screeningId": 1,
+  "seats": ["R7C12", "R15C1", "R15C2"],
+  "customer": {
+    "firstName": "Anna",
+    "lastName": "Kowalska",
+    "email": "anna.kowalska@example.com",
+    "phone": "123456789"
+  },
+  "totalPrice": 121
+}
+```
+
+The response is the same object with an `id` added. Any network error or any status other
+than `2xx` is a failed request. Creating a reservation does not change the screening's
+`occupiedSeats`; the application makes no other write requests.
+
+**Dates.** The screenings in `db.json` are between 15 and 21 September 2026. The
+application always works from the browser's current date, so on other dates the movie list
+may show `No screenings on this day` for every day it offers — that is expected. Do not
+change `db.json`, and do not change the date logic to see screenings.
+
+---
+
+## 3. Screens and navigation
+
+| # | Route | Screen |
+|---|---|---|
+| 1 | `/` | Movie list |
+| 2 | `/screenings/:id/seats` | Seat selection for screening `:id` |
+| 3 | `/screenings/:id/summary` | Ticket summary |
+| 4 | `/screenings/:id/checkout` | Customer details and payment |
+| 5 | `/confirmation` | Payment successful |
+
+Any other URL redirects to `/`.
+
+### 3.1 The booking
+
+The booking is kept in `sessionStorage`, so it survives a page reload. It holds the
+screening id, the selected seats, the values typed into the checkout form and, once paid,
+the customer's email address. A booking is *in progress* until it is paid.
+
+| Entering… | allowed when | otherwise |
+|---|---|---|
+| route 2 | the screening exists | redirect to `/` |
+| routes 3 and 4 | the booking is unpaid, belongs to this screening id and has at least one seat | redirect to `/` |
+| route 5 | the booking is paid | redirect to `/` |
+
+These checks run when a route is entered, including by a reload — not while the customer
+stays on a screen. Paying therefore opens `/confirmation` without the checkout screen
+redirecting first.
+
+- Opening the seat map of a screening shows the selection of the booking in progress when
+  it belongs to that screening. Otherwise — no booking, a booking for another screening, or
+  a paid booking — it starts a new, empty booking for that screening, discarding the
+  previous one (with its form values) once the screening has loaded.
+- `Cancel` on the seat map and `Continue` on the confirmation screen clear the booking.
+
+### 3.2 Toasts
+
+Short messages are shown as toasts. Only one toast is visible at a time — a new toast
+replaces the current one. A toast stays visible for 4 seconds and then disappears.
+
+### 3.3 Date formats
+
+| Name | Format | Example |
+|---|---|---|
+| ISO date | `YYYY-MM-DD` | `2026-09-15` |
+| time | `HH:mm`, 24-hour, as in the data | `16:00` |
+| show date | `<Weekday> <D> <Mon> <HH:mm>` — English weekday in full, day without a leading zero, English month in three letters | `Tuesday 15 Sep 16:00` |
+
+---
+
+## 4. Movie list (`/`)
+
+Page layout, top to bottom: the day picker, then the movie list.
+
+### 4.1 Day picker
+
+- Five day buttons: `Today`, then the next four days labelled with their English weekday in
+  full. If today is Tuesday: `Today`, `Wednesday`, `Thursday`, `Friday`, `Saturday`.
+- After them, a datepicker for choosing any other date. Dates before today cannot be
+  chosen; there is no upper limit.
+- Exactly one day is selected at a time. When the selected day is one of the five, its
+  button is shown as selected; when it was chosen in the datepicker and is not one of the
+  five, no button is selected and the datepicker shows the date.
+- The selected day is part of the URL: `/?date=<ISO date>`. Choosing a day updates the URL.
+  `/` without `date`, with a date that is not a valid ISO date, or with a date before today
+  selects today.
+
+### 4.2 Movies
+
+Movies and screenings are loaded from the backend each time the screen opens.
+
+- **Loading** — while the requests are in flight the screen shows the text `Loading…` and
+  no movie cards.
+- **Error** — if a request fails, the screen shows the text `Failed to load movies` and a
+  `Retry` button. `Retry` issues the requests again (showing the loading indicator).
+- **Loaded** — a vertical list of movie cards: one per movie that has at least one
+  screening on the selected day, in the order the backend returns the movies. Each card
+  shows:
+  - the title,
+  - the genre,
+  - the runtime as `<runtimeMinutes> min`, e.g. `128 min`,
+  - the format, exactly as in the data: `PL dubbing` or `PL subtitles`,
+  - one button per screening of that movie on the selected day, labelled with its time,
+    e.g. `16:00`, ordered by time.
+- **Empty** — when no movie has a screening on the selected day, the screen shows the text
+  `No screenings on this day` and no movie cards.
+
+Clicking a screening button opens `/screenings/:id/seats` for that screening.
+
+---
+
+## 5. Seat selection (`/screenings/:id/seats`)
+
+The screen loads the screening and its movie once when it opens. `occupiedSeats` of that
+screening are the seats that cannot be booked. If the screening cannot be loaded — `404`
+or any other failure — redirect to `/`.
+
+Page layout, top to bottom:
+
+1. the title `Choose your seats`;
+2. the subtitle `Show Date: <show date>`, e.g. `Show Date: Tuesday 15 Sep 16:00`;
+3. the text `You can reserve up to 10 seats per reservation`, horizontally centred over the
+   auditorium;
+4. the `SCREEN` bar and the auditorium (5.1);
+5. the legend (5.3);
+6. the selected-seats panel (5.5);
+7. the `Cancel` and `Continue` buttons (5.6).
+
+### 5.1 Auditorium
+
+A bar with the text `SCREEN` is drawn at the top. The auditorium is drawn below it.
+
+```
+                              SCREEN
+   1                ·  5 6 7 8 9 [10 11 12 13 14 15] 16 17 18 19 20 ·  21 22 23 24    1
+  ...               ·                                               ·                ...
+  10                ·  5 ......................................... 20 ·  21 ........ 24   10
+  11   1 2 3 4      ·  5 ......................................... 20 ·  21 ........ 24   11
+  ...
+  14   1 2 3 4      ·  5 ......................................... 20 ·  21 ........ 24   14
+  15   [1-2][3-4]   ·  [5-6] ................................ [19-20] ·  [21-22][23-24]  15
+```
+
+- **Rows** — 15 rows, numbered 1 to 15. Row 1 is closest to the screen and drawn directly
+  under it; row 15 is the farthest, drawn at the bottom.
+- **Row labels** — every row shows its row number at the left edge and at the right edge.
+- **Columns** — 24 seat columns, numbered 1 to 24 from left to right. The numbering is
+  global: column 12 is at the same horizontal position in every row.
+- **Aisles** — two aisles, each at least as wide as two seats, one between columns 4 and 5
+  and one between columns 20 and 21. An aisle is an empty gap: no seat, no number, no text.
+  Every row, 1 to 15, contains both aisles.
+- **Blocks** — the aisles split each row into three blocks: columns 1–4, 5–20 and 21–24.
+- **Entrance** — in rows 1 to 10 the left block (columns 1–4) does not exist; the space
+  stays empty (it is the entrance) and contains no seats. The empty space is not an aisle.
+- **Seat** — every seat shows its column number and nothing else.
+
+Seat types:
+
+- **Accessible seats** — row 1, columns 10 to 15: six seats. Anyone may book them.
+- **Couches** — the whole of row 15. A couch covers two adjacent columns and is drawn as a
+  single element at least twice as wide as a seat, showing both column numbers, e.g. `1-2`.
+  Row 15 has 12 couches: columns 1–2, 3–4, 5–6, … 23–24. A couch is selected, deselected
+  and priced as a whole; half a couch cannot be booked. A couch is unavailable when either
+  of its two identifiers is in `occupiedSeats`.
+- **Regular seats** — every other seat.
+
+That makes 296 seats and 12 couches: 308 selectable elements.
+
+### 5.2 Selecting seats
+
+- Clicking an available seat or couch selects it; clicking a selected one deselects it.
+- Clicking an unavailable seat or couch does nothing.
+- A booking holds at most 10 seats. A couch counts as 2 seats.
+- A click that would take the booking above 10 seats is ignored and shows the toast
+  `Maximum 10 seats per booking`. Selected seats and couches can always be deselected.
+
+### 5.3 Colours and legend
+
+Each seat and couch is painted, as its background colour, with the colour of its state:
+
+| State | Colour | Applies to |
+|---|---|---|
+| Available | `#2E7D32` | free regular seats and free couches |
+| Selected | `#F9A825` | any selected seat or couch |
+| Unavailable | `#C62828` | any seat or couch in `occupiedSeats` |
+| Accessible | `#1565C0` | free, unselected accessible seats |
+
+Hovering or focusing a seat must not change its background colour.
+
+Under the auditorium, a legend lists these four states — `Available`, `Selected`,
+`Unavailable`, `Accessible` — each with a swatch of its colour.
+
+### 5.4 Prices
+
+| Seat | Price |
+|---|---|
+| rows 1–5, including the accessible seats | `25.00 PLN` |
+| rows 6–10 | `32.00 PLN` |
+| rows 11–14 | `39.00 PLN` |
+| one couch in row 15 (two seats) | `89.00 PLN` |
+
+Prices are always printed with two decimals and the `PLN` suffix: `25.00 PLN`.
+
+### 5.5 Selected-seats panel
+
+Shows the current selection and updates on every click:
+
+```
+Selected seats: 4
+Row 7: 11, 12
+Row 15: 1-2
+```
+
+- The first line is `Selected seats: <n>`, where `<n>` counts seats (a couch counts as 2).
+- Then one line per row that has a selection, rows in ascending order:
+  `Row <r>: <seats>`, the seats in ascending column order, separated by `, `; a seat is its
+  column number, a couch is `<a>-<b>`.
+- With nothing selected the panel shows `Selected seats: 0` and no row lines.
+
+### 5.6 Actions
+
+- `Cancel` clears the booking and opens `/`.
+- `Continue` opens `/screenings/:id/summary`. With no seat selected it does nothing (it may
+  be disabled).
+
+---
+
+## 6. Summary (`/screenings/:id/summary`)
+
+The screen loads the screening and its movie. If either cannot be loaded, redirect to `/`.
+
+A title `Your tickets`, then one list item per selected seat and one per selected couch,
+ordered by row and then by column. Each item shows:
+
+| Field | Content | Example |
+|---|---|---|
+| movie | the movie title | `The Silent Harbor` |
+| date and time | `<ISO date> <time>` of the screening | `2026-09-15 16:00` |
+| row | the row number | `7` |
+| seat | a seat: its column number; a couch: `Couch <a>-<b>` | `12` / `Couch 3-4` |
+| price | the price from 5.4 | `32.00 PLN` |
+| — | a `Remove` button | |
+
+`Remove` takes the seat or couch out of the booking; the list and the total update at
+once. Removing the last item opens `/screenings/:id/seats`.
+
+Below the list: `Total: <sum> PLN`, the sum of the listed prices with two decimals, e.g.
+`Total: 121.00 PLN`.
+
+Two buttons side by side:
+
+- `Back` returns to `/screenings/:id/seats` with the selection intact.
+- `Confirm` opens `/screenings/:id/checkout`.
+
+---
+
+## 7. Checkout (`/screenings/:id/checkout`)
+
+A title `Your details`, then a form with these fields. The labels of required fields end
+with ` *`.
+
+| Field | Label | Required | Rule | Message when the rule fails |
+|---|---|---|---|---|
+| first name | `First name *` | yes | at least 2 characters | `First name must be at least 2 characters` |
+| last name | `Last name *` | yes | at least 2 characters | `Last name must be at least 2 characters` |
+| email | `Email *` | yes | a valid email address | `Enter a valid email address` |
+| confirm email | `Confirm email *` | yes | identical to Email | `Email addresses do not match` |
+| phone | `Phone number` | no | when filled: exactly 9 digits, nothing else | `Phone number must be exactly 9 digits` |
+| terms | `I accept the terms and conditions *` | yes | checked | `You must accept the terms and conditions` |
+
+- An empty required text field shows `<Label> is required`, with the label without the
+  asterisk, e.g. `First name is required` or `Confirm email is required`. A non-empty field
+  that breaks its rule shows the message from the table. At most one message per field.
+- A valid email address is: one or more characters without spaces or `@`, then `@`, then a
+  domain of characters without spaces or `@` that contains a dot with at least one
+  character on each side, e.g. `anna@example.com`. `not-an-email`, `a@b` and `a@.com` are
+  not valid.
+- Confirm email is compared with Email as typed, whether or not Email itself is valid.
+- Values are validated without trimming, except that an empty phone field is valid.
+- A field's message appears once the field has been left (blurred) at least once, and from
+  then on updates as the value changes. The terms checkbox counts as left once it has been
+  toggled. When the Email value changes, the Confirm email check is re-evaluated.
+
+### 7.1 Keeping the values
+
+The six values are saved in the booking (section 3.1) as they are typed. Going `Back` to
+the summary or the seat map and returning, or reloading the page, shows the same values.
+Whether a field was left is not saved: a restored form shows no messages until the
+customer leaves a field or clicks `Pay`.
+
+### 7.2 Buttons
+
+Two buttons side by side: `Back` and the pay button.
+
+- `Back` returns to `/screenings/:id/summary` with the booking intact.
+- The pay button reads `Pay <total> PLN`, e.g. `Pay 121.00 PLN`. It is enabled at all
+  times, except while a payment request is in flight.
+
+Clicking the pay button:
+
+- **Invalid form** — marks every field as left, shows every failing message, shows the
+  toast `The form contains errors` and stays on the screen. No request is sent.
+- **Valid form** — sends `POST /reservations` (section 2.2) with the screening id, the
+  booked seat identifiers (in summary order, a couch as its two identifiers), the customer
+  data and the total price. While the request is in flight, the pay button is disabled and
+  reads `Processing…`.
+  - on success: the booking becomes paid, with the customer's email address, and
+    `/confirmation` opens;
+  - on failure: the screen stays as it is, with the values kept, the pay button becomes
+    enabled again and the toast `Payment failed. Please try again.` is shown.
+
+---
+
+## 8. Confirmation (`/confirmation`)
+
+- A heading `Payment successful`.
+- The text `Your tickets will be sent shortly to <email>`, with the email address from the
+  form.
+- A `Continue` button that clears the booking and opens `/`.
+
+---
+
+## 9. Element identifiers
+
+The QA team's browser automation finds elements by the attributes below. Every element
+listed must carry exactly this `data-testid` and the listed data attributes. Names and
+values are part of the contract: do not rename, abbreviate or prefix them, and do not put
+these `data-testid` values on any other element.
+
+### 9.1 Movie list
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `day-picker` | container of the day buttons and the datepicker | — |
+| `day-button` | one of the five day buttons | `data-date`, `data-selected` |
+| `date-picker` | the datepicker | — |
+| `movie-list` | container of the movie cards | — |
+| `movies-loading` | loading indicator | — |
+| `movies-error` | element containing the `Failed to load movies` text | — |
+| `movies-retry-button` | `Retry` button | — |
+| `movies-empty` | element containing the `No screenings on this day` text | — |
+| `movie-card` | one movie card | `data-movie-id` |
+| `movie-title` | title inside a card | — |
+| `movie-genre` | genre inside a card | — |
+| `movie-runtime` | runtime inside a card | — |
+| `movie-format` | format inside a card | — |
+| `screening-button` | one screening button inside a card | `data-screening-id` |
+
+### 9.2 Seat selection
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `seat-map-title` | the `Choose your seats` title | — |
+| `seat-map-subtitle` | the `Show Date: …` subtitle | — |
+| `seat-limit-info` | the `You can reserve up to 10 seats per reservation` text | — |
+| `screen-indicator` | the `SCREEN` bar | — |
+| `seat-map` | container of all rows | — |
+| `seat-row` | one row of the auditorium | `data-row` |
+| `row-label-left` | row number at the left edge | `data-row` |
+| `row-label-right` | row number at the right edge | `data-row` |
+| `aisle` | one aisle gap | `data-row` |
+| `seat` | one seat (not a couch) | `data-row`, `data-column`, `data-state` |
+| `couch` | one couch | `data-row`, `data-column-start`, `data-column-end`, `data-state` |
+| `legend` | the legend container | — |
+| `legend-item` | one legend entry | `data-state` |
+| `selected-seats` | the selected-seats panel | — |
+| `selected-seats-count` | the `Selected seats: <n>` line | — |
+| `selected-seats-row` | one `Row <r>: …` line | `data-row` |
+| `cancel-button` | `Cancel` | — |
+| `continue-button` | `Continue` | — |
+
+### 9.3 Summary
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `summary-title` | the `Your tickets` title | — |
+| `summary-list` | container of the summary items | — |
+| `summary-item` | one summary item | — |
+| `summary-item-title` | movie title in an item | — |
+| `summary-item-datetime` | date and time in an item | — |
+| `summary-item-row` | row number in an item | — |
+| `summary-item-seat` | seat description in an item | — |
+| `summary-item-price` | price in an item | — |
+| `summary-item-remove-button` | `Remove` in an item | — |
+| `summary-total` | the `Total: … PLN` line | — |
+| `back-button` | `Back` | — |
+| `confirm-button` | `Confirm` | — |
+
+### 9.4 Checkout
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `checkout-title` | the `Your details` title | — |
+| `first-name-input` | first name field | — |
+| `last-name-input` | last name field | — |
+| `email-input` | email field | — |
+| `confirm-email-input` | confirm email field | — |
+| `phone-input` | phone field | — |
+| `terms-checkbox` | terms checkbox | — |
+| `first-name-label` | first name label | — |
+| `last-name-label` | last name label | — |
+| `email-label` | email label | — |
+| `confirm-email-label` | confirm email label | — |
+| `phone-label` | phone label | — |
+| `terms-label` | terms checkbox label | — |
+| `first-name-error` | first name message | — |
+| `last-name-error` | last name message | — |
+| `email-error` | email message | — |
+| `confirm-email-error` | confirm email message | — |
+| `phone-error` | phone message | — |
+| `terms-error` | terms message | — |
+| `checkout-back-button` | `Back` | — |
+| `pay-button` | the pay button | — |
+
+### 9.5 Confirmation
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `confirmation-heading` | `Payment successful` heading | — |
+| `confirmation-message` | the `Your tickets will be sent shortly to …` text | — |
+| `confirmation-continue-button` | `Continue` | — |
+
+### 9.6 Any screen
+
+| `data-testid` | Element | Extra attributes |
+|---|---|---|
+| `toast` | the toast, containing its message text | — |
+
+### 9.7 Rules
+
+- `data-state` is exactly one of `available`, `selected`, `unavailable`, `accessible`. A
+  selected accessible seat reports `selected`; an occupied accessible seat reports
+  `unavailable`. Couches never report `accessible`.
+- `data-row`, `data-column`, `data-column-start`, `data-column-end`, `data-movie-id` and
+  `data-screening-id` hold plain numbers, e.g. `data-row="7"`. `data-date` holds an ISO
+  date. `data-selected` is `true` or `false`.
+- `seat`, `couch` and `aisle` elements are inside their `seat-row` element.
+- A `seat` contains only its column number as text; a row label contains only the row
+  number; an `aisle` contains no text.
+- `summary-item-price` contains only the price, e.g. `32.00 PLN`; `summary-item-seat`
+  contains only the seat description, e.g. `12` or `Couch 3-4`; `summary-total` contains
+  only `Total: <sum> PLN`. `selected-seats-count` and each `selected-seats-row` contain only
+  their line.
+- **Library components.** The identifiers of the five text fields, the terms checkbox and
+  the datepicker may be placed either on the native `<input>` itself or on the
+  UI library's component element that contains it. Identifiers of buttons go on the
+  element that receives the click and is disabled when the button is disabled.
+- A field's `-error` element exists in the page only while its message is shown.
+- The `movies-loading` element exists in the page only while loading; `movies-empty` only
+  while the empty text is shown.
+
+---
+
+## 10. Acceptance criteria
+
+Each criterion is either met or not met.
+
+### Movie list
+- **AC-01** — Without a chosen date, `/` shows today's screenings: one movie card per movie with a screening today.
+- **AC-02** — Each card shows title, genre, runtime in minutes and format (`PL dubbing` / `PL subtitles`).
+- **AC-03** — Each card renders one button per screening of that movie on the selected day, labelled with the screening time (`HH:mm`), ordered by time.
+- **AC-04** — Clicking a screening button navigates to `/screenings/:id/seats` for that screening id.
+- **AC-49** — While the movie request is in flight, `/` shows a loading indicator and no movie cards.
+- **AC-50** — When the movie request fails, `/` shows `Failed to load movies` and a `Retry` button that re-issues the request.
+- **AC-51** — Every movie-list identifier in section 9.1 is present with the exact names and values given there.
+- **AC-52** — Above the movie list, the day picker shows `Today` and the next four days by English weekday name, followed by a datepicker; `Today` is selected by default.
+- **AC-53** — Choosing another day shows only the movies with a screening on that day, each with only that day's screenings.
+- **AC-54** — A day without screenings shows `No screenings on this day` and no movie cards.
+- **AC-55** — The selected day is kept in the URL as `?date=YYYY-MM-DD`; opening such a URL selects that day, and a missing, invalid or past date selects today.
+
+### Auditorium geometry
+- **AC-05** — The seat map has 15 rows, numbered 1 to 15, row 1 rendered directly under the screen.
+- **AC-06** — Rows 11 to 15 contain 24 columns; rows 1 to 10 contain columns 5 to 24 only.
+- **AC-07** — A two-seat-wide gap is rendered between columns 4 and 5 and between columns 20 and 21 in every row; gaps carry no seat and no number.
+- **AC-08** — Column numbering is global 1–24 and identical across rows; in rows 1–10, numbering starts at 5.
+- **AC-09** — The row number is rendered on both the left and the right edge of every row.
+- **AC-10** — Every seat renders its column number.
+- **AC-11** — A `SCREEN` indicator is rendered above row 1.
+- **AC-12** — Row 1, columns 10 to 15 are accessible seats — 6 of them.
+- **AC-13** — Row 15 renders 12 couches, each spanning two adjacent columns: 1–2, 3–4, … 23–24.
+- **AC-14** — A couch is rendered as one wide element, visually distinct from a single seat.
+- **AC-15** — The total number of selectable elements in the auditorium is 308 (200 seats in rows 1–10, 96 in rows 11–14, 12 couches in row 15).
+- **AC-56** — The seat selection shows the title `Choose your seats` and the subtitle `Show Date: <Weekday> <D> <Mon> <HH:mm>` of the screening.
+- **AC-57** — Above the seat map, horizontally centred over it, the text `You can reserve up to 10 seats per reservation` is shown.
+
+### Seat selection
+- **AC-16** — Seats listed in `occupiedSeats` for the screening are rendered unavailable and cannot be selected.
+- **AC-17** — A couch is unavailable when either of its two seat identifiers is in `occupiedSeats`.
+- **AC-18** — Clicking an available seat selects it; clicking it again deselects it.
+- **AC-19** — Clicking a couch selects both of its seats as one unit; it cannot be half-selected.
+- **AC-20** — Selection is capped at 10 seats; a couch counts as 2.
+- **AC-21** — A click that would exceed 10 seats is ignored and shows the toast `Maximum 10 seats per booking`.
+- **AC-22** — At the cap, already selected seats and couches can still be deselected.
+- **AC-58** — Between the seat map and the `Cancel` / `Continue` buttons, the selected-seats panel shows `Selected seats: <n>` and one `Row <r>: <seats>` line per row, updated on every selection change.
+- **AC-66** — Every seat-selection identifier in section 9.2, and the toast identifier in section 9.6, is present with the exact names and values given there.
+
+### Legend and colours
+- **AC-23** — The legend lists exactly `Available`, `Selected`, `Unavailable`, `Accessible`.
+- **AC-24** — Available seats use `#2E7D32`.
+- **AC-25** — Selected seats use `#F9A825`.
+- **AC-26** — Unavailable seats use `#C62828`.
+- **AC-27** — Accessible seats use `#1565C0`.
+
+### Pricing
+- **AC-28** — Seats in rows 1–5 cost `25.00 PLN`.
+- **AC-29** — Seats in rows 6–10 cost `32.00 PLN`.
+- **AC-30** — Seats in rows 11–14 cost `39.00 PLN`.
+- **AC-31** — A couch costs `89.00 PLN` per couch, not per seat.
+- **AC-32** — Accessible seats cost `25.00 PLN`, like the rest of row 1.
+
+### Navigation from the seat map
+- **AC-33** — `Cancel` navigates to `/` and clears the selection.
+- **AC-34** — `Continue` navigates to `/screenings/:id/summary`.
+- **AC-35** — `Continue` does nothing when no seat is selected.
+
+### Summary
+- **AC-36** — Each selected item is listed with movie title, screening date, time, row number, seat description and price.
+- **AC-37** — A couch is described as `Couch <a>-<b>`; a single seat is described by its column number.
+- **AC-38** — The total line reads `Total: <sum> PLN` and equals the sum of the listed prices.
+- **AC-39** — `Back` returns to the seat map with the selection intact.
+- **AC-40** — `Confirm` navigates to `/screenings/:id/checkout`.
+- **AC-59** — The summary shows the title `Your tickets`.
+- **AC-60** — Each summary item has a `Remove` button that removes it from the booking and updates the total; removing the last item returns to the seat map.
+- **AC-67** — Every summary identifier in section 9.3 is present with the exact names and values given there.
+
+### Checkout
+- **AC-41** — The form renders first name, last name, email, confirm email, phone number and a terms checkbox.
+- **AC-42** — First name and last name are required and must be at least 2 characters.
+- **AC-43** — Email is required and must be a valid address; confirm email must match it.
+- **AC-44** — Phone number is optional; when filled it must be exactly 9 digits.
+- **AC-45** — The terms checkbox is required.
+- **AC-46** — The pay button is enabled whenever no payment request is in flight; clicking it on an invalid form marks all fields as touched, shows the messages and shows the toast `The form contains errors`, without navigating.
+- **AC-47** — The pay button on a valid form sends `POST /reservations`, is disabled while the request is in flight, navigates to `/confirmation` on success, and on failure stays on the form and shows the toast `Payment failed. Please try again.`
+- **AC-61** — The checkout shows the title `Your details`.
+- **AC-62** — The pay button reads `Pay <total> PLN`, the total of the booking.
+- **AC-63** — `Back` on the checkout returns to the summary with the booking intact.
+- **AC-64** — The checkout values survive going back to the summary and forward again, and a page reload; a new booking starts with an empty form.
+- **AC-65** — The labels of the five required fields end with `*`; the phone label does not.
+- **AC-68** — Every checkout identifier in section 9.4 is present with the exact names and values given there.
+
+### Confirmation and booking
+- **AC-48** — `/confirmation` shows `Payment successful` and `Your tickets will be sent shortly to <email>`; `Continue` navigates to `/` and clears the booking; the booking survives a reload via `sessionStorage`; entering the summary, checkout or confirmation without a matching booking redirects to `/`.
+- **AC-69** — Every confirmation identifier in section 9.5 is present with the exact names and values given there.
+
+---
+
+## 11. Out of scope
+
+Do not build any of these: user accounts, real payment processing, seat locking between
+concurrent customers, updating `occupiedSeats` after a reservation, posters or images,
+mobile or responsive layouts, keyboard navigation or ARIA beyond what the browser and
+the UI library give by default, and translations.
+----
+# Stack
+
+The workspace is an Nx 23 monorepo. The application is the Nx project `cinescope` in
+`apps/cinescope`, generated with the Nx Angular application generator: **Angular 22**,
+standalone components, zoneless, Angular Router with an empty route list, SCSS, Vitest for
+unit tests and ESLint. **Angular Material 22** and the Angular CDK are installed, a Material
+theme is applied in `styles.scss`, and the native date adapter is provided for the
+datepicker. It is ready to run; build the application on top of it.
+----
+total 40
+drwxr-xr-x 2 node node 4096 Nov  2 08:39 .
+drwxr-xr-x 3 node node 4096 Nov  2 08:39 ..
+-rw-r--r-- 1 node node 2007 Nov  2 08:39 01-movie-list.md
+-rw-r--r-- 1 node node 2045 Nov  2 08:39 02-auditorium-map.md
+-rw-r--r-- 1 node node 1842 Nov  2 08:39 03-seat-selection.md
+-rw-r--r-- 1 node node 1953 Nov  2 08:39 04-booking-summary.md
+-rw-r--r-- 1 node node 2048 Nov  2 08:39 05-checkout.md
+-rw-r--r-- 1 node node 1075 Nov  2 08:39 06-confirmation.md
+-rw-r--r-- 1 node node  402 Nov  2 08:39 07-final-pass.md
+-rw-r--r-- 1 node node  877 Nov  2 08:39 README.md
