@@ -1,0 +1,86 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form class="form" [formGroup]="form" novalidate (submit)="$event.preventDefault()">
+  <div class="field">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="first-name-label">First name *</mat-label>
+      <input matInput type="text" formControlName="firstName" data-testid="first-name-input" />
+    </mat-form-field>
+    @if (error('firstName'); as msg) {
+    <div class="error" data-testid="first-name-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="last-name-label">Last name *</mat-label>
+      <input matInput type="text" formControlName="lastName" data-testid="last-name-input" />
+    </mat-form-field>
+    @if (error('lastName'); as msg) {
+    <div class="error" data-testid="last-name-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="email-label">Email *</mat-label>
+      <input matInput type="text" formControlName="email" data-testid="email-input" />
+    </mat-form-field>
+    @if (error('email'); as msg) {
+    <div class="error" data-testid="email-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="confirmEmail"
+        data-testid="confirm-email-input"
+      />
+    </mat-form-field>
+    @if (error('confirmEmail'); as msg) {
+    <div class="error" data-testid="confirm-email-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="field">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label data-testid="phone-label">Phone number</mat-label>
+      <input matInput type="text" formControlName="phone" data-testid="phone-input" />
+    </mat-form-field>
+    @if (error('phone'); as msg) {
+    <div class="error" data-testid="phone-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="field">
+    <mat-checkbox
+      formControlName="terms"
+      data-testid="terms-checkbox"
+      (change)="form.controls.terms.markAsTouched()"
+    >
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+    @if (error('terms'); as msg) {
+    <div class="error" data-testid="terms-error">{{ msg }}</div>
+    }
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">
+      Back
+    </button>
+    <button
+      mat-flat-button
+      type="button"
+      data-testid="pay-button"
+      [disabled]="submitting()"
+      (click)="pay()"
+    >
+      {{ payLabel() }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,80 @@
+@if (screening(); as s) {
+<h1 data-testid="seat-map-title">Choose your seats</h1>
+<p class="subtitle" data-testid="seat-map-subtitle">Show Date: {{ showDate() }}</p>
+
+<div class="auditorium">
+  <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+  <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+  <div class="rows" data-testid="seat-map">
+    @for (r of rows; track r.row) {
+    <div class="row" data-testid="seat-row" [attr.data-row]="r.row">
+      <span class="row-label" data-testid="row-label-left" [attr.data-row]="r.row"
+        >{{ r.row }}</span
+      >
+      @for (block of r.blocks; track $index) { @if ($index > 0) {
+      <div class="aisle" data-testid="aisle" [attr.data-row]="r.row"></div>
+      }
+      <div class="block" [class.entrance]="!block.exists" [class.block-left]="$index === 0">
+        @for (cell of block.cells; track cell.start) { @if (cell.row === 15) {
+        <button
+          type="button"
+          [class]="'seat couch ' + stateOf(cell)"
+          data-testid="couch"
+          [attr.data-row]="cell.row"
+          [attr.data-column-start]="cell.start"
+          [attr.data-column-end]="cell.end"
+          [attr.data-state]="stateOf(cell)"
+          [attr.aria-disabled]="stateOf(cell) === 'unavailable'"
+          (click)="toggle(cell)"
+        >
+          {{ label(cell) }}
+        </button>
+        } @else {
+        <button
+          type="button"
+          [class]="'seat ' + stateOf(cell)"
+          data-testid="seat"
+          [attr.data-row]="cell.row"
+          [attr.data-column]="cell.start"
+          [attr.data-state]="stateOf(cell)"
+          [attr.aria-disabled]="stateOf(cell) === 'unavailable'"
+          (click)="toggle(cell)"
+        >
+          {{ cell.start }}
+        </button>
+        } }
+      </div>
+      }
+      <span class="row-label" data-testid="row-label-right" [attr.data-row]="r.row"
+        >{{ r.row }}</span
+      >
+    </div>
+    }
+  </div>
+
+  <div class="legend" data-testid="legend">
+    @for (entry of legend; track entry.state) {
+    <span class="legend-item" data-testid="legend-item" [attr.data-state]="entry.state">
+      <span [class]="'swatch ' + entry.state"></span>{{ entry.label }}
+    </span>
+    }
+  </div>
+</div>
+
+<div class="selected-seats" data-testid="selected-seats">
+  <div data-testid="selected-seats-count">Selected seats: {{ count() }}</div>
+  @for (line of summaryLines(); track line.row) {
+  <div data-testid="selected-seats-row" [attr.data-row]="line.row">{{ line.text }}</div>
+  }
+</div>
+
+<div class="actions">
+  <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">
+    Cancel
+  </button>
+  <button mat-flat-button type="button" data-testid="continue-button" (click)="next()">
+    Continue
+  </button>
+</div>
+}
