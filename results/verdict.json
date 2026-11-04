@@ -1,0 +1,184 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-11-04T14:52:39Z",
+  "runId": "treatment-20261104-143506",
+  "profile": "treatment",
+  "model": "claude-haiku-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "2b8e26cbb308944299f0f411ed5897eefdb6cf7f",
+  "harnessDirty": false,
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 132,
+    "durationMs": 963486,
+    "apiDurationMs": 825786,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-11-04T14:35:10Z",
+    "endedAt": "2026-11-04T14:52:38Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": 4.968973399999999,
+    "tokens": {
+      "input": 2370,
+      "output": 199431,
+      "cacheRead": 8824557,
+      "cacheWrite": 301253
+    },
+    "byModel": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2370,
+        "outputTokens": 199431,
+        "cacheReadTokens": 8824557,
+        "cacheWriteTokens": 301253,
+        "costUsd": 4.968973399999999
+      }
+    }
+  },
+  "context": {
+    "model": "claude-haiku-5-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14441,
+      "tools": 86846,
+      "skills": 8121
+    },
+    "tokens": {
+      "system": 4529,
+      "tools": 31632,
+      "skills": 2889
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 85,
+    "mainAgentRequests": 84,
+    "subagentRequests": 0,
+    "firstContextTokens": 39569,
+    "peakContextTokens": 166168,
+    "lastContextTokens": 166168
+  },
+  "changes": {
+    "baseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+    "filesChanged": 44,
+    "linesAdded": 2609,
+    "linesRemoved": 76
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 87,
+      "matched": 87,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-04T14:51:29Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 38,
+      "failed": 0,
+      "total": 38,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 69,
+      "failed": 0,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1757,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 966,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1229,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 38,
+        "failed": 0,
+        "total": 38,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 62982,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 69,
+        "failed": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": []
+      }
+    }
+  }
+}
