@@ -1,0 +1,42 @@
+@if (view(); as view) {
+<main class="summary-page">
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  <ul class="items" data-testid="summary-list">
+    @for (item of items(); track item.key) {
+    <li class="item" data-testid="summary-item">
+      <div class="details">
+        <p class="movie-title" data-testid="summary-item-title">{{ view.title }}</p>
+        <p data-testid="summary-item-datetime">{{ view.dateTime }}</p>
+        <p>
+          <span>Row</span>
+          <span data-testid="summary-item-row">{{ item.row }}</span>,
+          <span>Seat</span>
+          <span data-testid="summary-item-seat">{{ item.seat }}</span>
+        </p>
+      </div>
+      <span class="price" data-testid="summary-item-price">{{ item.price }}</span>
+      <button
+        mat-button
+        type="button"
+        data-testid="summary-item-remove-button"
+        (click)="remove(item.unit)"
+      >
+        Remove
+      </button>
+    </li>
+    }
+  </ul>
+
+  <p class="total" data-testid="summary-total">Total: {{ total() }}</p>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">
+      Back
+    </button>
+    <button mat-flat-button type="button" data-testid="confirm-button" (click)="confirm()">
+      Confirm
+    </button>
+  </div>
+</main>
+}

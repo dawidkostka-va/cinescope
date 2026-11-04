@@ -1,0 +1,14 @@
+<main class="confirmation-page">
+  <h1 data-testid="confirmation-heading">Payment successful</h1>
+  @if (email(); as address) {
+  <p data-testid="confirmation-message">Your tickets will be sent shortly to {{ address }}</p>
+  }
+  <button
+    mat-flat-button
+    type="button"
+    data-testid="confirmation-continue-button"
+    (click)="continue()"
+  >
+    Continue
+  </button>
+</main>
