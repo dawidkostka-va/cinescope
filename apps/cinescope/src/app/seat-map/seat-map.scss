@@ -1,0 +1,161 @@
+$seat: 36px;
+$couch: 2 * $seat + 4px;
+$aisle: 2 * $seat + 4px;
+$label: 40px;
+
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 0 0 8px;
+}
+
+.limit {
+  margin: 0 0 16px;
+  color: #555;
+}
+
+.screen {
+  width: 640px;
+  margin: 0 auto 16px;
+  padding: 6px 0;
+  background: #e0e0e0;
+  border-radius: 0 0 50% 50%;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.row-label {
+  width: $label;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.seat,
+.couch {
+  flex-shrink: 0;
+  height: $seat;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: #000;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.seat {
+  width: $seat;
+}
+
+.couch {
+  width: $couch;
+}
+
+.aisle {
+  width: $aisle;
+  flex-shrink: 0;
+}
+
+.entrance {
+  width: 4 * $seat + 3 * 4px;
+  flex-shrink: 0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 16px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  .swatch {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+
+  &[data-state='available'] .swatch {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] .swatch {
+    background-color: #f9a825;
+  }
+
+  &[data-state='unavailable'] .swatch {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] .swatch {
+    background-color: #1565c0;
+  }
+}
+
+.selected-seats {
+  margin: 0 auto 24px;
+  text-align: left;
+  display: inline-block;
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}

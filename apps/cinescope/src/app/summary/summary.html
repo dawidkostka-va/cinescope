@@ -1,0 +1,34 @@
+@if (screening(); as current) {
+  @if (movie(); as film) {
+    <main class="page">
+      <h1 data-testid="summary-title">Your tickets</h1>
+
+      <ul class="summary-list" data-testid="summary-list">
+        @for (item of items(); track item.key) {
+          <li class="summary-item" data-testid="summary-item">
+            <div class="details">
+              <span class="title" data-testid="summary-item-title">{{ film.title }}</span>
+              <span data-testid="summary-item-datetime">{{ current.date }} {{ current.time }}</span>
+              <span data-testid="summary-item-row">{{ item.unit.row }}</span>
+              <span data-testid="summary-item-seat">{{ item.seat }}</span>
+              <span data-testid="summary-item-price">{{ formatPrice(item.price) }}</span>
+            </div>
+            <button
+              type="button"
+              matButton="outlined"
+              data-testid="summary-item-remove-button"
+              (click)="remove(item.unit.ids)"
+            >Remove</button>
+          </li>
+        }
+      </ul>
+
+      <p class="total" data-testid="summary-total">Total: {{ total() }}</p>
+
+      <div class="actions">
+        <button type="button" matButton="outlined" data-testid="back-button" (click)="back()">Back</button>
+        <button type="button" matButton="filled" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+      </div>
+    </main>
+  }
+}

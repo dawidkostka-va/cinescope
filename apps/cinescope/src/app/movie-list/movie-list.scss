@@ -1,0 +1,56 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  mat-form-field {
+    width: 200px;
+  }
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movie-card {
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 16px;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 0 12px;
+    color: #555;
+  }
+}
+
+.screenings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
