@@ -1,0 +1,160 @@
+$seat: 32px;
+$gap: 4px;
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+}
+
+.auditorium {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.limit {
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.screen {
+  background: #424242;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 8px;
+  padding: 6px 0;
+  margin: 0 0 16px;
+  border-radius: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+  height: $seat;
+}
+
+.label {
+  flex: none;
+  width: $seat;
+  text-align: center;
+  font-weight: 500;
+}
+
+.block {
+  display: flex;
+  gap: $gap;
+  flex: none;
+
+  &.left {
+    width: 4 * $seat + 3 * $gap;
+  }
+  &.middle {
+    width: 16 * $seat + 15 * $gap;
+  }
+  &.right {
+    width: 4 * $seat + 3 * $gap;
+  }
+}
+
+.aisle {
+  flex: none;
+  width: 2 * $seat + 2 * $gap;
+  height: $seat;
+}
+
+.seat {
+  flex: none;
+  box-sizing: border-box;
+  width: $seat;
+  height: $seat;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  font: 500 12px Roboto, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  transition: none;
+  outline-offset: 2px;
+
+  &.couch {
+    width: 2 * $seat + $gap;
+    border-radius: 10px;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.35);
+  }
+}
+
+.seat[data-state='available'],
+.swatch[data-state='available'] {
+  background-color: #2e7d32;
+}
+
+.seat[data-state='selected'],
+.swatch[data-state='selected'] {
+  background-color: #f9a825;
+}
+
+.seat[data-state='selected'] {
+  color: #000;
+}
+
+.seat[data-state='unavailable'],
+.swatch[data-state='unavailable'] {
+  background-color: #c62828;
+}
+
+.seat[data-state='unavailable'] {
+  cursor: not-allowed;
+}
+
+.seat[data-state='accessible'],
+.swatch[data-state='accessible'] {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.selected-panel {
+  margin: 0 auto 24px;
+  width: fit-content;
+  min-width: 200px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
