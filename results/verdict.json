@@ -1,0 +1,184 @@
+{
+  "classifierVersion": 3,
+  "classifiedAt": "2026-11-12T09:39:28Z",
+  "runId": "control-20261112-093130",
+  "profile": "control",
+  "model": "claude-sonnet-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "2b8e26cbb308944299f0f411ed5897eefdb6cf7f",
+  "harnessDirty": false,
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 24,
+    "durationMs": 399847,
+    "apiDurationMs": 369472,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-11-12T09:31:34Z",
+    "endedAt": "2026-11-12T09:39:27Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": 1.4994854,
+    "tokens": {
+      "input": 44,
+      "output": 57093,
+      "cacheRead": 2026137,
+      "cacheWrite": 130810
+    },
+    "byModel": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 44,
+        "outputTokens": 57093,
+        "cacheReadTokens": 2026137,
+        "cacheWriteTokens": 130810,
+        "costUsd": 1.4994854
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5-5",
+    "toolCount": 25,
+    "chars": {
+      "system": 14441,
+      "tools": 86846,
+      "skills": 8122
+    },
+    "tokens": {
+      "system": 4529,
+      "tools": 31632,
+      "skills": 2890
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 22,
+    "mainAgentRequests": 22,
+    "subagentRequests": 0,
+    "firstContextTokens": 39570,
+    "peakContextTokens": 130812,
+    "lastContextTokens": 130812
+  },
+  "changes": {
+    "baseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+    "filesChanged": 29,
+    "linesAdded": 1880,
+    "linesRemoved": 2
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 0
+    },
+    "apiResponses": {
+      "total": 24,
+      "matched": 24,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-12T09:38:28Z",
+      "capture": []
+    }
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 31,
+      "failed": 0,
+      "total": 31,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 69,
+      "failed": 0,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 801,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 799,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1008,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 31,
+        "failed": 0,
+        "total": 31,
+        "errors": 0,
+        "warnings": 15,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 54542,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 69,
+        "failed": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": []
+      }
+    }
+  }
+}
