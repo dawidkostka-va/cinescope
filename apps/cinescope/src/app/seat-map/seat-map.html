@@ -1,0 +1,82 @@
+@if (data()) {
+  <div class="page">
+    <h1 class="title" data-testid="seat-map-title">Choose your seats</h1>
+    <p class="subtitle" data-testid="seat-map-subtitle">{{ subtitle() }}</p>
+
+    <div class="auditorium">
+      <p class="limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+      <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+      <div class="seat-map" data-testid="seat-map">
+        @for (r of rows(); track r.row) {
+          <div class="seat-row" data-testid="seat-row" [attr.data-row]="r.row">
+            <span class="row-label left" data-testid="row-label-left" [attr.data-row]="r.row">{{ r.row }}</span>
+            @for (c of r.cells; track $index) {
+              @switch (c.cell.kind) {
+                @case ('aisle') {
+                  <div class="aisle" data-testid="aisle" [attr.data-row]="r.row" [style.grid-column]="c.cell.gridColumn"></div>
+                }
+                @case ('couch') {
+                  <button
+                    type="button"
+                    class="seat couch"
+                    data-testid="couch"
+                    [attr.data-row]="r.row"
+                    [attr.data-column-start]="c.cell.col"
+                    [attr.data-column-end]="c.cell.colEnd"
+                    [attr.data-state]="c.state"
+                    [attr.aria-disabled]="c.state === 'unavailable'"
+                    [style.grid-column]="c.cell.gridColumn"
+                    (click)="toggle(c.cell, c.state)"
+                  >{{ c.cell.col }}-{{ c.cell.colEnd }}</button>
+                }
+                @default {
+                  <button
+                    type="button"
+                    class="seat"
+                    data-testid="seat"
+                    [attr.data-row]="r.row"
+                    [attr.data-column]="c.cell.col"
+                    [attr.data-state]="c.state"
+                    [attr.aria-disabled]="c.state === 'unavailable'"
+                    [style.grid-column]="c.cell.gridColumn"
+                    (click)="toggle(c.cell, c.state)"
+                  >{{ c.cell.col }}</button>
+                }
+              }
+            }
+            <span class="row-label right" data-testid="row-label-right" [attr.data-row]="r.row">{{ r.row }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="legend" data-testid="legend">
+      @for (item of legend; track item.state) {
+        <span class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+          <span [class]="'swatch swatch-' + item.state"></span>{{ item.label }}
+        </span>
+      }
+    </div>
+
+    <div class="selected-seats" data-testid="selected-seats">
+      <div data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</div>
+      @for (line of selectedRows(); track line.row) {
+        <div data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.text }}</div>
+      }
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+      <button
+        mat-flat-button
+        type="button"
+        data-testid="continue-button"
+        [disabled]="!hasSelection()"
+        (click)="next()"
+      >
+        Continue
+      </button>
+    </div>
+  </div>
+}

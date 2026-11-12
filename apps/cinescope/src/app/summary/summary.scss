@@ -1,0 +1,55 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 8px 16px;
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 8px;
+}
+
+.field {
+  min-width: 90px;
+
+  &.title {
+    min-width: 180px;
+    font-weight: 500;
+  }
+
+  &.price {
+    margin-left: auto;
+    min-width: 90px;
+    text-align: right;
+  }
+}
+
+.total {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
