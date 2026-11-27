@@ -1,0 +1,12 @@
+{"ts":"2026-11-27T11:14:58.723Z","phase":"agent","host":"github.com","port":443,"decision":"deny","rule":"baseline:github.com","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":0}
+{"ts":"2026-11-27T11:14:58.837Z","phase":"agent","host":"angular.dev","port":443,"decision":"allow","rule":"allow:angular.dev","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":114}
+{"ts":"2026-11-27T11:16:29.745Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2701,"durationMs":87}
+{"ts":"2026-11-27T11:16:36.979Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":172}
+{"ts":"2026-11-27T11:18:27.973Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":150}
+{"ts":"2026-11-27T11:20:25.292Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":162}
+{"ts":"2026-11-27T11:22:08.905Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":106}
+{"ts":"2026-11-27T11:24:31.629Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":170}
+{"ts":"2026-11-27T11:25:11.608Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":169}
+{"ts":"2026-11-27T11:31:31.794Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":134}
+{"ts":"2026-11-27T11:31:32.277Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2700,"durationMs":83}
+{"ts":"2026-11-27T11:31:44.388Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":120}
