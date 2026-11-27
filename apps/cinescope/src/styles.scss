@@ -15,3 +15,20 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.toast-panel,
+.cdk-overlay-pane:has(.toast-panel) {
+  pointer-events: none;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
