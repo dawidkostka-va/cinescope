@@ -1,0 +1,38 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.field {
+  min-width: 90px;
+}
+
+.title {
+  min-width: 160px;
+  font-weight: 500;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
