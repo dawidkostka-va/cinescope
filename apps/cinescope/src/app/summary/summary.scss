@@ -1,0 +1,69 @@
+.summary-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--mat-sys-surface-container);
+}
+
+.summary-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.summary-movie {
+  font-weight: 500;
+}
+
+.summary-meta {
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.summary-price {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.summary-total {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
