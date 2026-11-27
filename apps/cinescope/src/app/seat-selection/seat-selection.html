@@ -1,0 +1,102 @@
+@if (screening()) {
+<header class="heading">
+  <h1 data-testid="seat-map-title">Choose your seats</h1>
+  <p data-testid="seat-map-subtitle">Show Date: {{ showDate() }}</p>
+</header>
+
+<section class="auditorium">
+  <div class="auditorium-inner">
+    <!-- prettier-ignore -->
+    <p class="seat-limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+    <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+    <div class="seat-map" data-testid="seat-map">
+      @for (row of rows(); track row.number) {
+      <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.number">
+        <span
+          class="row-label"
+          data-testid="row-label-left"
+          [attr.data-row]="row.number"
+          [style.grid-column]="leftLabelColumn"
+          >{{ row.number }}</span
+        >
+
+        @for (aisle of row.aisles; track $index) {
+        <span
+          class="aisle"
+          data-testid="aisle"
+          [attr.data-row]="row.number"
+          [style.grid-column]="aisle.gridColumn"
+        ></span>
+        } @for (seat of row.seats; track seat.column) {
+        <!-- prettier-ignore -->
+        <button
+          type="button"
+          class="seat"
+          data-testid="seat"
+          [attr.data-row]="row.number"
+          [attr.data-column]="seat.column"
+          [attr.data-state]="seat.state"
+          [disabled]="seat.state === 'unavailable'"
+          [style.grid-column]="seat.gridColumn"
+          (click)="toggle(seat.ids)"
+        >{{ seat.column }}</button>
+        } @for (couch of row.couches; track couch.start) {
+        <!-- prettier-ignore -->
+        <button
+          type="button"
+          class="couch"
+          data-testid="couch"
+          [attr.data-row]="row.number"
+          [attr.data-column-start]="couch.start"
+          [attr.data-column-end]="couch.end"
+          [attr.data-state]="couch.state"
+          [disabled]="couch.state === 'unavailable'"
+          [style.grid-column]="couch.gridColumn"
+          (click)="toggle(couch.ids)"
+        >{{ couch.start }}-{{ couch.end }}</button>
+        }
+
+        <span
+          class="row-label"
+          data-testid="row-label-right"
+          [attr.data-row]="row.number"
+          [style.grid-column]="rightLabelColumn"
+          >{{ row.number }}</span
+        >
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="legend" data-testid="legend">
+  @for (item of legend; track item.state) {
+  <div class="legend-item" data-testid="legend-item" [attr.data-state]="item.state">
+    <span class="swatch swatch-{{ item.state }}"></span>
+    <span>{{ item.label }}</span>
+  </div>
+  }
+</section>
+
+<section class="selected-seats" data-testid="selected-seats">
+  <p data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</p>
+  @for (line of selectionLines(); track line.row) {
+  <!-- prettier-ignore -->
+  <p data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.seats }}</p>
+  }
+</section>
+
+<div class="actions">
+  <!-- prettier-ignore -->
+  <button mat-stroked-button type="button" data-testid="cancel-button" (click)="cancel()">Cancel</button>
+  <!-- prettier-ignore -->
+  <button
+    mat-flat-button
+    type="button"
+    data-testid="continue-button"
+    [disabled]="selectedCount() === 0"
+    (click)="continueToSummary()"
+  >Continue</button>
+</div>
+}

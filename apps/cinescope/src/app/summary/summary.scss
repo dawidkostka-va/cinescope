@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 1.75rem;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Columns: title, date and time, row, seat, price, remove button.
+.summary-item {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 0.5fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.total {
+  margin: 24px 0 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

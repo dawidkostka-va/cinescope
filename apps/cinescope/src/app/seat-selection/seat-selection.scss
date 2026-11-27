@@ -1,0 +1,163 @@
+:host {
+  display: block;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.heading {
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+.auditorium {
+  display: flex;
+  justify-content: center;
+}
+
+.auditorium-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: max-content;
+}
+
+.seat-limit {
+  margin: 0;
+  text-align: center;
+}
+
+.screen {
+  padding: 6px 0;
+  border-radius: 4px;
+  background: #e0e0e0;
+  color: #424242;
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// 1 label track, 28 seat tracks (4 seats, aisle, 16 seats, aisle, 4 seats), 1 label track.
+.seat-row {
+  display: grid;
+  grid-template-columns: 24px repeat(28, 32px) 24px;
+  column-gap: 4px;
+  align-items: center;
+
+  // Every item is placed in the row's single line explicitly. The aisles precede the seats in
+  // the markup, so auto-placement would otherwise wrap the seats onto a second line.
+  > * {
+    grid-row: 1;
+  }
+}
+
+.row-label {
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+// Empty gap: no background, no text.
+.aisle {
+  height: 32px;
+}
+
+// Background colour per state (section 5.3). Hover and focus do not change it.
+$state-colours: (
+  'available': #2e7d32,
+  'selected': #f9a825,
+  'unavailable': #c62828,
+  'accessible': #1565c0,
+);
+
+@each $state, $colour in $state-colours {
+  .seat[data-state='#{$state}'],
+  .couch[data-state='#{$state}'],
+  .swatch-#{$state} {
+    background-color: $colour;
+  }
+}
+
+.seat,
+.couch {
+  height: 32px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &[data-state='selected'] {
+    color: #212121;
+  }
+
+  &[data-state='unavailable'] {
+    cursor: not-allowed;
+  }
+}
+
+// Fill the grid area: a seat is one track, a couch is two tracks plus the gap between them.
+.seat,
+.couch {
+  width: 100%;
+  justify-self: stretch;
+}
+
+.seat {
+  border-radius: 6px 6px 2px 2px;
+}
+
+.couch {
+  border-radius: 14px 14px 4px 4px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.selected-seats {
+  margin-top: 24px;
+
+  p {
+    margin: 0 0 4px;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

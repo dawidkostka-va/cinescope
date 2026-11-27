@@ -1,0 +1,70 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form class="details" [formGroup]="form">
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label data-testid="first-name-label">First name *</mat-label>
+    <input matInput formControlName="firstName" data-testid="first-name-input" />
+  </mat-form-field>
+  @if (errorOf('firstName'); as message) {
+  <p class="error" data-testid="first-name-error">{{ message }}</p>
+  }
+
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label data-testid="last-name-label">Last name *</mat-label>
+    <input matInput formControlName="lastName" data-testid="last-name-input" />
+  </mat-form-field>
+  @if (errorOf('lastName'); as message) {
+  <p class="error" data-testid="last-name-error">{{ message }}</p>
+  }
+
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label data-testid="email-label">Email *</mat-label>
+    <input matInput formControlName="email" data-testid="email-input" />
+  </mat-form-field>
+  @if (errorOf('email'); as message) {
+  <p class="error" data-testid="email-error">{{ message }}</p>
+  }
+
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+    <input matInput formControlName="confirmEmail" data-testid="confirm-email-input" />
+  </mat-form-field>
+  @if (errorOf('confirmEmail'); as message) {
+  <p class="error" data-testid="confirm-email-error">{{ message }}</p>
+  }
+
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label data-testid="phone-label">Phone number</mat-label>
+    <input matInput formControlName="phone" data-testid="phone-input" />
+  </mat-form-field>
+  @if (errorOf('phone'); as message) {
+  <p class="error" data-testid="phone-error">{{ message }}</p>
+  }
+
+  <mat-checkbox
+    class="terms"
+    formControlName="terms"
+    data-testid="terms-checkbox"
+    (change)="form.controls.terms.markAsTouched()"
+  >
+    <span data-testid="terms-label">I accept the terms and conditions *</span>
+  </mat-checkbox>
+  @if (errorOf('terms'); as message) {
+  <p class="error" data-testid="terms-error">{{ message }}</p>
+  }
+</form>
+
+<div class="actions">
+  <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="back()">
+    Back
+  </button>
+  <button
+    mat-flat-button
+    type="button"
+    data-testid="pay-button"
+    [disabled]="submitting()"
+    (click)="pay()"
+  >
+    {{ submitting() ? 'Processing…' : 'Pay ' + totalLabel }}
+  </button>
+</div>
