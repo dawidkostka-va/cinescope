@@ -1,0 +1,82 @@
+<main class="seat-selection-page">
+  @let current = page(); @if (current) {
+  <h1 class="page-title" data-testid="seat-map-title">Choose your seats</h1>
+  <p class="show-date" data-testid="seat-map-subtitle">Show Date: {{ current.showDate }}</p>
+
+  <section class="auditorium">
+    <p class="seat-limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+    <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+    <div class="seat-map" data-testid="seat-map">
+      @for (row of current.rows; track row.row) {
+      <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.row">
+        <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.row"
+          >{{ row.row }}</span
+        >
+        @for (cell of row.cells; track $index) { @switch (cell.kind) { @case ('entrance') {
+        <div class="entrance" aria-hidden="true"></div>
+        } @case ('aisle') {
+        <div class="aisle" data-testid="aisle" [attr.data-row]="cell.row"></div>
+        } @case ('seat') {
+        <!-- prettier-ignore -->
+        <button
+          type="button"
+          class="seat"
+          data-testid="seat"
+          [attr.data-row]="cell.row"
+          [attr.data-column]="cell.column"
+          [attr.data-state]="displayState(cell)"
+          (click)="toggle(cell)"
+        >{{ cell.column }}</button>
+        } @case ('couch') {
+        <!-- prettier-ignore -->
+        <button
+          type="button"
+          class="couch"
+          data-testid="couch"
+          [attr.data-row]="cell.row"
+          [attr.data-column-start]="cell.columnStart"
+          [attr.data-column-end]="cell.columnEnd"
+          [attr.data-state]="displayState(cell)"
+          (click)="toggle(cell)"
+        >{{ cell.columnStart }}-{{ cell.columnEnd }}</button>
+        } } }
+        <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.row"
+          >{{ row.row }}</span
+        >
+      </div>
+      }
+    </div>
+  </section>
+
+  <ul class="legend" data-testid="legend">
+    <li class="legend-item" data-testid="legend-item" data-state="available"><span class="swatch" aria-hidden="true"></span>Available</li>
+    <li class="legend-item" data-testid="legend-item" data-state="selected"><span class="swatch" aria-hidden="true"></span>Selected</li>
+    <li class="legend-item" data-testid="legend-item" data-state="unavailable"><span class="swatch" aria-hidden="true"></span>Unavailable</li>
+    <li class="legend-item" data-testid="legend-item" data-state="accessible"><span class="swatch" aria-hidden="true"></span>Accessible</li>
+  </ul>
+
+  <section class="selected-seats" data-testid="selected-seats">
+    <p class="selected-count" data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</p>
+    @for (line of selectedRows(); track line.row) {
+    <p class="selected-row" data-testid="selected-seats-row" [attr.data-row]="line.row">Row {{ line.row }}: {{ line.seats }}</p>
+    }
+  </section>
+
+  <div class="actions">
+    <button
+      type="button"
+      matButton="outlined"
+      data-testid="cancel-button"
+      (click)="cancel()"
+    >Cancel</button>
+    <button
+      type="button"
+      matButton="filled"
+      data-testid="continue-button"
+      [disabled]="selectedCount() === 0"
+      (click)="openSummary()"
+    >Continue</button>
+  </div>
+  }
+</main>

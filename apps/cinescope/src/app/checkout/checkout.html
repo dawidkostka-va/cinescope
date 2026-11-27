@@ -1,0 +1,117 @@
+<main class="checkout-page">
+  <h1 class="page-title" data-testid="checkout-title">Your details</h1>
+
+  <div class="details">
+    <div class="field-block">
+      <mat-form-field class="field" subscriptSizing="dynamic">
+        <mat-label data-testid="first-name-label">First name *</mat-label>
+        <input
+          matInput
+          data-testid="first-name-input"
+          [value]="values().firstName"
+          (input)="onInput('firstName', $event)"
+          (blur)="touch('firstName')"
+        />
+      </mat-form-field>
+      @if (message('firstName'); as error) {
+      <p class="field-error" data-testid="first-name-error">{{ error }}</p>
+      }
+    </div>
+
+    <div class="field-block">
+      <mat-form-field class="field" subscriptSizing="dynamic">
+        <mat-label data-testid="last-name-label">Last name *</mat-label>
+        <input
+          matInput
+          data-testid="last-name-input"
+          [value]="values().lastName"
+          (input)="onInput('lastName', $event)"
+          (blur)="touch('lastName')"
+        />
+      </mat-form-field>
+      @if (message('lastName'); as error) {
+      <p class="field-error" data-testid="last-name-error">{{ error }}</p>
+      }
+    </div>
+
+    <div class="field-block">
+      <mat-form-field class="field" subscriptSizing="dynamic">
+        <mat-label data-testid="email-label">Email *</mat-label>
+        <input
+          matInput
+          data-testid="email-input"
+          [value]="values().email"
+          (input)="onInput('email', $event)"
+          (blur)="touch('email')"
+        />
+      </mat-form-field>
+      @if (message('email'); as error) {
+      <p class="field-error" data-testid="email-error">{{ error }}</p>
+      }
+    </div>
+
+    <div class="field-block">
+      <mat-form-field class="field" subscriptSizing="dynamic">
+        <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+        <input
+          matInput
+          data-testid="confirm-email-input"
+          [value]="values().confirmEmail"
+          (input)="onInput('confirmEmail', $event)"
+          (blur)="touch('confirmEmail')"
+        />
+      </mat-form-field>
+      @if (message('confirmEmail'); as error) {
+      <p class="field-error" data-testid="confirm-email-error">{{ error }}</p>
+      }
+    </div>
+
+    <div class="field-block">
+      <mat-form-field class="field" subscriptSizing="dynamic">
+        <mat-label data-testid="phone-label">Phone number</mat-label>
+        <input
+          matInput
+          data-testid="phone-input"
+          inputmode="numeric"
+          [value]="values().phone"
+          (input)="onInput('phone', $event)"
+          (blur)="touch('phone')"
+        />
+      </mat-form-field>
+      @if (message('phone'); as error) {
+      <p class="field-error" data-testid="phone-error">{{ error }}</p>
+      }
+    </div>
+
+    <div class="field-block">
+      <mat-checkbox
+        data-testid="terms-checkbox"
+        [checked]="values().terms"
+        (change)="onTermsChange($event.checked)"
+      >
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (message('terms'); as error) {
+      <p class="field-error" data-testid="terms-error">{{ error }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <button
+      type="button"
+      matButton="outlined"
+      data-testid="checkout-back-button"
+      (click)="back()"
+    >Back</button>
+    <button
+      type="button"
+      matButton="filled"
+      data-testid="pay-button"
+      [disabled]="submitting()"
+      (click)="pay()"
+    >
+      @if (submitting()) {Processing…} @else {Pay {{ formatPrice(total) }}}
+    </button>
+  </div>
+</main>

@@ -1,0 +1,168 @@
+.seat-selection-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.show-date {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+// The auditorium is as wide as its seat map; the text above and the screen bar match that width.
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: max-content;
+  margin-top: 8px;
+}
+
+.seat-limit {
+  margin: 0;
+}
+
+.screen {
+  padding: 6px 0;
+  border-radius: 0 0 50% 50% / 0 0 12px 12px;
+  background: #e0e0e0;
+  font-size: 0.8rem;
+  letter-spacing: 6px;
+}
+
+.seat-map {
+  --seat: 32px;
+  --gap: 4px;
+  --aisle: calc(2 * var(--seat) + var(--gap));
+  --label: 32px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+// Tracks: row label, columns 1–4, aisle, columns 5–20, aisle, columns 21–24, row label.
+// Couches span two tracks, so a couch is one wide element over two columns.
+.seat-row {
+  display: grid;
+  grid-template-columns:
+    var(--label)
+    repeat(4, var(--seat))
+    var(--aisle)
+    repeat(16, var(--seat))
+    var(--aisle)
+    repeat(4, var(--seat))
+    var(--label);
+  column-gap: var(--gap);
+  align-items: center;
+}
+
+.row-label {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.entrance {
+  grid-column: span 4;
+}
+
+.seat,
+.couch {
+  height: var(--seat);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 6px 2px 2px;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+    cursor: not-allowed;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.couch {
+  grid-column: span 2;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-item[data-state='available'] .swatch {
+  background-color: #2e7d32;
+}
+
+.legend-item[data-state='selected'] .swatch {
+  background-color: #f9a825;
+}
+
+.legend-item[data-state='unavailable'] .swatch {
+  background-color: #c62828;
+}
+
+.legend-item[data-state='accessible'] .swatch {
+  background-color: #1565c0;
+}
+
+.selected-seats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}

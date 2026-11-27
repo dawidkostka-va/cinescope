@@ -9,5 +9,5 @@ confirmation — against the specification, fixing whatever does not match.
 
 **Status:** ready
 
-- [ ] Every acceptance criterion in section 10 is met.
-- [ ] `pnpm nx build cinescope` succeeds.
+- [x] Every acceptance criterion in section 10 is met.
+- [x] `pnpm nx build cinescope` succeeds.
