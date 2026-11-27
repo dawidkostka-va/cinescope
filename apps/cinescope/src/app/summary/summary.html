@@ -1,0 +1,27 @@
+<main class="page">
+  @if (data.value(); as loaded) {
+    <h1 data-testid="summary-title">Your tickets</h1>
+
+    <ul class="tickets" data-testid="summary-list">
+      @for (line of lines(); track line.key) {
+        <li class="ticket" data-testid="summary-item">
+          <div class="details">
+            <span class="movie" data-testid="summary-item-title">{{ loaded.movie.title }}</span>
+            <span data-testid="summary-item-datetime">{{ loaded.screening.date }} {{ loaded.screening.time }}</span>
+            <span>Row <span data-testid="summary-item-row">{{ line.ticket.row }}</span></span>
+            <span>Seat <span data-testid="summary-item-seat">{{ line.description }}</span></span>
+            <span data-testid="summary-item-price">{{ formatPrice(line.price) }}</span>
+          </div>
+          <button mat-button type="button" data-testid="summary-item-remove-button" (click)="remove(line.ticket)">Remove</button>
+        </li>
+      }
+    </ul>
+
+    <p class="total" data-testid="summary-total">Total: {{ total() }}</p>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="back-button" (click)="onBack()">Back</button>
+      <button mat-flat-button type="button" data-testid="confirm-button" (click)="onConfirm()">Confirm</button>
+    </div>
+  }
+</main>

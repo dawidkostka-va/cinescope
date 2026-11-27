@@ -1,0 +1,72 @@
+<main class="page">
+  <div class="day-picker" data-testid="day-picker">
+    @for (day of days; track day.iso) {
+      @if (day.iso === selectedIso()) {
+        <button
+          mat-flat-button
+          type="button"
+          data-testid="day-button"
+          [attr.data-date]="day.iso"
+          data-selected="true"
+          (click)="selectDay(day.iso)"
+        >{{ day.label }}</button>
+      } @else {
+        <button
+          mat-stroked-button
+          type="button"
+          data-testid="day-button"
+          [attr.data-date]="day.iso"
+          data-selected="false"
+          (click)="selectDay(day.iso)"
+        >{{ day.label }}</button>
+      }
+    }
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label>Other date</mat-label>
+      <input
+        matInput
+        data-testid="date-picker"
+        [matDatepicker]="picker"
+        [min]="today"
+        [value]="pickerValue()"
+        (dateChange)="onDatePicked($event.value)"
+      />
+      <mat-datepicker-toggle matIconSuffix [for]="picker" />
+      <mat-datepicker #picker />
+    </mat-form-field>
+  </div>
+
+  @if (data.isLoading()) {
+    <p class="status" data-testid="movies-loading">Loading…</p>
+  } @else if (data.error()) {
+    <div class="status">
+      <p data-testid="movies-error">Failed to load movies</p>
+      <button mat-flat-button type="button" data-testid="movies-retry-button" (click)="data.reload()">Retry</button>
+    </div>
+  } @else if (cards().length === 0) {
+    <p class="status" data-testid="movies-empty">No screenings on this day</p>
+  } @else {
+    <div class="movie-list" data-testid="movie-list">
+      @for (card of cards(); track card.movie.id) {
+        <article class="movie-card" data-testid="movie-card" [attr.data-movie-id]="card.movie.id">
+          <h2 data-testid="movie-title">{{ card.movie.title }}</h2>
+          <p data-testid="movie-genre">{{ card.movie.genre }}</p>
+          <p data-testid="movie-runtime">{{ card.movie.runtimeMinutes }} min</p>
+          <p data-testid="movie-format">{{ card.movie.format }}</p>
+          <div class="screenings">
+            @for (screening of card.screenings; track screening.id) {
+              <button
+                mat-stroked-button
+                type="button"
+                data-testid="screening-button"
+                [attr.data-screening-id]="screening.id"
+                [routerLink]="['/screenings', screening.id, 'seats']"
+              >{{ screening.time }}</button>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  }
+</main>

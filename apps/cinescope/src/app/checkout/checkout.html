@@ -1,0 +1,55 @@
+<main class="page">
+  <h1 data-testid="checkout-title">Your details</h1>
+
+  <div class="fields" [formGroup]="form">
+    <mat-form-field subscriptSizing="dynamic" hideRequiredMarker>
+      <mat-label data-testid="first-name-label">First name *</mat-label>
+      <input matInput formControlName="firstName" data-testid="first-name-input" autocomplete="given-name" />
+      <mat-error data-testid="first-name-error">{{ messageOf('firstName') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic" hideRequiredMarker>
+      <mat-label data-testid="last-name-label">Last name *</mat-label>
+      <input matInput formControlName="lastName" data-testid="last-name-input" autocomplete="family-name" />
+      <mat-error data-testid="last-name-error">{{ messageOf('lastName') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic" hideRequiredMarker>
+      <mat-label data-testid="email-label">Email *</mat-label>
+      <input matInput formControlName="email" data-testid="email-input" autocomplete="email" />
+      <mat-error data-testid="email-error">{{ messageOf('email') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic" hideRequiredMarker>
+      <mat-label data-testid="confirm-email-label">Confirm email *</mat-label>
+      <input matInput formControlName="confirmEmail" data-testid="confirm-email-input" autocomplete="off" />
+      <mat-error data-testid="confirm-email-error">{{ messageOf('confirmEmail') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic" hideRequiredMarker>
+      <mat-label data-testid="phone-label">Phone number</mat-label>
+      <input matInput formControlName="phone" data-testid="phone-input" type="tel" autocomplete="tel-national" />
+      <mat-error data-testid="phone-error">{{ messageOf('phone') }}</mat-error>
+    </mat-form-field>
+
+    <div class="terms">
+      <mat-checkbox formControlName="terms" data-testid="terms-checkbox" (change)="onTermsToggled()">
+        <span data-testid="terms-label">I accept the terms and conditions *</span>
+      </mat-checkbox>
+      @if (form.controls.terms.touched && form.controls.terms.invalid) {
+        <p class="terms-error" data-testid="terms-error">{{ messageOf('terms') }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="checkout-back-button" (click)="onBack()">Back</button>
+    <button mat-flat-button type="button" data-testid="pay-button" [disabled]="submitting()" (click)="pay()">
+      @if (submitting()) {
+        Processing…
+      } @else {
+        Pay {{ totalText() }}
+      }
+    </button>
+  </div>
+</main>

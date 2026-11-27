@@ -1,0 +1,79 @@
+<main class="page">
+  @if (data.value(); as loaded) {
+    <h1 data-testid="seat-map-title">Choose your seats</h1>
+    <p class="subtitle" data-testid="seat-map-subtitle">Show Date: {{ showDate(loaded.screening.date, loaded.screening.time) }}</p>
+
+    <div class="auditorium">
+      <p class="seat-limit" data-testid="seat-limit-info">You can reserve up to 10 seats per reservation</p>
+      <div class="screen" data-testid="screen-indicator">SCREEN</div>
+
+      <div class="seat-map" data-testid="seat-map">
+        @for (row of rows(); track row.number) {
+          <div class="seat-row" data-testid="seat-row" [attr.data-row]="row.number">
+            <span class="row-label" data-testid="row-label-left" [attr.data-row]="row.number">{{ row.number }}</span>
+            @for (block of row.blocks; track $index; let last = $last) {
+              <div class="block" [class.outer]="$index !== 1" [class.inner]="$index === 1">
+                @for (item of block; track $index) {
+                  @if (item.kind === 'seat') {
+                    <button
+                      type="button"
+                      class="seat"
+                      data-testid="seat"
+                      [attr.data-row]="item.row"
+                      [attr.data-column]="item.column"
+                      [attr.data-state]="item.state"
+                      [disabled]="item.state === 'unavailable'"
+                      (click)="toggle(item)"
+                    >{{ item.column }}</button>
+                  } @else {
+                    <button
+                      type="button"
+                      class="couch"
+                      data-testid="couch"
+                      [attr.data-row]="item.row"
+                      [attr.data-column-start]="item.start"
+                      [attr.data-column-end]="item.end"
+                      [attr.data-state]="item.state"
+                      [disabled]="item.state === 'unavailable'"
+                      (click)="toggle(item)"
+                    >{{ item.start }}-{{ item.end }}</button>
+                  }
+                }
+              </div>
+              @if (!last) {
+                <div class="aisle" data-testid="aisle" [attr.data-row]="row.number"></div>
+              }
+            }
+            <span class="row-label" data-testid="row-label-right" [attr.data-row]="row.number">{{ row.number }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="legend" data-testid="legend">
+      @for (entry of legend; track entry.state) {
+        <span class="legend-item" data-testid="legend-item" [attr.data-state]="entry.state">
+          <span class="swatch"></span>{{ entry.label }}
+        </span>
+      }
+    </div>
+
+    <div class="selected-seats" data-testid="selected-seats">
+      <p data-testid="selected-seats-count">Selected seats: {{ selectedCount() }}</p>
+      @for (line of selectedRows(); track line.row) {
+        <p data-testid="selected-seats-row" [attr.data-row]="line.row">{{ line.text }}</p>
+      }
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button type="button" data-testid="cancel-button" (click)="onCancel()">Cancel</button>
+      <button
+        mat-flat-button
+        type="button"
+        data-testid="continue-button"
+        [disabled]="selectedCount() === 0"
+        (click)="onContinue()"
+      >Continue</button>
+    </div>
+  }
+</main>

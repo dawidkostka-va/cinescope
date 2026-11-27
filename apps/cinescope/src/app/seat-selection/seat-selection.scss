@@ -1,0 +1,169 @@
+:host {
+  display: block;
+}
+
+// Background colour of each seat state; the legend swatches use the same values.
+$state-colours: (
+  'available': #2e7d32,
+  'selected': #f9a825,
+  'unavailable': #c62828,
+  'accessible': #1565c0,
+);
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 16px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  .subtitle {
+    margin: 0;
+  }
+}
+
+.auditorium {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: max-content;
+  margin-top: 8px;
+}
+
+.seat-limit {
+  margin: 0;
+}
+
+.screen {
+  padding: 6px 0;
+  border-radius: 0 0 50% 50% / 0 0 12px 12px;
+  background-color: #e0e0e0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+
+.seat-map {
+  --seat-size: 32px;
+  --seat-gap: 4px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: var(--seat-gap);
+}
+
+.row-label {
+  width: 28px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.block {
+  display: flex;
+  gap: var(--seat-gap);
+  flex-shrink: 0;
+
+  // Columns 1–4 and 21–24: four seat widths.
+  &.outer {
+    width: calc(4 * var(--seat-size) + 3 * var(--seat-gap));
+  }
+
+  // Columns 5–20: sixteen seat widths.
+  &.inner {
+    width: calc(16 * var(--seat-size) + 15 * var(--seat-gap));
+  }
+}
+
+.aisle {
+  width: calc(2 * var(--seat-size));
+  flex-shrink: 0;
+}
+
+.seat,
+.couch {
+  height: var(--seat-size);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 6px 4px 4px;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.seat {
+  width: var(--seat-size);
+}
+
+// A couch covers two columns, so it is two seat widths plus the gap between them.
+.couch {
+  width: calc(2 * var(--seat-size) + var(--seat-gap));
+  border-radius: 12px 12px 4px 4px;
+}
+
+// Colours are fixed per state; hover and focus leave the background unchanged.
+@each $state, $colour in $state-colours {
+  .seat[data-state='#{$state}'],
+  .couch[data-state='#{$state}'],
+  .legend-item[data-state='#{$state}'] .swatch {
+    background-color: $colour;
+  }
+}
+
+.seat[data-state='selected'],
+.couch[data-state='selected'] {
+  color: #212121;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
