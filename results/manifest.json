@@ -1,0 +1,126 @@
+{
+  "runId": "control-20261127-141527",
+  "startedAt": "2026-11-27T14:15:33Z",
+  "profile": "control",
+  "prompt": "Build the cinema seat-booking web application described in spec/README.md, as the Angular application already set up in this Nx workspace (Nx project `cinescope` in apps/cinescope); its stack is described in spec/stack.md. The work is split into tickets in spec/tickets/; implement them in order. spec/README.md is the complete specification: do not ask any questions, and where it is silent choose the simplest option that satisfies it. Finish only when every ticket is done and `pnpm nx build cinescope` succeeds.",
+  "repository": "https://github.com/dawidkostka-va/cinescope.git",
+  "branch": "template/angular",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "image": "coding-experiment-control:17128d594a59-d2be0bfaff97",
+  "model": "claude-sonnet-5-5",
+  "modelAliases": {
+    "haiku": "claude-haiku-5-5",
+    "sonnet": "claude-sonnet-5-5",
+    "opus": "claude-opus-5-5"
+  },
+  "maxBudgetUsd": 10,
+  "budget": {
+    "enforcedBy": "gateway",
+    "maxBudgetUsd": 10,
+    "pricingAsOf": "2026-11-24"
+  },
+  "tests": {
+    "e2e": {
+      "repository": "https://github.com/dawidkostka-va/cinescope.git",
+      "branch": "grading/e2e-tests",
+      "commit": "74135a370f288e01019f28207cdeeeecd6fb066d",
+      "paths": [
+        "apps/e2e"
+      ]
+    }
+  },
+  "harnessCommit": "0e70e961147864020aaee0c2c914f6de9e03b188",
+  "harnessDirty": false,
+  "runBranch": "agent-runs/sonnet-5-5-vs-sonnet-5-5-haiku-subagents/control-20261127-141527",
+  "network": {
+    "enforced": true,
+    "policySha256": "4dbea1a63b7b851b72f9c2bc623ad084d3db17660825def9adc9cc70517643e0",
+    "phases": {
+      "agent": {
+        "allow": [
+          "angular.dev",
+          "day.js.org",
+          "developer.mozilla.org",
+          "emotion.sh",
+          "eslint.org",
+          "fonts.googleapis.com",
+          "fonts.gstatic.com",
+          "material.angular.dev",
+          "mui.com",
+          "nx.dev",
+          "pnpm.io",
+          "react.dev",
+          "reactrouter.com",
+          "registry.npmjs.org",
+          "rxjs.dev",
+          "sass-lang.com",
+          "testing-library.com",
+          "typescript-eslint.io",
+          "typescriptlang.org",
+          "vite.dev",
+          "vitest.dev",
+          "www.typescriptlang.org"
+        ],
+        "deny": {
+          "baseline": [
+            "*.archive.org",
+            "*.github.com",
+            "*.github.dev",
+            "*.github.io",
+            "*.githubusercontent.com",
+            "*.jsdelivr.net",
+            "archive.org",
+            "cdn.statically.io",
+            "gitcdn.link",
+            "gitclone.com",
+            "gitee.com",
+            "github.com",
+            "github.dev",
+            "github.io",
+            "githubusercontent.com",
+            "grep.app",
+            "jsdelivr.net",
+            "raw.githack.com",
+            "rawcdn.githack.com",
+            "searchcode.com",
+            "sourcegraph.com"
+          ],
+          "extra": []
+        }
+      },
+      "validation": {
+        "allow": [
+          "fonts.googleapis.com",
+          "fonts.gstatic.com"
+        ],
+        "deny": {
+          "baseline": [
+            "*.archive.org",
+            "*.github.com",
+            "*.github.dev",
+            "*.github.io",
+            "*.githubusercontent.com",
+            "*.jsdelivr.net",
+            "archive.org",
+            "cdn.statically.io",
+            "gitcdn.link",
+            "gitclone.com",
+            "gitee.com",
+            "github.com",
+            "github.dev",
+            "github.io",
+            "githubusercontent.com",
+            "grep.app",
+            "jsdelivr.net",
+            "raw.githack.com",
+            "rawcdn.githack.com",
+            "searchcode.com",
+            "sourcegraph.com"
+          ],
+          "extra": []
+        }
+      }
+    },
+    "proxySha256": "c9c4288df356ea4fed86dc11c3fb80082d0a2c75a7b9b0fbe4b24f3f646067f3"
+  }
+}
