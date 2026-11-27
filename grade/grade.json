@@ -1,0 +1,170 @@
+{
+  "graderVersion": 1,
+  "gradedAt": "2026-11-27T16:26:31Z",
+  "grading": {
+    "file": "grading.json",
+    "sha256": "d5a8480b39c15205f6ca8fb5059cd33fe2023544f7d8d8aa0bc68147e583a1b4"
+  },
+  "runId": "control-20261127-161904",
+  "profile": "control",
+  "model": "claude-sonnet-5-5",
+  "models": [
+    "claude-sonnet-5-5"
+  ],
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "0e70e961147864020aaee0c2c914f6de9e03b188",
+  "harnessDirty": true,
+  "classifierVersion": 5,
+  "classifiedAt": "2026-11-27T16:26:31Z",
+  "classifierVerdict": "PASS",
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "graderFailReasons": [],
+  "thresholds": {
+    "e2e": {
+      "threshold": 0.8,
+      "ratio": 0.9855072463768116,
+      "passed": 68,
+      "flaky": 0,
+      "total": 69,
+      "below": false
+    }
+  },
+  "score": 99.4,
+  "incomplete": [],
+  "categories": {
+    "functionality": {
+      "label": "Functionality",
+      "short": "F",
+      "scored": true,
+      "max": 50,
+      "points": 49.4,
+      "metrics": {
+        "build": {
+          "rule": "binary",
+          "max": 10,
+          "check": "build",
+          "value": "pass",
+          "points": 10,
+          "missing": false
+        },
+        "e2e": {
+          "rule": "ratio",
+          "max": 40,
+          "check": "e2e",
+          "value": 98.55072463768117,
+          "passed": 68,
+          "total": 69,
+          "points": 39.4,
+          "missing": false
+        }
+      }
+    },
+    "quality": {
+      "label": "Technical quality",
+      "short": "T",
+      "scored": true,
+      "max": 30,
+      "points": 30,
+      "metrics": {
+        "typecheck": {
+          "rule": "binary",
+          "max": 15,
+          "check": "typecheck",
+          "value": "pass",
+          "points": 15,
+          "missing": false
+        },
+        "lint": {
+          "rule": "ratio",
+          "max": 15,
+          "check": "lint",
+          "value": 100,
+          "passed": 20,
+          "total": 20,
+          "points": 15,
+          "missing": false
+        }
+      }
+    },
+    "efficiency": {
+      "label": "AI efficiency",
+      "short": "AI",
+      "scored": true,
+      "max": 20,
+      "points": 20,
+      "metrics": {
+        "cost": {
+          "rule": "linear",
+          "max": 15,
+          "source": "costPctOfBudget",
+          "value": 10.927242,
+          "best": 50,
+          "worst": 100,
+          "points": 15,
+          "missing": false
+        },
+        "time": {
+          "rule": "linear",
+          "max": 5,
+          "source": "minutes",
+          "value": 6.30635,
+          "best": 20,
+          "worst": 60,
+          "points": 5,
+          "missing": false
+        }
+      }
+    }
+  },
+  "raw": {
+    "costUsd": 1.0927242,
+    "maxBudgetUsd": 10,
+    "costPctOfBudget": 10.927242,
+    "minutes": 6.30635,
+    "apiMinutes": 5.419066666666667,
+    "turns": 27,
+    "tokens": {
+      "input": 54,
+      "output": 50127,
+      "cacheRead": 2402942,
+      "cacheWrite": 87763
+    },
+    "checks": {
+      "build": {
+        "status": "pass",
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1
+      },
+      "typecheck": {
+        "status": "pass",
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0
+      },
+      "lint": {
+        "status": "pass",
+        "unit": "files",
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "errors": 0,
+        "warnings": 26
+      },
+      "e2e": {
+        "status": "fail",
+        "unit": "tests",
+        "passed": 68,
+        "failed": 1,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69
+      }
+    }
+  }
+}
