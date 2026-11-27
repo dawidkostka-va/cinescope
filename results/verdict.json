@@ -1,0 +1,231 @@
+{
+  "classifierVersion": 5,
+  "classifiedAt": "2026-11-27T15:42:29Z",
+  "runId": "treatment-20261127-150651",
+  "profile": "treatment",
+  "model": "claude-sonnet-5-5",
+  "commit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "harnessCommit": "0e70e961147864020aaee0c2c914f6de9e03b188",
+  "harnessDirty": false,
+  "networkPolicySha256": "4dbea1a63b7b851b72f9c2bc623ad084d3db17660825def9adc9cc70517643e0",
+  "verdict": "PASS",
+  "invalidReason": null,
+  "failReasons": [],
+  "session": {
+    "endedBy": "completed",
+    "subtype": "success",
+    "terminalReason": "completed",
+    "apiErrorStatus": null,
+    "numTurns": 19,
+    "durationMs": 1135342,
+    "apiDurationMs": 987510,
+    "containerExitCode": 0,
+    "validationExitCode": 0,
+    "startedAt": "2026-11-27T15:22:12Z",
+    "endedAt": "2026-11-27T15:42:27Z"
+  },
+  "cost": {
+    "maxBudgetUsd": 10,
+    "totalUsd": 0.5361353250000002,
+    "reported": {
+      "totalUsd": 13.844441750000003
+    },
+    "budget": {
+      "enforcedBy": "gateway",
+      "spentUsd": 0.5361353250000002,
+      "exceeded": false,
+      "exceededAt": null,
+      "pricedRequests": 143,
+      "blockedRequests": 0,
+      "warnings": []
+    },
+    "tokens": {
+      "input": 286,
+      "output": 226116,
+      "cacheRead": 9372551,
+      "cacheWrite": 550442
+    },
+    "byModel": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 36,
+        "outputTokens": 6514,
+        "cacheReadTokens": 718355,
+        "cacheWriteTokens": 16953,
+        "costUsd": 0.20485949999999997
+      },
+      "claude-haiku-5-5": {
+        "inputTokens": 250,
+        "outputTokens": 219602,
+        "cacheReadTokens": 8654196,
+        "cacheWriteTokens": 533489,
+        "costUsd": 0.331275825
+      }
+    }
+  },
+  "context": {
+    "model": "claude-sonnet-5-5",
+    "toolCount": 21,
+    "chars": {
+      "system": 14378,
+      "tools": 67546,
+      "skills": 8138
+    },
+    "tokens": {
+      "system": 4521,
+      "tools": 24444,
+      "skills": 2895
+    },
+    "tokenSource": "count_tokens",
+    "apiRequests": 143,
+    "mainAgentRequests": 18,
+    "subagentRequests": 118,
+    "firstContextTokens": 32496,
+    "peakContextTokens": 49846,
+    "lastContextTokens": 49846
+  },
+  "changes": {
+    "baseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+    "filesChanged": 35,
+    "linesAdded": 1930,
+    "linesRemoved": 77
+  },
+  "capture": {
+    "transcripts": {
+      "main": 1,
+      "subagent": 7
+    },
+    "apiResponses": {
+      "total": 150,
+      "matched": 150,
+      "incomplete": 0
+    },
+    "debugLog": true,
+    "environment": true,
+    "claudeVersion": "2.1.278 (Claude Code)",
+    "push": null,
+    "secretScan": {
+      "scannedAt": "2026-11-27T15:42:27Z",
+      "capture": []
+    }
+  },
+  "isolation": {
+    "agent": {
+      "passed": true,
+      "failed": []
+    },
+    "validation": {
+      "passed": true,
+      "failed": []
+    }
+  },
+  "egress": {
+    "allowed": 152,
+    "denied": 0,
+    "deniedHosts": {},
+    "githubAttempts": 0
+  },
+  "gateway": {
+    "rejected": 0,
+    "rejectReasons": {},
+    "foreignClientRequests": 0
+  },
+  "contamination": {
+    "checked": true,
+    "matched": false,
+    "matchKinds": [],
+    "titlesKept": 0
+  },
+  "scores": {
+    "build": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "typecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "unit": "check"
+    },
+    "lint": {
+      "passed": 29,
+      "failed": 0,
+      "total": 29,
+      "unit": "files"
+    },
+    "e2e": {
+      "passed": 69,
+      "failed": 0,
+      "total": 69,
+      "unit": "tests"
+    }
+  },
+  "checks": {
+    "build": {
+      "command": "pnpm exec nx run-many -t build",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 5214,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "failures": []
+      }
+    },
+    "typecheck": {
+      "command": "pnpm exec tsc --noEmit --pretty false -p apps/cinescope/tsconfig.app.json",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 827,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "check",
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "errors": 0,
+        "failures": []
+      }
+    },
+    "lint": {
+      "command": "pnpm exec eslint --flag v10_config_lookup_from_file --no-error-on-unmatched-pattern --format json --output-file \"$VALIDATION_REPORT\" apps libs",
+      "required": true,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1021,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "files",
+        "passed": 29,
+        "failed": 0,
+        "total": 29,
+        "errors": 0,
+        "warnings": 0,
+        "failures": []
+      }
+    },
+    "e2e": {
+      "command": "pnpm --dir apps/e2e exec playwright test",
+      "required": false,
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 64696,
+      "timeoutMinutes": 15,
+      "score": {
+        "unit": "tests",
+        "passed": 69,
+        "failed": 0,
+        "flaky": 0,
+        "skipped": 0,
+        "total": 69,
+        "failures": []
+      }
+    }
+  }
+}

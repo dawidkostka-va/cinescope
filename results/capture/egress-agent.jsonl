@@ -1,0 +1,15 @@
+{"ts":"2026-11-27T15:22:13.842Z","phase":"agent","host":"github.com","port":443,"decision":"deny","rule":"baseline:github.com","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":1}
+{"ts":"2026-11-27T15:22:13.987Z","phase":"agent","host":"angular.dev","port":443,"decision":"allow","rule":"allow:angular.dev","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":140}
+{"ts":"2026-11-27T15:23:52.099Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2700,"durationMs":106}
+{"ts":"2026-11-27T15:24:00.300Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":136}
+{"ts":"2026-11-27T15:25:01.436Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2701,"durationMs":102}
+{"ts":"2026-11-27T15:25:03.627Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2700,"durationMs":102}
+{"ts":"2026-11-27T15:27:08.656Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":190}
+{"ts":"2026-11-27T15:27:23.512Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2701,"durationMs":105}
+{"ts":"2026-11-27T15:28:29.854Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":130}
+{"ts":"2026-11-27T15:30:22.577Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":166}
+{"ts":"2026-11-27T15:32:35.154Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":127}
+{"ts":"2026-11-27T15:35:35.785Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":2800}
+{"ts":"2026-11-27T15:36:54.036Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22657,"durationMs":169}
+{"ts":"2026-11-27T15:40:49.905Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":131}
+{"ts":"2026-11-27T15:41:09.514Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":24163,"durationMs":189}
