@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+
+  h1 {
+    margin: 0 0 16px;
+    font-size: 1.75rem;
+  }
+}
+
+.summary-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.field {
+  flex: 1;
+}
+
+.summary-item [data-testid='summary-item-title'] {
+  flex: 2;
+  font-weight: 600;
+}
+
+.total {
+  margin: 16px 0 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

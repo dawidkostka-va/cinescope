@@ -1,0 +1,153 @@
+// One unit is the width of one seat column, including its margins.
+$unit: 36px;
+
+:host {
+  display: block;
+}
+
+.seat-selection {
+  margin: 0 auto;
+  padding: 24px;
+  text-align: center;
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+  }
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: #57606a;
+}
+
+.auditorium {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.seat-limit {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen {
+  width: 70%;
+  margin: 0 auto 20px;
+  padding: 4px 0;
+  border-radius: 4px;
+  background: #e0e0e0;
+  color: #424242;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.row-label {
+  flex: none;
+  width: $unit;
+  color: #57606a;
+  font-size: 12px;
+  text-align: center;
+}
+
+.entrance {
+  flex: none;
+  width: $unit * 4;
+}
+
+.aisle {
+  flex: none;
+  width: $unit * 2;
+}
+
+// Colours depend on the state only, so hover and focus never change them.
+@mixin state-colours {
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: #212121;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.seat,
+.couch {
+  flex: none;
+  height: 32px;
+  margin: 0 2px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  @include state-colours;
+}
+
+.seat {
+  width: $unit - 4px;
+  border-radius: 6px 6px 2px 2px;
+}
+
+.couch {
+  width: $unit * 2 - 4px;
+  border-radius: 10px 10px 4px 4px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+
+  @include state-colours;
+}
+
+.selected-seats {
+  margin-top: 20px;
+
+  p {
+    margin: 0 0 4px;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

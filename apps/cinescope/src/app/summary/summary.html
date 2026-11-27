@@ -1,0 +1,30 @@
+<section class="summary">
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  @if (loaded(); as current) {
+    <ul class="summary-list" data-testid="summary-list">
+      @for (line of lines(); track line.key) {
+        <li class="summary-item" data-testid="summary-item">
+          <span class="field" data-testid="summary-item-title">{{ current.movie.title }}</span>
+          <span class="field" data-testid="summary-item-datetime">{{ current.screening.date }} {{ current.screening.time }}</span>
+          <span class="field" data-testid="summary-item-row">{{ line.item.row }}</span>
+          <span class="field" data-testid="summary-item-seat">{{ line.seat }}</span>
+          <span class="field" data-testid="summary-item-price">{{ line.price }}</span>
+          <button
+            type="button"
+            matButton
+            data-testid="summary-item-remove-button"
+            (click)="remove(line.key)"
+          >Remove</button>
+        </li>
+      }
+    </ul>
+
+    <p class="total" data-testid="summary-total">{{ total() }}</p>
+
+    <div class="actions">
+      <button type="button" matButton="outlined" data-testid="back-button" (click)="back()">Back</button>
+      <button type="button" matButton="filled" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+    </div>
+  }
+</section>
