@@ -1,0 +1,5 @@
+{"ts":"2026-11-27T16:27:54.760Z","phase":"agent","host":"github.com","port":443,"decision":"deny","rule":"baseline:github.com","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":0}
+{"ts":"2026-11-27T16:27:54.809Z","phase":"agent","host":"angular.dev","port":443,"decision":"allow","rule":"allow:angular.dev","reason":null,"bytesUp":0,"bytesDown":0,"durationMs":48}
+{"ts":"2026-11-27T16:31:38.532Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1610,"bytesDown":2702,"durationMs":122}
+{"ts":"2026-11-27T16:31:58.476Z","phase":"agent","host":"fonts.googleapis.com","port":443,"decision":"allow","rule":"allow:fonts.googleapis.com","reason":null,"bytesUp":1937,"bytesDown":22658,"durationMs":87}
+{"ts":"2026-11-27T16:32:50.521Z","phase":"agent","host":"registry.npmjs.org","port":443,"decision":"allow","rule":"allow:registry.npmjs.org","reason":null,"bytesUp":1703,"bytesDown":2958,"durationMs":79}
