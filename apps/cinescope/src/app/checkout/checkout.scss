@@ -1,0 +1,23 @@
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.error {
+  color: var(--mat-sys-error, #b3261e);
+  font-size: 12px;
+  padding-left: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}

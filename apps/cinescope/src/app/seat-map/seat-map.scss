@@ -1,0 +1,113 @@
+.page {
+  width: 1116px;
+  margin: 0 auto;
+  padding: 16px 0 32px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+}
+
+.limit {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen {
+  background: #424242;
+  color: #fff;
+  letter-spacing: 8px;
+  padding: 8px 0;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: 40px repeat(4, 32px) 80px repeat(16, 32px) 80px repeat(4, 32px) 40px;
+  column-gap: 4px;
+  margin-bottom: 4px;
+  height: 32px;
+}
+
+.row-label {
+  line-height: 32px;
+  font-weight: 500;
+
+  &.left {
+    grid-column: 1;
+  }
+
+  &.right {
+    grid-column: 28;
+  }
+}
+
+.seat,
+.couch {
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.couch {
+  border-radius: 8px;
+}
+
+.state-available {
+  background-color: #2e7d32;
+}
+
+.state-selected {
+  background-color: #f9a825;
+  color: #000;
+}
+
+.state-unavailable {
+  background-color: #c62828;
+  cursor: not-allowed;
+}
+
+.state-accessible {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+.selected-seats {
+  margin-bottom: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
