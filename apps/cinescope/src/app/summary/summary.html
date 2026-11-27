@@ -1,0 +1,36 @@
+@if (data(); as d) {
+<h1 data-testid="summary-title">Your tickets</h1>
+
+<ul class="summary-list" data-testid="summary-list">
+  @for (item of items(); track item.ids[0]) {
+  <li class="summary-item" data-testid="summary-item">
+    <span class="field title" data-testid="summary-item-title">{{ d.movie.title }}</span>
+    <span class="field" data-testid="summary-item-datetime"
+      >{{ d.screening.date }} {{ d.screening.time }}</span
+    >
+    <span class="field" data-testid="summary-item-row">{{ item.row }}</span>
+    <span class="field" data-testid="summary-item-seat">{{ seatText(item) }}</span>
+    <span class="field" data-testid="summary-item-price">{{ price(item) }}</span>
+    <button
+      matButton="outlined"
+      type="button"
+      data-testid="summary-item-remove-button"
+      (click)="remove(item)"
+    >
+      Remove
+    </button>
+  </li>
+  }
+</ul>
+
+<p class="total" data-testid="summary-total">{{ totalText() }}</p>
+
+<div class="actions">
+  <button matButton="outlined" type="button" data-testid="back-button" (click)="back()">
+    Back
+  </button>
+  <button matButton="filled" type="button" data-testid="confirm-button" (click)="confirm()">
+    Confirm
+  </button>
+</div>
+}
