@@ -1,0 +1,149 @@
+$seat: 34px;
+$gap: 4px;
+
+:host {
+  display: block;
+}
+
+h1 {
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+}
+
+.auditorium {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.limit {
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.screen {
+  margin: 0 0 20px;
+  padding: 6px 0;
+  text-align: center;
+  letter-spacing: 8px;
+  color: #fff;
+  background: #455a64;
+  border-radius: 4px 4px 24px 24px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row-label {
+  width: 24px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cells {
+  display: flex;
+  gap: $gap;
+}
+
+.entrance {
+  flex: none;
+  width: 4 * $seat + 3 * $gap;
+  height: $seat;
+}
+
+.aisle {
+  flex: none;
+  width: 2 * $seat + $gap;
+  height: $seat;
+}
+
+.cell {
+  flex: none;
+  box-sizing: border-box;
+  width: $seat;
+  height: $seat;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  font: 500 12px Roboto, sans-serif;
+  color: #fff;
+  cursor: pointer;
+
+  &.couch {
+    width: 2 * $seat + $gap;
+    border-radius: 12px;
+  }
+
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+    color: #000;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+    cursor: not-allowed;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+
+  &[data-state='available'] {
+    background-color: #2e7d32;
+  }
+
+  &[data-state='selected'] {
+    background-color: #f9a825;
+  }
+
+  &[data-state='unavailable'] {
+    background-color: #c62828;
+  }
+
+  &[data-state='accessible'] {
+    background-color: #1565c0;
+  }
+}
+
+.selected-seats {
+  margin-bottom: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}

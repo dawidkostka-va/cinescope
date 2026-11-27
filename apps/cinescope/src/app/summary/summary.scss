@@ -1,0 +1,37 @@
+.summary-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  max-width: 900px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.field {
+  min-width: 90px;
+}
+
+.title {
+  min-width: 180px;
+  font-weight: 500;
+}
+
+.price {
+  min-width: 90px;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}

@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+}
+
+.terms {
+  margin-bottom: 24px;
+}
+
+.terms-error {
+  display: block;
+  font-size: 12px;
+  padding-left: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
