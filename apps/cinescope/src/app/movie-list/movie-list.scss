@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.date-field {
+  width: 220px;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movie-card {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+}
+
+.movie-meta {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 12px;
+  color: #5f6368;
+}
+
+.screenings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.movies-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}

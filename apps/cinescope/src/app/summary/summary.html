@@ -1,0 +1,25 @@
+@if (view()) {
+  <h1 data-testid="summary-title">Your tickets</h1>
+
+  <ul class="summary-list" data-testid="summary-list">
+    @for (item of items(); track item.key) {
+      <li class="summary-item" data-testid="summary-item">
+        <div class="summary-info">
+          <span class="summary-movie" data-testid="summary-item-title">{{ item.movieTitle }}</span>
+          <span class="summary-datetime" data-testid="summary-item-datetime">{{ item.dateTime }}</span>
+          <span class="summary-field">Row <span data-testid="summary-item-row">{{ item.row }}</span></span>
+          <span class="summary-field">Seat <span data-testid="summary-item-seat">{{ item.seat }}</span></span>
+        </div>
+        <span class="summary-price" data-testid="summary-item-price">{{ item.price }}</span>
+        <button mat-stroked-button type="button" data-testid="summary-item-remove-button" (click)="remove(item.unit)">Remove</button>
+      </li>
+    }
+  </ul>
+
+  <p class="summary-total" data-testid="summary-total">Total: {{ totalLabel() }}</p>
+
+  <div class="actions">
+    <button mat-stroked-button type="button" data-testid="back-button" (click)="back()">Back</button>
+    <button mat-flat-button type="button" data-testid="confirm-button" (click)="confirm()">Confirm</button>
+  </div>
+}

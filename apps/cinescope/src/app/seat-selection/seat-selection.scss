@@ -1,0 +1,161 @@
+/* One cell is a seat plus its side margins; aisles and the entrance span whole cells. */
+$seat-size: 30px;
+$seat-margin: 2px;
+$cell: $seat-size + 2 * $seat-margin;
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.show-date {
+  margin: 0 0 16px;
+  color: #5f6368;
+}
+
+/* Sized by the rows, so the SCREEN bar and the seat-limit text are centred over the auditorium. */
+.auditorium {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.seat-limit {
+  margin: 0 0 16px;
+}
+
+.screen {
+  margin-bottom: 24px;
+  padding: 6px 0;
+  background: #e0e0e0;
+  color: #424242;
+  font-size: 14px;
+  letter-spacing: 6px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $seat-size;
+  margin-bottom: 6px;
+}
+
+.row-label {
+  flex: none;
+  width: 40px;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.cells {
+  display: flex;
+  align-items: center;
+}
+
+.seat,
+.couch {
+  flex: none;
+  box-sizing: border-box;
+  height: $seat-size;
+  margin: 0 $seat-margin;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  line-height: $seat-size;
+  white-space: nowrap;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.seat {
+  width: $seat-size;
+}
+
+.couch {
+  width: 2 * $cell - 2 * $seat-margin;
+}
+
+.aisle,
+.entrance {
+  flex: none;
+}
+
+.aisle {
+  width: 2 * $cell;
+}
+
+.entrance {
+  width: 4 * $cell;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 16px;
+  color: #424242;
+  font-size: 14px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  margin-bottom: 24px;
+}
+
+.selected-seats p {
+  margin: 0 0 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Background colours come from the state only; no hover or focus rule changes them. */
+$state-colours: (
+  'available': #2e7d32,
+  'selected': #f9a825,
+  'unavailable': #c62828,
+  'accessible': #1565c0,
+);
+
+@each $state, $colour in $state-colours {
+  .seat[data-state='#{$state}'],
+  .couch[data-state='#{$state}'],
+  .swatch-#{$state} {
+    background-color: $colour;
+  }
+}
+
+/* Dark text on the yellow selected state keeps the numbers readable. */
+.seat[data-state='selected'],
+.couch[data-state='selected'] {
+  color: #212121;
+}
