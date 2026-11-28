@@ -1,0 +1,36 @@
+<h1 data-testid="checkout-title">Your details</h1>
+
+<form class="form" novalidate (submit)="$event.preventDefault()">
+  @for (field of fields; track field.key) {
+    <div class="field">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label [attr.data-testid]="field.testPrefix + '-label'">{{ field.label }}{{ field.required ? ' *' : '' }}</mat-label>
+        <input
+          matInput
+          [type]="field.type"
+          [attr.data-testid]="field.testPrefix + '-input'"
+          [value]="form()[field.key]"
+          (input)="onInput(field.key, $event)"
+          (blur)="onBlur(field.key)"
+        />
+      </mat-form-field>
+      @if (error(field.key); as message) {
+        <div class="error" [attr.data-testid]="field.testPrefix + '-error'">{{ message }}</div>
+      }
+    </div>
+  }
+
+  <div class="field">
+    <mat-checkbox data-testid="terms-checkbox" [checked]="form().terms" (change)="onTerms($event.checked)">
+      <span data-testid="terms-label">I accept the terms and conditions *</span>
+    </mat-checkbox>
+    @if (error('terms'); as message) {
+      <div class="error" data-testid="terms-error">{{ message }}</div>
+    }
+  </div>
+
+  <div class="actions">
+    <button matButton="outlined" type="button" data-testid="checkout-back-button" (click)="back()">Back</button>
+    <button matButton="filled" type="button" data-testid="pay-button" [disabled]="paying()" (click)="pay()">{{ paying() ? 'Processing…' : payLabel() }}</button>
+  </div>
+</form>
