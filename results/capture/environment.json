@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-11-28T17:21:41.973Z",
+  "claudeVersion": "2.1.278 (Claude Code)",
+  "claudeArgs": [
+    "-p",
+    "Build the cinema seat-booking web application described in spec/README.md, as the Angular application already set up in this Nx workspace (Nx project `cinescope` in apps/cinescope); its stack is described in spec/stack.md. The work is split into tickets in spec/tickets/; implement them in order. spec/README.md is the complete specification: do not ask any questions, and where it is silent choose the simplest option that satisfies it. Finish only when every ticket is done and `pnpm nx build cinescope` succeeds.",
+    "--dangerously-skip-permissions",
+    "--disallowedTools",
+    "mcp__*",
+    "--model",
+    "claude-sonnet-5-5",
+    "--output-format",
+    "stream-json",
+    "--verbose",
+    "--debug-file",
+    "/capture/claude-debug.log"
+  ],
+  "projectBaseCommit": "17128d594a5927b15aa0ff3ffb81ace0f8a5a2b5",
+  "env": {
+    "no_proxy": "localhost,127.0.0.1,::1,egress",
+    "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "0",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "NODE_USE_ENV_PROXY": "1",
+    "HOME": "/tmp/agent-home",
+    "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "CLAUDE_CONFIG_DIR": "/capture/claude-config",
+    "https_proxy": "http://egress:3128",
+    "ANTHROPIC_BASE_URL": "http://egress:8787",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5-5",
+    "NO_PROXY": "localhost,127.0.0.1,::1,egress",
+    "HTTPS_PROXY": "http://egress:3128",
+    "HTTP_PROXY": "http://egress:3128",
+    "http_proxy": "http://egress:3128",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+    "DISABLE_AUTOUPDATER": "1",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-5-5",
+    "CLAUDE_MODEL": "claude-sonnet-5-5",
+    "NX_NO_CLOUD": "true"
+  }
+}
