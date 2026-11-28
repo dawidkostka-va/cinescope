@@ -1,0 +1,158 @@
+:host {
+  --seat: 30px;
+  --aisle: 70px;
+  --label: 28px;
+  --gap: 4px;
+}
+
+.page {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 16px 24px 32px;
+}
+
+h1 {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 4px 0 16px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.auditorium {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.limit {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen {
+  margin: 0 0 20px;
+  padding: 8px 0;
+  text-align: center;
+  letter-spacing: 8px;
+  font-weight: 500;
+  color: #fff;
+  background: #444;
+  border-radius: 4px 4px 40px 40px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.row {
+  display: grid;
+  grid-template-columns:
+    var(--label) repeat(4, var(--seat)) var(--aisle) repeat(16, var(--seat)) var(--aisle) repeat(4, var(--seat))
+    var(--label);
+  column-gap: var(--gap);
+  align-items: center;
+  height: var(--seat);
+}
+
+.row-label {
+  font-size: 13px;
+  color: #555;
+
+  &.left {
+    grid-column: 1;
+    text-align: right;
+    padding-right: 2px;
+  }
+
+  &.right {
+    grid-column: 28;
+    padding-left: 2px;
+  }
+}
+
+.aisle {
+  height: 100%;
+}
+
+.seat {
+  box-sizing: border-box;
+  height: var(--seat);
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  font: 12px Roboto, sans-serif;
+  color: #fff;
+  cursor: pointer;
+
+  &.couch {
+    border-radius: 8px;
+  }
+
+  &.unavailable {
+    cursor: not-allowed;
+  }
+
+  &.selected {
+    color: #000;
+  }
+}
+
+.seat.available,
+.swatch.available {
+  background-color: #2e7d32;
+}
+
+.seat.selected,
+.swatch.selected {
+  background-color: #f9a825;
+}
+
+.seat.unavailable,
+.swatch.unavailable {
+  background-color: #c62828;
+}
+
+.seat.accessible,
+.swatch.accessible {
+  background-color: #1565c0;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.selected-seats {
+  width: fit-content;
+  min-width: 240px;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
