@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "phase": "validation",
+  "passed": true,
+  "failed": [],
+  "steps": {
+    "egressStart": {
+      "passed": true
+    },
+    "network": {
+      "passed": true
+    },
+    "token": {
+      "passed": true
+    },
+    "probes": {
+      "passed": true,
+      "probes": {
+        "deniedHost": {
+          "passed": true,
+          "detail": "403"
+        },
+        "allowedHost": {
+          "passed": true,
+          "detail": "200"
+        },
+        "health": {
+          "passed": true,
+          "detail": "status 200, policy match, phase match"
+        },
+        "directIpv4": {
+          "passed": true,
+          "detail": "ENETUNREACH"
+        },
+        "directIpv6": {
+          "passed": true,
+          "detail": "ENETUNREACH"
+        },
+        "directBridge": {
+          "passed": true,
+          "detail": "ENETUNREACH"
+        },
+        "directMetadata": {
+          "passed": true,
+          "detail": "ENETUNREACH"
+        },
+        "udpDns": {
+          "passed": true,
+          "detail": "ENETUNREACH"
+        },
+        "dnsLookup": {
+          "passed": true,
+          "detail": "EAI_AGAIN"
+        },
+        "npmCredentials": {
+          "passed": true,
+          "detail": "none"
+        },
+        "token": {
+          "passed": true,
+          "detail": "unset"
+        }
+      }
+    },
+    "log": {
+      "passed": true,
+      "lines": 2
+    }
+  },
+  "probeLines": 2,
+  "dockerVersion": "29.8.1"
+}
